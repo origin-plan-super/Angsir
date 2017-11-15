@@ -1,7 +1,7 @@
 <?php
 /**
 * +----------------------------------------------------------------------
-* 创建日期：2017年11月14日
+* 创建日期：2017年11月15日
 * +----------------------------------------------------------------------
 * https：//github.com/ALNY-AC
 * +----------------------------------------------------------------------
@@ -9,26 +9,28 @@
 * +----------------------------------------------------------------------
 * QQ:1173197065
 * +----------------------------------------------------------------------
-* #####我的经历控制器#####
+* #####需要登录权限的继承本控制器#####
 * @author 代码狮
 *
 */
 namespace Home\Controller;
 use Think\Controller;
-class ArticleController extends Controller {
-    public function article() {
-        /**
-        * 必须传live_id进来，要不然就返回上一页
-        *
-        */
-        if(empty(I('get.live_id'))){
-            //没有传id
-            $this->error('没有选择相关经历！');
-        }else{
-            //传了id
-            $this->display();
+class CommonController extends Controller {
+    
+    //ThinkPHP提供的构造方法
+    public function _initialize() {
+        $id = session('user_id');
+        
+        if (empty($id)) {
+            // $url = U('Index/index');
+            
+            $this->error('请先登录！');
+            
+            // echo "<script>top.location.href='$url'</script>";
+            exit ;
+            
         }
         
-        
     }
+    
 }

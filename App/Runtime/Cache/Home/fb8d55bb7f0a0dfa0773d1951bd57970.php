@@ -17,6 +17,9 @@
 
     <link href="/Public/dist/css/basic.css" rel="stylesheet" type="text/css">
     <link href="/Public/dist/css/public.css" rel="stylesheet" type="text/css">
+    <link href="/Public/vendor/layui/css/layui.css" rel="stylesheet" type="text/css">
+
+    <!--  -->
     <script type="text/javascript" async="" src="/Public/dist/js/ga.js"></script>
     <script type="text/javascript" async="" src="/Public/dist/js/atrk.js"></script>
     <script>
@@ -90,10 +93,19 @@
     <!-- header start-->
 
     <div class="header" id="header">
-        <div class="wrap">
-            <div class="login-box fl-right">
-                <!-- 已登录 -->
-                <div class="login js_navlogin " loginstate="1">
+    <div class="wrap">
+        <div class="login-box fl-right">
+            <!-- 已登录 -->
+
+            <?php if(empty($$Think["session"]["user_id"])): ?><!-- 为空 ，未登录-->
+                <div class="loginout" loginstate="0">
+                    <a class="btn-sign" href="#/passport/login" role="button" target="_self" id="js-login" pop-data="#js_popuplogin">登录</a>
+                    <a class="btn-register" href="#/passport/register" role="button" id="js-reg" target="_self">注册</a>
+                </div>
+
+                <?php else: ?>
+                <!-- 不为空 ，已登录-->
+                <div class="login js_navlogin">
                     <p>
                         <span class="user-name">小王</span>
                         <span class="user-gravatar">
@@ -111,32 +123,33 @@
                             <a href="#/passport/logout" class="btn-logout">退出</a>
                         </p>
                     </div>
+                </div><?php endif; ?>
 
-                </div>
-                <!-- 未登录 -->
 
-            </div>
 
-            <a class="bl-logo" href="#/">angsir网</a>
 
-            <ul class="nav fl-left" identitystate="0">
-                <li>
-                    <a href="<?php echo U('Index/Index');?>">首页</a>
-                </li>
-                <li>
-                    <a href="<?php echo U('Search/Search');?>" rel="nofollow">搜索经历</a>
-                </li>
-                <li>
-                    <a href="<?php echo U('Fb/fb');?>" rel="nofollow">发布经历</a>
-                </li>
-                <li>
-                    <a href="<?php echo U('Article/article');?>" rel="nofollow">我的经历</a>
-                </li>
-
-                <!--  <li><a href="#/about/mobile/index">手机版</a></li>-->
-            </ul>
         </div>
+
+        <a class="bl-logo" href="#/">angsir网</a>
+
+        <ul class="nav fl-left" identitystate="0">
+            <li>
+                <a href="<?php echo U('Index/Index');?>">首页</a>
+            </li>
+            <li>
+                <a href="<?php echo U('Search/Search');?>" rel="nofollow">搜索经历</a>
+            </li>
+            <li>
+                <a href="<?php echo U('Fb/fb');?>" rel="nofollow">发布经历</a>
+            </li>
+            <li>
+                <a href="<?php echo U('Article/article');?>" rel="nofollow">我的经历</a>
+            </li>
+
+        </ul>
     </div>
+</div>
+
     <div class="clear"></div>
     <script>
         getUserInfo(function (data) {
@@ -234,129 +247,130 @@
 
                 <div class="fb2">
 
-                    <form action="http://www.wealink.com/passport/login" id="login_form" name="login" class="form-signin ptb20" method="post">
+                    <form action="" id="login_form" name="login" class="form-signin ptb20 layui-form" method="post">
                         <input type="hidden" id="callback" name="callback" value="/">
                         <ul class="form-list1">
                             <h4 class="v2-tab1">
                                 <i class="ico ico-square"></i>发布经历</h4>
                             <li class="label-inline1">
-                                <label for="username" class=" fz-14 fbt">行&nbsp;&nbsp;业：</label>
+                                <label for="industry" class=" fz-14 fbt">行&nbsp;&nbsp;业：</label>
                                 <div class="select_pop js_popindustry" maxselectcount="3" style="width:422px" selecttxt="行业">
                                     <i class="ico_select_pop"></i>
-                                    <input class="form-control control-sm js_pop_text" placeholder="" name="industry[text]" type="text" value="" readonly=""
-                                        style="width:400px">
+                                    <input lay-verify='required' class="form-control control-sm js_pop_text" placeholder="" name="industry[text]" type="text"
+                                        value="" readonly="" style="width:400px">
                                     <input class="form-control control-sm js_pop_val" placeholder="" id="" name="industry[id]" type="hidden" style="width:400px">
                                 </div>
                             </li>
                             <li class="label-inline1">
-                                <label for="username" class=" fz-14 fbt">职&nbsp;&nbsp;位：</label>
+                                <label for="duty" class=" fz-14 fbt">职&nbsp;&nbsp;位：</label>
                                 <div class="select_pop js_popjobduty" maxselectcount="3" style="width:422px" selecttxt="职能">
                                     <i class="ico_select_pop"></i>
-                                    <input class="form-control control-sm js_pop_text" placeholder="" name="duty[text]" type="text" value="" readonly="" style="width:400px">
+                                    <input lay-verify='required' class="form-control control-sm js_pop_text" placeholder="" name="duty[text]" type="text" value=""
+                                        readonly="" style="width:400px">
                                     <input class="form-control control-sm js_pop_val" placeholder="" id="" name="duty[id]" type="hidden" style="width:400px">
                                 </div>
                             </li>
 
                             <li class="label-inline1">
-                                <label for="username" class="   fz-14" style="width:300px">该行业或该职位有无相关证书，是否必须持证上岗：</label>
+                                <label for="is_certificate" class="fz-14" style="width:300px">该行业或该职位有无相关证书，是否必须持证上岗：</label>
 
                                 <label>
-                                    <input type="radio" name="RadioGroup1" value="是" id="RadioGroup1_0" /> 是
+                                    <input type="radio" checked lay-ignore lay-ignore name="is_certificate" value="是" id="is_certificate_0" /> 是
                                 </label>
 
                                 <label>
-                                    <input type="radio" name="RadioGroup1" value="否" id="RadioGroup1_1" /> 否
-                                </label>
-
-
-                            </li>
-                            <li class="label-inline1">
-                                <label for="username" class=" fz-14 fbt">入职时间：</label>
-                                <input type="text" id="username" name="username" value="" class="form-control  w-400 js_validate"> （年/月） &nbsp;&nbsp; </li>
-                            <li class="label-inline1">
-                                <label for="username" class=" fz-14 fbt">在该岗位时间：</label>
-                                <input type="text" id="username" name="username" value="" class="form-control  w-400  js_validate"> </li>
-                            <li class="label-inline1">
-                                <label for="username" class=" fz-14 fbt">入职薪资：</label>
-                                <input type="text" id="username" name="username" value="" class="form-control  w-400 js_validate">
-                            </li>
-                            <li class="label-inline1">
-                                <label for="username" class=" fz-14 fbt">3～5年后薪资：</label>
-                                <input type="text" id="username" name="username" value="" class="form-control  w-400  js_validate">
-
-                                <label>
-                                    <input type="radio" name="RadioGroup1" value="税前" id="RadioGroup1_0" /> 税前
-                                </label>
-
-                                <label>
-                                    <input type="radio" name="RadioGroup1" value="税后" id="RadioGroup1_1" /> 税后
-                                </label>
-
-                                <label>
-                                    <input type="radio" name="RadioGroup2" value="有灰色收入" id="RadioGroup2_2" /> 有灰色收入
-                                </label>
-
-                                <label>
-                                    <input type="radio" name="RadioGroup2" value="无灰色收入" id="RadioGroup2_3" /> 无灰色收入
+                                    <input type="radio" lay-ignore name="is_certificate" value="否" id="is_certificate_1" /> 否
                                 </label>
 
 
                             </li>
                             <li class="label-inline1">
-                                <label for="username" class=" fz-14 fbt">地&nbsp;&nbsp;点：</label>
-                                <input type="text" id="username" name="username" value="" class="form-control  w-400 js_validate"> </li>
-
+                                <label for="entry_time" class=" fz-14 fbt">入职时间：</label>
+                                <input lay-verify='required' type="text" id="entry_time" name="entry_time" value="" class="form-control  w-400 js_validate"> （年/月） &nbsp;&nbsp; </li>
                             <li class="label-inline1">
-                                <label for="username" class=" fz-14 fbt">是否经常加班：</label>
+                                <label for="in_job_time" class=" fz-14 fbt">在该岗位时间：</label>
+                                <input lay-verify='required' type="text" id="in_job_time" name="in_job_time" value="" class="form-control  w-400  js_validate"> </li>
+                            <li class="label-inline1">
+                                <label for="salary" class=" fz-14 fbt">入职薪资：</label>
+                                <input lay-verify='required' type="text" id="salary" name="salary" value="" class="form-control  w-400 js_validate">
+                            </li>
+                            <li class="label-inline1">
+                                <label for="year_3_5_salary" class=" fz-14 fbt">3～5年后薪资：</label>
+                                <input lay-verify='required' type="text" id="year_3_5_salary" name="year_3_5_salary" value="" class="form-control  w-400  js_validate">
+
                                 <label>
-                                    <input type="radio" name="RadioGroup1" value="是" id="RadioGroup1_0" /> 是
+                                    <input type="radio" checked lay-ignore name="salary_type_0" value="税前" id="salary_type_1_0" /> 税前
                                 </label>
-                                <input type="text" id="username" name="username" value="" class="form-control  w-300 js_validate">（加班频率和加班时间，以及是否有加班工资）&nbsp; &nbsp;
+
                                 <label>
-                                    <input type="radio" name="RadioGroup1" value="否" id="RadioGroup1_1" /> 否
+                                    <input type="radio" lay-ignore name="salary_type_0" value="税后" id="salary_type_1_1" /> 税后
+                                </label>
+
+                                <label>
+                                    <input type="radio" checked lay-ignore name="salary_type_1" value="有灰色收入" id="salary_type_1_0" /> 有灰色收入
+                                </label>
+
+                                <label>
+                                    <input type="radio" lay-ignore name="salary_type_1" value="无灰色收入" id="salary_type_1_1" /> 无灰色收入
+                                </label>
+
+
+                            </li>
+                            <li class="label-inline1">
+                                <label for="location" class="fz-14 fbt">地&nbsp;&nbsp;点：</label>
+                                <input lay-verify='required' type="text" id="location" name="location" value="" class="form-control  w-400 js_validate"> </li>
+                            <li class="label-inline1">
+                                <label for="is_overtime" class="fz-14 fbt">是否经常加班：</label>
+                                <label>
+                                    <input type="radio" checked lay-ignore name="is_overtime" value="是" id="is_overtime_0" /> 是
+                                </label>
+                                <input type="text" id="overtime_info" name="overtime_info" value="" class="form-control  w-300 js_validate">（加班频率和加班时间，以及是否有加班工资）&nbsp; &nbsp;
+                                <label>
+                                    <input type="radio" lay-ignore name="is_overtime" value="否" id="is_overtime_1" /> 否
                                 </label>
                             </li>
 
                             <li class="label-inline1">
-                                <label for="username" class=" fz-14 fbt">工作环境：</label>
-                                <input type="text" id="username" name="username" value="" class="form-control  w-400 js_validate"> </li>
+                                <label for="work_environment" class=" fz-14 fbt">工作环境：</label>
+                                <input lay-verify='required' type="text" id="work_environment" name="work_environment" value="" class="form-control  w-400 js_validate"> </li>
                             <li class="label-inline1">
-                                <label for="username" class=" fz-14 fbt">人际氛围：</label>
-                                <input type="text" id="username" name="username" value="" class="form-control  w-400 js_validate"> </li>
+                                <label for="Interpersonal_atmosphere" class=" fz-14 fbt">人际氛围：</label>
+                                <input lay-verify='required' type="text" id="Interpersonal_atmosphere" name="Interpersonal_atmosphere" value="" class="form-control  w-400 js_validate"> </li>
 
                             <li class="label-inline1">
-                                <label for="username" class=" fz-14 fbt">工作中男女比例：</label>
-                                <input type="text" id="username" name="username" value="" class="form-control  w-400 js_validate"> </li>
+                                <label for="male_to_female_ratio" class=" fz-14 fbt">工作中男女比例：</label>
+                                <input lay-verify='required' type="text" id="male_to_female_ratio" name="male_to_female_ratio" value="" class="form-control  w-400 js_validate"> </li>
                             <li class="label-inline1">
-                                <label for="username" class=" fz-14 fbt">人员流动是否频繁：</label>
-                                <input type="text" id="username" name="username" value="" class="form-control  w-400  js_validate"> </li>
+                                <label for="is_the_turnover_of_personnel_frequent" class=" fz-14 fbt">人员流动是否频繁：</label>
+                                <input lay-verify='required' type="text" id="is_the_turnover_of_personnel_frequent" name="is_the_turnover_of_personnel_frequent"
+                                    value="" class="form-control  w-400  js_validate"> </li>
                             <li class="label-inline1">
-                                <label for="username" class=" fz-14 fbt">上升空间及发展前景：&nbsp;</label>
-                                <textarea cols="" rows="5" class=" w-400 ">        </textarea>
+                                <label for="rising_space_and_development_prospect" class=" fz-14 fbt">上升空间及发展前景：&nbsp;</label>
+                                <textarea lay-verify='required' cols="" rows="5" class=" w-400 " name="rising_space_and_development_prospect"></textarea>
                             </li>
                             <li class="label-inline1">
-                                <label for="username" class=" fz-14 fbt">需要接触哪些方面的人：</label>
-                                <textarea cols="" rows="5" class=" w-400 ">        </textarea> （老板/主管/客户/供应商/下属/同事）
+                                <label for="who_do_you_need_to_contact" class=" fz-14 fbt">需要接触哪些方面的人：</label>
+                                <textarea lay-verify='required' cols="" rows="5" class=" w-400 " name="who_do_you_need_to_contact"></textarea> （老板/主管/客户/供应商/下属/同事）
                             </li>
                             <li class="label-inline1">
-                                <label for="username" class=" fz-14 fbt">典型的一天工作：&nbsp;&nbsp;&nbsp;</label>
-                                <textarea cols="" rows="5" class=" w-400 ">        </textarea>
+                                <label for="a_typical_day_work" class=" fz-14 fbt">典型的一天工作：&nbsp;&nbsp;&nbsp;</label>
+                                <textarea lay-verify='required' cols="" rows="5" class=" w-400 " name="a_typical_day_work"></textarea>
                             </li>
                             <li class="label-inline1">
-                                <label for="username" class=" fz-14 fbt">什么时候压力最大：&nbsp;&nbsp;</label>
-                                <textarea cols="" rows="5" class=" w-400 ">        </textarea>
+                                <label for="when_is_the_maximum_pressure" class=" fz-14 fbt">什么时候压力最大：&nbsp;&nbsp;</label>
+                                <textarea lay-verify='required' cols="" rows="5" class=" w-400 " name="when_is_the_maximum_pressure"></textarea>
                             </li>
                             <li class="label-inline1">
-                                <label for="username" class=" fz-14 fbt">想对后来人说点什么：&nbsp;</label>
-                                <textarea cols="" rows="5" class=" w-400 ">        </textarea>
+                                <label for="what_do_you_want_to_say_to_later_people" class=" fz-14 fbt">想对后来人说点什么：&nbsp;</label>
+                                <textarea lay-verify='required' cols="" rows="5" class=" w-400 " name="what_do_you_want_to_say_to_later_people"></textarea>
                             </li>
                             <li class="label-inline1">
-                                <label for="username" class=" fz-14 fbt">一则自己亲身经历的职场故事：</label>
-                                <textarea cols="" rows="10" class=" w-400 ">        </textarea>
+                                <label for="story" class=" fz-14 fbt">一则自己亲身经历的职场故事：</label>
+                                <textarea lay-verify='required' cols="" rows="10" class=" w-400 " name="story"></textarea>
                             </li>
 
                             <li class="mt20 fb">
-                                <input type="submit" id="login_submit" value="发布经历" class="btn btn-primary btn-lg btn-block mlr0 fb " style="width:300px;"> </li>
+                                <input type="submit" lay-submit value="发布经历" class="btn btn-primary btn-lg btn-block mlr0 fb " style="width:300px;"> </li>
 
                         </ul>
                     </form>
@@ -485,8 +499,22 @@
         <script src="/Public/dist/js/new_industry.js"></script>
         <script src="/Public/dist/js/data_type.js"></script>
         <script src="/Public/dist/js/play.js"></script>
+        <script src="/Public/vendor/layui/layui.js"></script>
 
         <!-- footer end-->
+
+        <script>
+
+            layui.use('form', function () {
+                var form = layui.form;
+
+                //各种基于事件的操作，下面会有进一步介绍
+            });
+
+
+
+
+        </script>
 
 </body>
 

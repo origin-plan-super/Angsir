@@ -182,19 +182,29 @@
 
             })()
     </script>
+
     <div class="header" id="header">
-        <div class="wrap">
-            <div class="login-box fl-right">
-                <!-- 已登录 -->
-                <div class="login js_navlogin hidden" loginstate="1">
+    <div class="wrap">
+        <div class="login-box fl-right">
+            <!-- 已登录 -->
+
+            <?php if(empty($$Think["session"]["user_id"])): ?><!-- 为空 ，未登录-->
+                <div class="loginout" loginstate="0">
+                    <a class="btn-sign" href="#/passport/login" role="button" target="_self" id="js-login" pop-data="#js_popuplogin">登录</a>
+                    <a class="btn-register" href="#/passport/register" role="button" id="js-reg" target="_self">注册</a>
+                </div>
+
+                <?php else: ?>
+                <!-- 不为空 ，已登录-->
+                <div class="login js_navlogin">
                     <p>
-                        <span class="user-name">&nbsp;</span>
+                        <span class="user-name">小王</span>
                         <span class="user-gravatar">
                             <img src="/Public/dist/image/gravatar-default.jpg" class="img-responsive" alt="Responsive image" widht="20" height="20"> </span>
                     </p>
-                    <div class="nav-userlist js_navuserlist hidden" identitystate="1">
+                    <div class="nav-userlist js_navuserlist ">
                         <p>
-                            <a href="#/resume/my">我的经历</a>
+                            <a href="<?php echo U('Center/Center');?>">个人中心</a>
                         </p>
 
                         <p>
@@ -204,34 +214,190 @@
                             <a href="#/passport/logout" class="btn-logout">退出</a>
                         </p>
                     </div>
+                </div><?php endif; ?>
+
+
+
+
+        </div>
+
+        <a class="bl-logo" href="#/">angsir网</a>
+
+        <ul class="nav fl-left" identitystate="0">
+            <li>
+                <a href="<?php echo U('Index/Index');?>">首页</a>
+            </li>
+            <li>
+                <a href="<?php echo U('Search/Search');?>" rel="nofollow">搜索经历</a>
+            </li>
+            <li>
+                <a href="<?php echo U('Fb/fb');?>" rel="nofollow">发布经历</a>
+            </li>
+            <li>
+                <a href="<?php echo U('Article/article');?>" rel="nofollow">我的经历</a>
+            </li>
+
+        </ul>
+    </div>
+</div>
+
+<!-- 登录弹出层 start-->
+<div id="js_popuplogin" class="popUp">
+    <div id="gmask"></div>
+    <div class="pop mid">
+        <span class="close"></span>
+        <div class="pop-main">
+            <div class="pop-con">
+                <div class="w340">
+                    <form action="<?php echo U('Login/login');?>" id="login_form" name="login" class="form-signin ptb20" method="post">
+                        <h1>登录</h1>
+                        <p class="info"></p>
+
+                        <input type="hidden" id="callback" name="callback" value="/zhiwei/view/29546736/">
+                        <ul class="form-list1">
+                            <li class="label-inline1">
+                                <label for="user_id" class="label-1 fz-14">账 号</label>
+                                <input type="text" id="user_id" name="user_id" value="" class="form-control w-248 js_validate" placeholder="请输入邮箱"> </li>
+
+                            <li class="label-inline1">
+                                <label for="user_pwd" class="label-1 fz-14">密 码</label>
+                                <input type="password" id="user_pwd" name="user_pwd" value="" class="form-control w-248 js_validate" placeholder="6-16个字符，不能有空格，区分大小写"
+                                    autocomplete="off"> </li>
+                            <li>
+                                <a href="#passport/password/findPassword" class="fl-right">找回密码</a>
+                                <label>
+                                    <input type="checkbox" name="remember" checked=""> 下次自动登录
+                                </label>
+                            </li>
+                            <li class="mt20">
+                                <input type="submit" id="login_submit" value="登 录" class="btn btn-primary btn-lg btn-block mlr0" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;, &#39;login_window&#39;, &#39;login&#39;])"> </li>
+                            <li class="tx-right">
+                                没有账号，
+                                <a href="#passport/register" class="fc-orange1 js-reg" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;, &#39;login_window&#39;, &#39;switch_register&#39;])">立即注册</a>
+                            </li>
+                        </ul>
+                    </form>
                 </div>
-                <!-- 未登录 -->
-                <div class="loginout" loginstate="0">
-                    <a class="btn-sign" href="#/passport/login" role="button" target="_self" id="js-login" pop-data="#js_popuplogin">登录</a>
-                    <a class="btn-register" href="#/passport/register" role="button" id="js-reg" target="_self">注册</a>
-                </div>
+
+                <div class="clear"></div>
+
             </div>
-
-            <a class="bl-logo" href="#/">angsir网</a>
-
-            <ul class="nav fl-left" identitystate="0">
-                <li>
-                    <a href="<?php echo U('Index/Index');?>">首页</a>
-                </li>
-                <li>
-                    <a href="<?php echo U('Search/Search');?>" rel="nofollow">搜索经历</a>
-                </li>
-                <li>
-                    <a href="<?php echo U('Fb/fb');?>" rel="nofollow">发布经历</a>
-                </li>
-                <li>
-                    <a href="<?php echo U('Article/article');?>" rel="nofollow">我的经历</a>
-                </li>
-
-                <!--  <li><a href="#/about/mobile/index">手机版</a></li>-->
-            </ul>
         </div>
     </div>
+</div>
+<!-- 登录弹出层 end -->
+<!-- 注册 start-->
+<div id="js_popupreg" class="popUp">
+    <div id="gmask"></div>
+    <div class="pop mid">
+        <span class="close"></span>
+        <div class="pop-main">
+            <div class="pop-con">
+                <div class="w340">
+                    <form action="<?php echo U('Login/reg');?>" id="reg_form" name="login" class="form-signin ptb20" method="post">
+                        <h1>注册</h1>
+                        <p class="info"></p>
+
+                        <!-- <input type="hidden" id="callback" name="callback" value="/zhiwei/view/29546736/"> -->
+                        <ul class="form-list1">
+                            <li class="label-inline1">
+                                <label for="user_id" class="label-1 fz-14">账 号</label>
+                                <input type="text" id="user_id" name="user_id" value="" class="form-control w-248 js_validate" placeholder="请输入邮箱"> </li>
+
+                            <li class="label-inline1">
+                                <label for="user_pwd1" class="label-1 fz-14">密 码</label>
+                                <input type="password" id="user_pwd1" name="user_pwd1" value="" class="form-control w-248 js_validate" placeholder="6-16个字符，不能有空格，区分大小写"
+                                    autocomplete="off">
+                            </li>
+
+                            <li class="label-inline1">
+                                <label for="user_pwd2" class="label-1 fz-14">确认密码</label>
+                                <input type="password" id="user_pwd2" name="user_pwd2" value="" class="form-control w-248 js_validate" placeholder="6-16个字符，不能有空格，区分大小写"
+                                    autocomplete="off">
+                            </li>
+
+
+                            <li class="mt20">
+                                <input type="botton" id="login_reg" value="注 册" class="btn btn-primary btn-lg btn-block mlr0">
+                            </li>
+                            <li>
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos, suscipit delectus facilis
+                                    ut cum distinctio cupiditate! Quibusdam vero ex perspiciatis, omnis sint odit ipsam.
+                                    Placeat eius quam itaque commodi quibusdam.</p>
+                            </li>
+
+                        </ul>
+                    </form>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 注册 end -->
+
+<script>
+
+
+
+    $(document).on('click', '#login_reg', function () {
+
+        //注册 
+        var user_id = $('#user_id').val();
+        var user_pwd1 = $('#user_pwd1').val();
+        var user_pwd2 = $('#user_pwd2').val();
+        $('.info').css('color', '#f00');
+
+
+        if (user_id == null || user_id == '' || user_id == undefined) {
+            $('#user_id').css('border-color', '#f00');
+            $('.info').text('请输入邮箱！');
+            return;
+        } else {
+            $('#user_id').css('border-color', '#dcdcdc');
+        }
+
+        if (user_pwd1.length < 6 || user_pwd1.length > 16) {
+            $('#user_pwd1').css('border-color', '#f00');
+            $('.info').text('密码长度不能小于6或者大于16！');
+            return;
+        } else {
+            $('#user_pwd1').css('border-color', '#dcdcdc');
+        }
+
+        if (user_pwd2.length < 6 || user_pwd2.length > 16) {
+            $('#user_pwd2').css('border-color', '#f00');
+            $('.info').text('密码长度不能小于6或者大于16！');
+            return;
+        } else {
+            $('#user_pwd2').css('border-color', '#dcdcdc');
+        }
+
+        if (user_pwd1 === user_pwd2) {
+            $('#reg_form')[0].submit();
+            $('#user_pwd2').css('border-color', '#dcdcdc');
+        } else {
+            $('#user_pwd2').css('border-color', '#f00');
+            $('.info').text('两次输入的密码不一样！');
+            return;
+        }
+
+    });
+    $(document).on('click', '#js-reg,.js-reg', function () {
+        showReg();
+
+    });
+    // showReg();
+    function showReg() {
+        console.log('js-reg');
+
+        $('#js_popupreg').find('.pop.mid').attr('style', 'left: 50%; top: 50%; margin: -167.5px 0px 0px -260px;');
+        $('#js_popupreg').fadeIn(300);
+
+    }
+
+</script>
+
     <div class="clear"></div>
     <script>
         getUserInfo(function (data) {
@@ -361,7 +527,6 @@
                             <a href="#/zhaopin/kw-%E8%84%9A%E6%9C%AC%E5%BC%80%E5%8F%91/" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;, &#39;index&#39;, &#39;click_hotTopics&#39;])">
                                 <strong>脚本开发</strong>
                             </a>
-
                         </div>
 
                         <div class="ebox-condition">
@@ -676,102 +841,8 @@
             </div>
         </div>
 
-        <!-- 登录弹出层 start-->
-        <div id="js_popuplogin" class="popUp">
-            <div id="gmask"></div>
-            <div class="pop mid">
-                <span class="close"></span>
-                <div class="pop-main">
-                    <div class="pop-con">
-                        <div class="w340">
-                            <form action="<?php echo U('Login/login');?>" id="login_form" name="login" class="form-signin ptb20" method="post">
-                                <h1>登录</h1>
-                                <p class="info"></p>
-
-                                <input type="hidden" id="callback" name="callback" value="/zhiwei/view/29546736/">
-                                <ul class="form-list1">
-                                    <li class="label-inline1">
-                                        <label for="username" class="label-1 fz-14">账 号</label>
-                                        <input type="text" id="username" name="username" value="" class="form-control w-248 js_validate" placeholder="请输入邮箱"> </li>
-
-                                    <li class="label-inline1">
-                                        <label for="password" class="label-1 fz-14">密 码</label>
-                                        <input type="password" id="password" name="password" value="" class="form-control w-248 js_validate" placeholder="6-16个字符，不能有空格，区分大小写"
-                                            autocomplete="off"> </li>
-                                    <li>
-                                        <a href="#passport/password/findPassword" class="fl-right">找回密码</a>
-                                        <label>
-                                            <input type="checkbox" name="remember" checked=""> 下次自动登录
-                                        </label>
-                                    </li>
-                                    <li class="mt20">
-                                        <input type="submit" id="login_submit" value="登 录" class="btn btn-primary btn-lg btn-block mlr0" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;, &#39;login_window&#39;, &#39;login&#39;])"> </li>
-                                    <li class="tx-right">
-                                        没有账号，
-                                        <a href="#passport/register" class="fc-orange1 js-reg" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;, &#39;login_window&#39;, &#39;switch_register&#39;])">立即注册</a>
-                                    </li>
-                                </ul>
-                            </form>
-                        </div>
-
-                        <div class="clear"></div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- 登录弹出层 end -->
-        <!-- 注册 start-->
-        <div id="js_popupreg" class="popUp">
-            <div id="gmask"></div>
-            <div class="pop mid">
-                <span class="close"></span>
-                <div class="pop-main">
-                    <div class="pop-con">
-                        <div class="w340">
-                            <form action="<?php echo U('Login/reg');?>" id="reg_form" name="login" class="form-signin ptb20" method="post">
-                                <h1>注册</h1>
-                                <p class="info"></p>
-
-                                <!-- <input type="hidden" id="callback" name="callback" value="/zhiwei/view/29546736/"> -->
-                                <ul class="form-list1">
-                                    <li class="label-inline1">
-                                        <label for="username" class="label-1 fz-14">账 号</label>
-                                        <input type="text" id="username_reg" name="username" value="" class="form-control w-248 js_validate" placeholder="请输入邮箱"> </li>
-
-                                    <li class="label-inline1">
-                                        <label for="password" class="label-1 fz-14">密 码</label>
-                                        <input type="password" id="password1" name="password1" value="" class="form-control w-248 js_validate" placeholder="6-16个字符，不能有空格，区分大小写"
-                                            autocomplete="off">
-                                    </li>
-
-                                    <li class="label-inline1">
-                                        <label for="password" class="label-1 fz-14">确认密码</label>
-                                        <input type="password" id="password2" name="password2" value="" class="form-control w-248 js_validate" placeholder="6-16个字符，不能有空格，区分大小写"
-                                            autocomplete="off">
-                                    </li>
 
 
-                                    <li class="mt20">
-                                        <input type="botton" id="login_reg" value="注 册" class="btn btn-primary btn-lg btn-block mlr0">
-                                    </li>
-                                    <li>
-                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos, suscipit delectus
-                                            facilis ut cum distinctio cupiditate! Quibusdam vero ex perspiciatis, omnis sint
-                                            odit ipsam. Placeat eius quam itaque commodi quibusdam.</p>
-                                    </li>
-
-                                </ul>
-                            </form>
-                        </div>
-
-                        <div class="clear"></div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- 注册 end -->
         <!-- side-bar1 右测边栏 start -->
         <div class="side-bar1">
             <a href="javascript:;" gotodata="body" class="js_goto">
@@ -828,7 +899,7 @@
                             refreshFamous();
                         }
                     }
-                });
+                });FS
                 $.ajax({
                     url: '/main/index/isEmailCheckedAjax',
                     type: 'POST',
@@ -837,65 +908,8 @@
                         $("body").prepend(html);
                     }
                 });
-                $(document).on('click', '#js-reg,.js-reg', function () {
-                    showReg();
-
-                });
-                $(document).on('click', '#login_reg', function () {
-                    //初始化
-
-
-                    //注册 
-                    var username_reg = $('#username_reg').val();
-                    var password1 = $('#password1').val();
-                    var password2 = $('#password2').val();
-                    $('.info').css('color', '#f00');
-
-
-                    if (username_reg == null || username_reg == '' || username_reg == undefined) {
-                        $('#username_reg').css('border-color', '#f00');
-                        $('.info').text('请输入邮箱！');
-                        return;
-                    } else {
-                        $('#username_reg').css('border-color', '#dcdcdc');
-                    }
-
-                    if (password1.length < 6 || password1.length > 16) {
-                        $('#password1').css('border-color', '#f00');
-                        $('.info').text('密码长度不能小于6或者大于16！');
-                        return;
-                    } else {
-                        $('#password1').css('border-color', '#dcdcdc');
-                    }
-
-                    if (password2.length < 6 || password2.length > 16) {
-                        $('#password2').css('border-color', '#f00');
-                        $('.info').text('密码长度不能小于6或者大于16！');
-                        return;
-                    } else {
-                        $('#password2').css('border-color', '#dcdcdc');
-                    }
-
-                    if (password1 === password2) {
-                        $('#reg_form')[0].submit();
-                        $('#password2').css('border-color', '#dcdcdc');
-                    } else {
-                        $('#password2').css('border-color', '#f00');
-                        $('.info').text('两次输入的密码不一样！');
-                        return;
-                    }
-
-                });
-
             })
-            // showReg();
-            function showReg() {
-                console.log('js-reg');
 
-                $('#js_popupreg').find('.pop.mid').attr('style', 'left: 50%; top: 50%; margin: -167.5px 0px 0px -260px;');
-                $('#js_popupreg').fadeIn(300);
-
-            }
         </script>
 
         <script type="text/javascript">

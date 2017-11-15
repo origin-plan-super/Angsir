@@ -204,19 +204,29 @@
             })()
 
     </script>
+
     <div class="header" id="header">
-        <div class="wrap">
-            <div class="login-box fl-right">
-                <!-- 已登录 -->
-                <div class="login js_navlogin " loginstate="1">
+    <div class="wrap">
+        <div class="login-box fl-right">
+            <!-- 已登录 -->
+
+            <?php if(empty($$Think["session"]["user_id"])): ?><!-- 为空 ，未登录-->
+                <div class="loginout" loginstate="0">
+                    <a class="btn-sign" href="#/passport/login" role="button" target="_self" id="js-login" pop-data="#js_popuplogin">登录</a>
+                    <a class="btn-register" href="#/passport/register" role="button" id="js-reg" target="_self">注册</a>
+                </div>
+
+                <?php else: ?>
+                <!-- 不为空 ，已登录-->
+                <div class="login js_navlogin">
                     <p>
-                        <span class="user-name">&nbsp;</span>
+                        <span class="user-name">小王</span>
                         <span class="user-gravatar">
                             <img src="/Public/dist/image/gravatar-default.jpg" class="img-responsive" alt="Responsive image" widht="20" height="20"> </span>
                     </p>
-                    <div class="nav-userlist js_navuserlist hidden" identitystate="1">
+                    <div class="nav-userlist js_navuserlist ">
                         <p>
-                            <a href="#/resume/my">我的经历</a>
+                            <a href="<?php echo U('Center/Center');?>">个人中心</a>
                         </p>
 
                         <p>
@@ -226,31 +236,33 @@
                             <a href="#/passport/logout" class="btn-logout">退出</a>
                         </p>
                     </div>
+                </div><?php endif; ?>
 
-                </div>
-                <!-- 未登录 -->
 
-            </div>
 
-            <a class="bl-logo" href="#/">angsir网</a>
 
-            <ul class="nav fl-left" identitystate="0">
-                <li>
-                    <a href="<?php echo U('Index/Index');?>">首页</a>
-                </li>
-                <li>
-                    <a href="<?php echo U('Search/Search');?>" rel="nofollow">搜索经历</a>
-                </li>
-                <li>
-                    <a href="<?php echo U('Fb/fb');?>" rel="nofollow">发布经历</a>
-                </li>
-                <li>
-                    <a href="<?php echo U('Article/article');?>" rel="nofollow">我的经历</a>
-                </li>
-                <!--       <li><a href="#/about/mobile/index">手机版</a></li>-->
-            </ul>
         </div>
+
+        <a class="bl-logo" href="#/">angsir网</a>
+
+        <ul class="nav fl-left" identitystate="0">
+            <li>
+                <a href="<?php echo U('Index/Index');?>">首页</a>
+            </li>
+            <li>
+                <a href="<?php echo U('Search/Search');?>" rel="nofollow">搜索经历</a>
+            </li>
+            <li>
+                <a href="<?php echo U('Fb/fb');?>" rel="nofollow">发布经历</a>
+            </li>
+            <li>
+                <a href="<?php echo U('Article/article');?>" rel="nofollow">我的经历</a>
+            </li>
+
+        </ul>
     </div>
+</div>
+
     <div class="clear"></div>
     <script>
         getUserInfo(function (data) {

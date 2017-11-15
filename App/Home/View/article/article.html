@@ -185,58 +185,8 @@
             })()
 
     </script>
-    <div class="header" id="header">
-        <div class="wrap">
-            <div class="login-box fl-right">
-                <!-- 已登录 -->
-                <div class="login js_navlogin hidden" loginstate="1">
-                    <p>
-                        <span class="user-name">&nbsp;</span>
-                        <span class="user-gravatar">
-                            <img src="__DIST__/image/gravatar-default.jpg" class="img-responsive" alt="Responsive image" widht="20" height="20"> </span>
-                    </p>
-                    <div class="nav-userlist js_navuserlist hidden" identitystate="1">
-                        <p>
-                            <a href="#/resume/my">我的经历</a>
-                        </p>
+    <include file="App/Home/View/component/nav.html" />
 
-                        <p>
-                            <a href="#/passport/manage">账号管理</a>
-                        </p>
-                        <p class="btn-logout">
-                            <a href="#/passport/logout" class="btn-logout">退出</a>
-                        </p>
-                    </div>
-
-                </div>
-                <!-- 未登录 -->
-                <div class="loginout" loginstate="0">
-                    <a class="btn-sign" href="#/passport/login" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;, &#39;top_navigation&#39;, &#39;login_entry&#39;])"
-                        role="button" target="_self" id="js-login" pop-data="#js_popuplogin">登录</a>
-                    <a class="btn-register" href="#/passport/register" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;, &#39;top_navigation&#39;, &#39;register_entry&#39;])"
-                        role="button" target="_self">注册</a>
-                </div>
-            </div>
-
-            <a class="bl-logo" href="#/">angsir网</a>
-
-            <ul class="nav fl-left" identitystate="0">
-                <li>
-                    <a href="{:U('Index/Index')}">首页</a>
-                </li>
-                <li>
-                    <a href="{:U('Search/Search')}" rel="nofollow">搜索经历</a>
-                </li>
-                <li>
-                    <a href="{:U('Fb/fb')}" rel="nofollow">发布经历</a>
-                </li>
-                <li>
-                    <a href="{:U('Article/article')}" rel="nofollow">我的经历</a>
-                </li>
-                <!--    <li><a href="#/about/mobile/index">手机版</a></li>-->
-            </ul>
-        </div>
-    </div>
     <div class="clear"></div>
     <script>
         getUserInfo(function (data) {
@@ -627,58 +577,7 @@
             <div class="clear"></div>
         </div>
     </div>
-    <!-- 登录弹出层 start-->
-    <div id="js_popuplogin" class="popUp">
-        <div id="gmask"></div>
-        <div class="pop mid">
-            <span class="close"></span>
-            <div class="pop-main">
-                <div class="pop-con">
-                    <div class="w340">
-                        <form action="#passport/login" id="login_form" name="login" class="form-signin ptb20" method="post">
-                            <input type="hidden" id="callback" name="callback" value="/zhiwei/view/29546736/">
-                            <ul class="form-list1">
-                                <li class="label-inline1">
-                                    <label for="username" class="label-1 fz-14">账 号</label>
-                                    <input type="text" id="username" name="username" value="" class="form-control w-248 js_validate" placeholder="邮箱或手机号"> </li>
 
-                                <li class="label-inline1">
-                                    <label for="password" class="label-1 fz-14">密 码</label>
-                                    <input type="password" id="password" name="password" value="" class="form-control w-248 js_validate" placeholder="6-16个字符，不能有空格，区分大小写"
-                                        autocomplete="off"> </li>
-                                <li>
-                                    <a href="#passport/password/findPassword" class="fl-right">找回密码</a>
-                                    <label>
-                                        <input type="checkbox" name="remember" checked=""> 下次自动登录
-                                    </label>
-                                </li>
-                                <li class="mt20">
-                                    <input type="submit" id="login_submit" value="登 录" class="btn btn-primary btn-lg btn-block mlr0" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;, &#39;login_window&#39;, &#39;login&#39;])"> </li>
-                                <li class="tx-right">
-                                    没有账号，
-                                    <a target="_blank" href="#passport/register" class="fc-orange1" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;, &#39;login_window&#39;, &#39;switch_register&#39;])">立即注册</a>
-                                </li>
-                            </ul>
-                        </form>
-                    </div>
-                    <div class="signin-bottom">
-                        <h5 class="title2">
-                            <del>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</del>还可以使用以下方式登录
-                            <del>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</del>
-                        </h5>
-                        <div class="login-option">
-                            <a href="#passport/third-party-login/weibo" class="ico-weibo" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;, &#39;login_page&#39;, &#39;sina_login&#39;])">微博</a>
-                            <a href="#passport/third-party-login/qq" class="ico-qq" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;, &#39;login_page&#39;, &#39;qq_login&#39;])">QQ</a>
-                            <a href="#passport/third-party-login/wechat" class="ico-weixin" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;, &#39;login_page&#39;, &#39;wexin_login&#39;])">微信</a>
-                        </div>
-                    </div>
-                    <div class="clear"></div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- 登录弹出层 end -->
 
     <!--  Common js file -->
 
