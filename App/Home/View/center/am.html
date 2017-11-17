@@ -328,20 +328,29 @@
                 <div class="user_modifyContent">
                     <dl class="c_section">
                         <dt>
-                            <p>登录帐号： 13127692671 </p>
+                            <p>登录帐号： {$user_info.user_id} </p>
                         </dt>
                         <dd>
-                            <form id="updatePswForm">
+                            <notempty name='noPwd'>
+                                <p style='color:#f00'>两次输入的密码不一致！</p>
+                            </notempty>
+                            <notempty name='info'>
+                                <p>{$info}</p>
+                            </notempty>
+
+
+                            <form id="updatePswForm" method="post">
                                 <div class="input_item">
-                                    <input type="password" name="newpassword" id="newpassword" placeholder="请输入新密码" maxlength="16" autocomplete="off">
+                                    <input type="password" name="pwd1" id="pwd1" placeholder="请输入新密码" maxlength="16" autocomplete="off">
                                 </div>
                                 <div class="input_item">
-                                    <input type="password" name="comfirmpassword" id="comfirmpassword" placeholder="确认新密码" maxlength="16" autocomplete="off">
+                                    <input type="password" name="pwd2" id="pwd2" placeholder="确认新密码" maxlength="16" autocomplete="off">
                                 </div>
                                 <span class="error" style="display:none;" id="updatePwd_beError"></span>
                                 <div class="input_item">
                                     <input type="submit" value="保 存">
                                 </div>
+
                             </form>
                         </dd>
                     </dl>

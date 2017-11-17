@@ -65,8 +65,33 @@ class CenterController extends CommonController {
         
     }
     public function am(){
-        $this->display();
         
+        $model=M('user');
+        $where['user_id']=session('user_id');
+        
+        if(IS_POST){
+            $pwd1=I('post.pwd1');
+            $pwd2=I('post.pwd2');
+            
+            if($pwd1!==''||$pwd2!==''){
+                if($pwd1===$pwd2){
+                    $save['user_pwd']=md5($pwd2.__KEY__);
+                    $model->where($where)->save($save);
+                    $this->assign('info','修改成功');
+                }else{
+                    $this->assign('noPwd','两次输入的密码不一致');
+                }
+            }else{
+                $this->assign('noPwd','密码不能为空！');
+            }
+        }
+        
+        //取出储存的用户id
+        //创建用户模型
+        //取出用户数据
+        $result= $model->where($where)->find();
+        $this->assign('user_info',$result);
+        $this->display();
     }
     
 }

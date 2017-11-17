@@ -235,7 +235,7 @@
                     </p>
                     <div class="nav-userlist js_navuserlist ">
                         <p>
-                            <a href="<?php echo U('Center/Center');?>">个人中心</a>
+                            <a href="<?php echo U('Center/Center');?>">个人中心</a>rw
                         </p>
 
                         <!-- <p>
@@ -661,20 +661,25 @@
                 <div class="user_modifyContent">
                     <dl class="c_section">
                         <dt>
-                            <p>登录帐号： 13127692671 </p>
+                            <p>登录帐号： <?php echo ($user_info["user_id"]); ?> </p>
                         </dt>
                         <dd>
-                            <form id="updatePswForm">
+                            <?php if(!empty($noPwd)): ?><p style='color:#f00'>两次输入的密码不一致！</p><?php endif; ?>
+                            <?php if(!empty($info)): ?><p><?php echo ($info); ?></p><?php endif; ?>
+
+
+                            <form id="updatePswForm" method="post">
                                 <div class="input_item">
-                                    <input type="password" name="newpassword" id="newpassword" placeholder="请输入新密码" maxlength="16" autocomplete="off">
+                                    <input type="password" name="pwd1" id="pwd1" placeholder="请输入新密码" maxlength="16" autocomplete="off">
                                 </div>
                                 <div class="input_item">
-                                    <input type="password" name="comfirmpassword" id="comfirmpassword" placeholder="确认新密码" maxlength="16" autocomplete="off">
+                                    <input type="password" name="pwd2" id="pwd2" placeholder="确认新密码" maxlength="16" autocomplete="off">
                                 </div>
                                 <span class="error" style="display:none;" id="updatePwd_beError"></span>
                                 <div class="input_item">
                                     <input type="submit" value="保 存">
                                 </div>
+
                             </form>
                         </dd>
                     </dl>

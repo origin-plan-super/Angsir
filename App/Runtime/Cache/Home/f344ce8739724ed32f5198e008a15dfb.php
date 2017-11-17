@@ -732,7 +732,7 @@
         <div class="clear"></div>
     </div>
 </div>
-    
+
     <script src="/Public/dist/js/jquery.ba-resize.js"></script>
     <script src="/Public/dist/js/basic.js"></script>
     <script src="/Public/dist/js/bl_jsvalidate.js"></script>

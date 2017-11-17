@@ -1103,38 +1103,18 @@
 
 
                 <div class="i-ebox1 mt10">
-                    <div class="title" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;, &#39;index&#39;, &#39;click_recommendCompany&#39;])">
+                    <div class="title">
                         <i class="ico ico-square"></i>推荐会员</div>
                     <div class="conbox">
                         <ul class="i-recommend-company evenParent" even_cell="li">
 
+                            <?php if(is_array($up_user_info)): $i = 0; $__LIST__ = $up_user_info;if( count($__LIST__)==0 ) : echo "没有被推荐的会员" ;else: foreach($__LIST__ as $key=>$vol): $mod = ($i % 2 );++$i;?><li>
+                                    <a href="#">
+                                        <img src="<?php echo ($vol["user_img"]); ?>" onerror='this.src="/Public/dist/image/default_headpic.png"'>
+                                    </a>
+                                    <a href="#"><?php echo ($vol["user_name"]); ?></a>
+                                </li><?php endforeach; endif; else: echo "没有被推荐的会员" ;endif; ?>
 
-                            <li>
-                                <a href="#">
-                                    <img src="/Public/dist/image/1442028166"> </a>
-                                <a href="#">小高</a>
-                            </li>
-
-                            <li>
-                                <a href="#">
-                                    <img src="/Public/dist/image/1442028166"> </a>
-                                <a href="#">小高</a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="/Public/dist/image/1442028166"> </a>
-                                <a href="#">小高</a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="/Public/dist/image/1442028166"> </a>
-                                <a href="#">小高</a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="/Public/dist/image/1442028166"> </a>
-                                <a href="#">小高</a>
-                            </li>
                         </ul>
                         <div class="clear"></div>
                     </div>
