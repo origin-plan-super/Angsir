@@ -15,38 +15,52 @@
 */
 namespace Home\Controller;
 use Think\Controller;
-class CenterController extends Controller {
+class CenterController extends CommonController {
     public function Center() {
         
-        
         if(IS_POST){
-            // array(7) {
-            //     ["portrait"] => string(35) "images/myresume/default_headpic.png"
-            //     ["headPic"] => string(0) ""
-            //     ["user_name"] => string(12) "这是昵称"
-            //     ["user_age"] => string(12) "这是年龄"
-            //     ["industry"] => array(2) {
-            //       ["text"] => string(55) "计算机软件,通信/电信/网络设备,网络游戏"
-            //       ["id"] => string(17) "32001,32004,32007"
-            //     }
-            //     ["duty"] => array(2) {
-            //       ["text"] => string(44) "高级硬件工程师,硬件工程师,其他"
-            //       ["id"] => string(17) "23015,23016,23017"
-            //     }
-            //     ["user_address"] => string(12) "这是地址"
-            //   }
             
-            $post=I('post.');
-            dump($post);
+            /**
+            *
+            * 保存用户设置
+            *
+            */
+            $save=I('post.');
+            $save['edit']=time();
+            
+            $where['user_id']=session('user_id');
+            $model=M('user');
+            $result=$model->where($where)->save($save);
+            if($result!==false){
+                $res['res']=0;
+            }else{
+                $res['res']=-1;
+            }
+            echo json_encode($res);
             
         }else{
+            
+            //取出储存的用户id
+            $where['user_id']=session('user_id');
+            //创建用户模型
+            $model=M('user');
+            //取出用户数据
+            $result= $model->where($where)->find();
+            $this->assign('user_info',$result);
             $this->display();
         }
         
         
     }
+    /**
+    * 我的经历
+    */
     public function my(){
         
+        $model=M('Live');
+        $where['user_id']=session('user_id');
+        $result=$model->where($where)->select();
+        $this->assign('live_info',$result);
         $this->display();
         
     }

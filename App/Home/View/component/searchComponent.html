@@ -1,0 +1,377 @@
+<div class="m-left4 " id="searchBox">
+    <div class="s-ebox1 pos-search">
+        <form id="pos_search_form" name="pos_search_form" action="#/zhiwei/search/url" class="layui-form">
+            <div class="ebox-input">
+                <input autocomplete="off" class="form-control bor-c-green ajaxSearch" type="text" placeholder="请输入关键字，关键字之间用空格分割" name="query_key"
+                    id="query_key">
+                <div class="clear"></div>
+            </div>
+            <div class="ebox-tag">
+                <span class="pos-search-tag-title">热门搜索：</span>
+                <a href="#/zhaopin/kw-%E5%9F%B9%E8%AE%AD%E8%AE%B2%E5%B8%88/">
+                    <strong>培训讲师</strong>
+                </a>
+                <a href="#/zhaopin/kw-%E9%A2%84%E7%BB%93%E7%AE%97%E5%91%98/">
+                    <strong>预结算员</strong>
+                </a>
+                <a href="#/zhaopin/kw-%E6%95%99%E5%B8%88/">
+                    <strong>教师</strong>
+                </a>
+                <a href="#/zhaopin/kw-%E6%8A%A4%E5%A3%AB/">
+                    <strong>护士</strong>
+                </a>
+                <a href="#/zhaopin/kw-%E8%B4%A7%E8%BF%90%E4%BB%A3%E7%90%86/">
+                    <strong>货运代理</strong>
+                </a>
+                <a href="#/zhaopin/kw-%E5%8C%BB%E7%96%97%E6%9C%BA%E6%A2%B0/">
+                    <strong>医疗机械</strong>
+                </a>
+                <a href="#/zhaopin/kw-%E7%94%9F%E7%89%A9%E5%88%B6%E8%8D%AF/">
+                    <strong>生物制药</strong>
+                </a>
+                <a href="#/zhaopin/kw-%E8%90%A5%E8%BF%90%E7%BB%8F%E7%90%86/">
+                    <strong>营运经理</strong>
+                </a>
+                <a href="#/zhaopin/kw-%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%9B%91/">
+                    <strong>项目总监</strong>
+                </a>
+                <a href="#/zhaopin/kw-%E8%84%9A%E6%9C%AC%E5%BC%80%E5%8F%91/">
+                    <strong>脚本开发</strong>
+                </a>
+
+            </div>
+
+            <div class="ebox-condition">
+                <div class="select_pop js_popcity" maxselectcount="3" selecttxt="工作地点">
+                    <i class="ico_select_pop"></i>
+                    <input class="form-control control-sm js_pop_text" placeholder="工作地点" id="" name="city_text" type="text" value="" readonly="">
+                    <input class="form-control control-sm js_pop_val" placeholder="" id="" name="city_id" type="hidden">
+                </div>
+                <div class="select_pop js_popjobduty" maxselectcount="3" selecttxt="职能">
+                    <i class="ico_select_pop"></i>
+                    <input class="form-control control-sm js_pop_text" placeholder="职能" name="duty_text" type="text" value="" readonly="">
+                    <input class="form-control control-sm js_pop_val" placeholder="" id="" name="duty_id" type="hidden">
+                </div>
+                <div class="select_pop js_popindustry" maxselectcount="3" selecttxt="行业">
+                    <i class="ico_select_pop"></i>
+                    <input class="form-control control-sm js_pop_text" placeholder="行业" name="industry_text" type="text" value="" readonly="">
+                    <input class="form-control control-sm js_pop_val" placeholder="" id="" name="industry_id" type="hidden">
+                </div>
+            </div>
+
+            <div class="ebox-btn">
+                <!-- <div class="fl-right">                  
+            <input class="btn_link fc-blue3" type="reset" value="重置">
+        </div> -->
+                <a href="javascript:;" lay-submit class="btn btn-orange w-220" lay-filter="*">搜索</a>
+            </div>
+            <div id="test"></div>
+        </form>
+    </div>
+    <div class="" id="infoApp">
+        <if condition="[type] eq 'index' ">
+            <div class="change-tab2">
+                <a href="javascript:;" tabid="0">热门经历</a>
+            </div>
+            <else />
+            <div class="change-tab2">
+                <a href="javascript:;" tabid="0" @click='setType("read")'>按阅读量
+                    <img src="__DIST__/image/up.png" width="18" height="15" style="margin-top:-5px" />
+                </a>
+                <a href="javascript:;" tabid="1" @click='setType("good")'>按点赞数
+                    <img src="__DIST__/image/up.png" width="18" height="15" style="margin-top:-5px" />
+                </a>
+            </div>
+        </if>
+
+
+
+        <div id="turncon1 hidden">
+            <div class="li_page">
+                <ul class="ullist-1 js_agent" agenttag="li">
+                    <!-- <li agenturl="/zhiwei/view/29546736/" agenttarget="_blank">
+                            <h2 title="" class="ulli-1-title">
+                                <a target="_blank" href="#" title="销售工程师">销售工程师</a>
+                            </h2>
+                            <div class="txt-inline1">
+                                <p>
+                                    <span>行业：</span>
+                                    制造业 </p>
+                                <p>
+                                    <span>入职时间：</span>2009/10</p>
+                                <p>
+                                    <span>在该岗位时间：</span>6年</p>
+                                <p>
+                                    <span>入职薪资：</span>
+                                    3000元 </p>
+                                <p class="p-w100">
+                                    <span>3～5年后薪资：</span>
+                                    8k~9K 税前 无灰色收入 </p>
+                                <p>
+                                    <span>地点：</span>
+                                    上海 </p>
+                                <p>
+                                    <span>上班/下班时间：</span>
+                                    09：00~17：00 </p>
+                                <div class="clear"></div>
+                            </div>
+                            <p class="fc-gray">2017-09-05发布
+                                <a class="btn btn-sm  w-110 xx btn-green3" target="_blank" href="#">查看详情</a>
+                            </p>
+                            <p class="mt20 xx">
+                                <div class="clear"></div>
+                        </li> -->
+                    <li :agenturl="getUrl(item.live_id)" agenttarget="_blank" v-for='(item,index) in items' :key='item.live_id'>
+                        <h2 title="" class="ulli-1-title">
+                            <a target="_blank" :href="getUrl(item.live_id)" title="销售工程师">{{item.title}}</a>
+                        </h2>
+                        <div class="txt-inline1">
+                            <p>
+                                <span>行业：</span>
+                                {{item.industry_text}} </p>
+                            <p>
+                                <span>入职时间：</span>{{item.entry_time}}</p>
+                            <p>
+                                <span>在该岗位时间：</span>{{item.in_job_time}}</p>
+                            <p>
+                                <span>入职薪资：</span>
+                                {{item.salary}}元 </p>
+                            <p class="p-w100">
+                                <span>3～5年后薪资：</span>
+                                {{item.year_3_5_salary}} {{item.salary_type_0}} {{item.salary_type_1}} </p>
+                            <p>
+                                <span>地点：</span>
+                                {{item.location}} </p>
+                            <p>
+                                <span>上班/下班时间：</span>
+                                09：00~17：00 </p>
+                            <div class="clear"></div>
+                        </div>
+                        <p class="fc-gray">{{getTime(item.edit_time)}}发布
+                            <a class="btn btn-sm  w-110 xx btn-green3" target="_blank" :href="getUrl(item.live_id)">查看详情</a>
+                        </p>
+                        <p class="mt20 xx">
+                            <div class="clear"></div>
+                    </li>
+
+                </ul>
+                <div class="pages_more">
+                    <botton id="getMore" class="more btn btn-info">查看更多经历&gt;&gt;</botton>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    var infoApp = new Vue({
+        el: '#infoApp',
+        data: {
+            items: [],
+            queryDate: [],
+            type: 'read',
+        },
+        methods: {
+            update: function (f) {
+                var _this = this;
+
+                $.get('{:U("Query/getInit")}', {
+                    type: _this.type,
+                }, function (res) {
+                    res = JSON.parse(res);
+                    console.log(res);
+                    _this.items = [];
+                    if (res.res > 0) {
+                        // 有数据
+                        _this.items = res.msg;
+                    }
+
+                    if (f != null) {
+                        f();
+                    }
+
+                });
+
+            },
+            query: function (queryDate) {
+                var load = layer.load(1); //换了种风格
+                if (queryDate != null) {
+                    this.queryDate = queryDate;
+                }
+
+                /**
+                 * start：开始的位置
+                 * num：一次显示多少,
+                 * queryDate：搜索的数据
+                 * 
+                */
+                var _this = this;
+                this.queryDate.start = 0;
+                this.queryDate.num = 2;
+                this.queryDate.type = this.type;
+                $.get('{:U("Query/query")}', this.queryDate, function (res) {
+                    _this.items = [];
+
+
+                    res = JSON.parse(res);
+                    layer.close(load);
+                    if (res.res > 0) {
+                        // 有数据
+                        _this.items = res.msg;
+                        layer.msg('找到了' + res.res + '条数据~');
+                    }
+                    if (res.res < 1) {
+                        // 没有相关数据
+                        layer.msg('没有相关数据~');
+                    }
+                });
+            },
+            addQuery: function (queryDate) {
+
+                if (queryDate != null) {
+                    this.queryDate = queryDate;
+                }
+
+
+                /**
+                 * start：开始的位置
+                 * num：一次显示多少,
+                 * queryDate：搜索的数据
+                 * f
+                 */
+                var _this = this;
+                this.queryDate.start += 2;
+                this.queryDate.type = this.type;
+                $.get('{:U("Query/query")}', this.queryDate, function (res) {
+
+                    // $('#test').html(res);
+                    res = JSON.parse(res);
+                    console.log(res);
+                    if (res.res > 0) {
+                        // 有数据
+                        layer.msg('更新了' + res.res + '条数据~');
+                        for (var x in res.msg) {
+                            _this.items.push(res.msg[x]);
+                        }
+                    }
+                    if (res.res < 1) {
+                        // 已经没有数据了
+                        layer.msg('已经没有更多数据了~');
+                    }
+                });
+            },
+            getTime: function (time) {
+                return time;
+            },
+            getUrl: function (id) {
+                return '{:U("Article/article","","")}' + '/live_id/' + id;
+            },
+            setType: function (type) {
+                this.type = type;
+                this.update();
+            }
+        }
+
+
+
+
+    });
+    infoApp.update(function () {
+        $('#turncon1').removeClass('hidden');
+    });
+    $(document).on('click', '#getMore', function () {
+        infoApp.addQuery();
+    });
+
+
+    //搜索处理
+    layui.use('form', function () {
+
+        var form = layui.form;
+        //各种基于事件的操作，下面会有进一步介绍
+
+        form.on('submit(*)', function (data) {
+            // console.log(data.elem) //被执行事件的元素DOM对象，一般为button对象
+            // console.log(data.form) //被执行提交的form对象，一般在存在form标签时才会返回
+            // console.log(data.field) //当前容器的全部表单字段，名值对形式：{name: value}
+
+            // city_id
+            // city_text
+            // duty_id
+            // duty_text
+            // industry_id
+            // industry_text
+            // query_key
+
+            // duty_id
+            // "23001,23004,23007"
+
+            // duty_text
+            // "高级软件工程师,仿真应用工程师,需求工程师"
+
+            // industry_id
+            // "32026,32028"
+
+            // industry_text
+            // "制药/生物工程,医疗设备/器械"
+
+            //搜索关键字
+            if (data.field.query_key.length >= 1) {
+                var queryKey = data.field.query_key.split(/\s+/);
+                for (x in queryKey) {
+                    queryKey[x] = '%' + queryKey[x] + '%';
+                }
+            }
+
+
+
+            //地址
+            if (data.field.city_text.length >= 1) {
+
+                var city_text = data.field.city_text.split(',');
+                for (x in city_text) {
+                    city_text[x] = '%' + city_text[x] + '%';
+                }
+
+            }
+
+
+            //职位id
+            if (data.field.duty_id.length >= 1) {
+
+                var duty_id = data.field.duty_id.split(',');
+                for (x in duty_id) {
+                    duty_id[x] = '%' + duty_id[x] + '%';
+                }
+
+            }
+
+            //行业id
+
+            if (data.field.industry_id.length >= 1) {
+                var industry_id = data.field.industry_id.split(',');
+                for (var x in industry_id) {
+                    industry_id[x] = '%' + industry_id[x] + '%';
+                }
+            }
+
+
+            var queryDate = {
+                queryKey: queryKey,
+                city_text: city_text,
+                duty_id: duty_id,
+                industry_id: industry_id,
+            };
+
+
+
+            infoApp.query(queryDate);
+
+            return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+        });
+
+    });
+
+
+</script>

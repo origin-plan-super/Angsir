@@ -5,7 +5,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-    <title>angsir网</title>
+    <title>angsir网 | 我的经历</title>
     <meta name="keywords" content="angsir网">
     <meta name="description" content="angsir网">
     <meta name="baidu_ssp_verify" content="012083dea3cb5ea1b27406bc9fe3dc22">
@@ -328,15 +328,12 @@
                     <div class="c_section">
                         <div class="userinfo_edit" id="userinfoEdit">
                             <div class="hadInfo">
-
                                 <ul>
-                                    <li>
-                                        <a href="{:U('Article/article')}">销售工程师</a>
-                                    </li>
-                                    <li>
-                                        <a href="{:U('Article/article')}">软件工程师</a>
-                                    </li>
-
+                                    <volist name='live_info' id='vol' empty="未发布任何简历">
+                                        <li>
+                                            <a href="{:U('Article/article','live_id='.$vol['live_id'])}">{$vol.title}</a>
+                                        </li>
+                                    </volist>
                                 </ul>
                             </div>
 
@@ -349,55 +346,9 @@
         </div>
     </div>
     <!-- footer start-->
-    <div class="clear"></div>
-    <div class="footer" id="js_footer">
-        <div class="wrap">
-            <div class="footer-link-list" style="padding-right: 0px; text-align: center;">
-                <p class="footer-li1" style="float:none;">
-                    <a href="#/about/about/index">关于angsir网</a>|
-                    <a href="#/about/about/contactUs">联系我们</a>|
-                    <a href="#/about/about/joinUs">加入我们</a>|
-                    <a href="#/about/about/help">帮助中心</a>
-                </p>
-                <p class="footer-li2" style="line-height: 25px; float:none;">Copyright©2005-2015 angsir网 沪ICP备05050523号</p>
-                <div style="text-align: center; padding:5px 0;"></div>
-                <div class="clear"></div>
-            </div>
-            <div class="clear"></div>
-        </div>
-    </div>
+    <include file="App/Home/View/component/footer.html" />
 
 
-    <!-- side-bar1 右测边栏 start -->
-    <div class="side-bar1">
-        <a href="javascript:;" gotodata="body" class="js_goto">
-            <p class="sb-img">
-                <img src="__DIST__/image/ico_arrowup.png" alt="" data-bd-imgshare-binded="1">
-                <span class="img-hover">
-                    <img src="__DIST__/image/ico_arrowup_color.png" alt="" data-bd-imgshare-binded="1">
-                </span>
-            </p>
-            <p class="sb-txt1">回到顶部</p>
-        </a>
-
-        <a href="javascript:;">
-            <p class="sb-img">
-                <img src="__DIST__/image/ico_sb_qr.png" alt="" data-bd-imgshare-binded="1">
-                <span class="img-hover">
-                    <img src="__DIST__/image/ico_sb_qr_color.png" alt="" data-bd-imgshare-binded="1">
-                </span>
-            </p>
-            <p class="sb-txt1">关注微信</p>
-            <div class="sb-hover">
-                <i class="tips1"></i>
-                <i class="tips-arrow"></i>
-                <p class="qr-box">
-                    <img src="image/bl_weixin.jpg" alt="" class="js_bl_qr_weixin" data-bd-imgshare-binded="1"> </p>
-                <p class="qr-txt">(仅限本人使用)</p>
-            </div>
-        </a>
-
-    </div>
     <script src="__DIST__/js/jquery.ba-resize.js"></script>
     <script src="__DIST__/js/basic.js"></script>
     <script src="__DIST__/js/bl_jsvalidate.js"></script>

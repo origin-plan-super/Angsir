@@ -17,6 +17,12 @@ namespace Home\Controller;
 use Think\Controller;
 class IndexController extends Controller {
     public function index() {
+        
+        
+        $model=M('User');
+        $result=$model->where('is_up = 1')->select();
+        $this->assign('up_user_info',$result);
+        
         $this->display();
     }
     public function about(){

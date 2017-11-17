@@ -24,7 +24,23 @@ class CommonController extends Controller {
         if (empty($id)) {
             // $url = U('Index/index');
             
-            $this->error('请先登录！');
+            
+            if(IS_AJAX){
+                $echo['res']=-999;
+                $echo['msg']='未登录！';
+                echo json_encode($echo);
+            }else{
+                // $this->error('请先登录！');
+                // $url=U('Index/index');
+                // echo "<script>top.location.href='$url'</script>";
+                $title='未登录';
+                $info='请登录后再操作';
+                $pageTitle='请登录';
+                $this->assign('title',$title);
+                $this->assign('info',$info);
+                $this->assign('pageTitle',$pageTitle);
+                $this->display('jump/jump');
+            }
             
             // echo "<script>top.location.href='$url'</script>";
             exit ;

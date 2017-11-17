@@ -1,0 +1,482 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--  main layout -->
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>angsir网</title>
+    <meta name="keywords" content="angsir网">
+    <meta name="description" content="angsir网">
+    <meta name="baidu_ssp_verify" content="012083dea3cb5ea1b27406bc9fe3dc22">
+
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <!-- page Common css file -->
+
+    <link href="__DIST__/css/basic.css" rel="stylesheet" type="text/css">
+    <link href="__DIST__/css/public.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" async="" src="__DIST__/js/atrk.js"></script>
+    <script>
+        // console.log
+        if (window.console == undefined) {
+            window.console = {
+                log: function (msg) { }
+            }
+        }
+    </script>
+    <!-- page Common jquery file -->
+
+    <script src="__DIST__/js/jquery-1.11.3.min.js"></script>
+    <script src="__DIST__/js/user.agent.js"></script>
+
+    <style>
+        .form-control {
+            z-index: 9999999;
+        }
+
+        .label-inline1 .label-1,
+        .label-inline2 .label-2,
+        .label-inline3 .label-3,
+        .label-inline5 .label-5 {
+            z-index: 1;
+            max-width: 60px;
+            padding-right: 0;
+            left: 0px;
+        }
+    </style>
+    <script>
+        //控制ajax 并发请求数量
+        (function (jQuery) {
+            var old_ajax = jQuery.ajax;
+            var queue = []
+            var c = 0;
+            var max_c = 4;
+
+            function ajax(arg) {
+                var args = []
+                for (var i = 0; i < arguments.length; i++) {
+                    args.push(arguments[i]);
+                }
+                queue.push(args);
+                setTimeout(run, 1);
+            }
+
+            function run() {
+                c++;
+                if (c > max_c) {
+                    return;
+                }
+
+                var t = queue.shift();
+                if (t) {
+                    old_ajax.apply(jQuery, t).always(function () {
+                        c--;
+                        setTimeout(run, 1);
+                    })
+                }
+
+            }
+
+            //jQuery.ajax=ajax;
+
+        })(jQuery)
+    </script>
+
+    <!-- End Alexa Certify Javascript -->
+
+    <link href="__DIST__/css/search.css" rel="stylesheet" type="text/css">
+    <!-- 请置于所有广告位代码之前 -->
+
+</head>
+
+<body>
+    <!-- header start-->
+
+    <script src="__DIST__/js/js.cookie.js"></script>
+    <script>
+            //ajax 刷新用户菜单 的现实和隐藏
+            //$(".nav-menu").hide();
+            (function () {
+
+                var queue = []
+                var data;
+
+                function load_cookie() {
+
+                    var userinfo = Cookies.get('userinfo');
+                    if (userinfo == undefined) {
+                        data = ({
+                            'status': 0,
+                            'result': {
+                                'username': '',
+                                'identity': ''
+                            }
+                        })
+                        flush_view2();
+                        return;
+                    }
+                    var arr = userinfo.split('|');
+                    if (arr && arr[0] == '1') {
+                        var uid = arr[1];
+                        var username = Cookies.get('un-' + uid);
+                        var identity = Cookies.get('st-' + uid);
+                        if ((identity == '') || (undefined == identity)) {
+                            identity = 1;
+                        }
+                        //console.log('username!=undefined ,',username!=undefined , username!='undefined' );
+                        if (username && undefined != username && 'undefined' != username) {
+                            data = ({
+                                'status': 1,
+                                'result': {
+                                    'username': username,
+                                    'identity': identity
+                                }
+                            })
+
+                            flush_view2();
+                            return;
+                        }
+                    }
+                }
+
+                function getUserInfo(callback) {
+                    //console.log('push ');
+                    //console.log('push ',callback.toString);
+                    queue.push(callback);
+                    flush_view2();
+                }
+
+                function flush_view2() {
+                    if (!data) {
+                        // console.log('no data');
+                        return;
+                    }
+                    while (1) {
+                        var callback = queue.shift()
+                        if (!callback) {
+                            break;
+                        }
+                        //console.log('call',callback.toString(),data)
+                        callback(data)
+                    }
+                }
+
+                window.getUserInfo = getUserInfo;
+
+                load_cookie();
+                //console.log('data',data);
+                if (!data) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/passport/user/loginStatusAjax",
+                        dataType: "json",
+                        success: function (result) {
+
+                            //flush_view(data);
+                            data = result;
+                            flush_view2();
+                        }
+
+                    });
+                }
+
+            })()
+    </script>
+
+    <include file="App/Home/View/component/nav.html" />
+
+    <div class="clear"></div>
+    <script>
+        getUserInfo(function (data) {
+            if (data['status'] != 0) {
+                //已经登陆
+                $('[loginstate="0"]').addClass('hidden');
+                $('[loginstate="1"]').removeClass('hidden');
+                if (data['result']['username']) {
+                    $(".user-name").html(data['result']['username']);
+                }
+
+                if (data['result']['identity'] == 1) {
+                    $('[identitystate="2"]').addClass('hidden');
+                    $('[identitystate="1"]').removeClass('hidden');
+
+                } else if (data['result']['identity'] == 2) {
+                    $('[identitystate="1"]').addClass('hidden');
+                    $('[identitystate="2"]').removeClass('hidden');
+                }
+            } else {
+                //未登录
+                $('[loginstate="1"]').addClass('hidden');
+                $('[loginstate="0"]').removeClass('hidden');
+                $('[identitystate="1"]').addClass('hidden');
+                $('[identitystate="2"]').addClass('hidden');
+                $('[identitystate="0"]').removeClass('hidden');
+            }
+        })
+
+        //消息通知个数小红点ajax
+        getUserInfo(function (data) {
+            if (data['status'] != 0 && data['result']['identity'] == 1) {
+                //求职者 ajax 获取通知个数
+                $.ajax({
+                    type: "get",
+                    url: "/position/apply/getMessageNumAjax",
+                    dataType: "json",
+                    success: function (data) {
+                        if (data['faceNum'] == 0) {
+                            $('#face span').removeClass("msg");
+                            data['faceNum'] = '';
+                        }
+                        if (data['notFitNum'] == 0) {
+                            $('#notFit span').removeClass("msg");
+                            data['notFitNum'] = '';
+                        }
+                        if (data['messageSum'] == 0) {
+                            data['messageSum'] = '';
+                        }
+                        if (data['status'] == 1) {
+                            if (data['faceNum'] != '') {
+                                $('#face span').addClass("msg");
+                            }
+                            if (data['notFitNum'] != '') {
+                                $('#notFit span').addClass("msg");
+                            }
+                            if (data['messageSum'] != '') {
+                                $('#messageSum').addClass("msg");
+                            }
+                            $('#face span').html(data['faceNum']);
+                            $('#notFit span').html(data['notFitNum']);
+                            $('#messageSum').html(data['messageSum']);
+                        }
+                    }
+                });
+            } else if (data['status'] != 0 && data['result']['identity'] == 2) {
+                $.ajax({
+                    type: "post",
+                    url: "/apply/resume-manage/getNumAjax",
+                    dataType: "json",
+                    success: function (data) {
+                        if (data['status'] == 1 && data['num'] != 0) {
+                            $("#resume-manage-num").html(data['num']);
+                            $("#resume-manage-num").addClass('msg');
+                        } else {
+                            $("#resume-manage-num").removeClass('msg');
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+
+    <!-- header end-->
+
+    <div class="main">
+        <div class="wrap">
+            <div id="_qs31qxs5p5"></div>
+            <div class="m-left4">
+                <div class="s-ebox1 pos-search">
+                    <form id="pos_search_form" name="pos_search_form" action="/zhiwei/search/url">
+                        <div class="ebox-input">
+                            <input autocomplete="off" class="form-control bor-c-green ajaxSearch" type="text" placeholder="请输入关键字" name="kw" id="" value=""
+                                onfocus="javascript:_gaq.push([&#39;_trackEvent&#39;, &#39;index&#39;, &#39;click_searchBox&#39;])">
+
+                            <div class="clear"></div>
+                        </div>
+                        <div class="ebox-tag">
+                            <span class="pos-search-tag-title">热门搜索：</span>
+                            <a href="#/zhaopin/kw-%E5%9F%B9%E8%AE%AD%E8%AE%B2%E5%B8%88/" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;, &#39;index&#39;, &#39;click_hotTopics&#39;])">
+                                <strong>培训讲师</strong>
+                            </a>
+                        </div>
+
+                        <div class="ebox-condition">
+                            <div class="select_pop js_popcity" maxselectcount="3" selecttxt="工作地点">
+                                <i class="ico_select_pop"></i>
+                                <input class="form-control control-sm js_pop_text" placeholder="工作地点" id="" name="city[text]" type="text" value="" readonly="">
+                                <input class="form-control control-sm js_pop_val" placeholder="" id="" name="city[id]" type="hidden">
+                            </div>
+                            <div class="select_pop js_popjobduty" maxselectcount="3" selecttxt="职能">
+                                <i class="ico_select_pop"></i>
+                                <input class="form-control control-sm js_pop_text" placeholder="职能" name="duty[text]" type="text" value="" readonly="">
+                                <input class="form-control control-sm js_pop_val" placeholder="" id="" name="duty[id]" type="hidden">
+                            </div>
+                            <div class="select_pop js_popindustry" maxselectcount="3" selecttxt="行业">
+                                <i class="ico_select_pop"></i>
+                                <input class="form-control control-sm js_pop_text" placeholder="行业" name="industry[text]" type="text" value="" readonly="">
+                                <input class="form-control control-sm js_pop_val" placeholder="" id="" name="industry[id]" type="hidden">
+                            </div>
+                        </div>
+
+                        <div class="ebox-btn">
+                            <!-- <div class="fl-right">                  
+                    <input class="btn_link fc-blue3" type="reset" value="重置">
+                </div> -->
+                            <a href="javascript:;" class="btn btn-orange w-220" id="pos_search_form_submit">搜索</a>
+                        </div>
+                    </form>
+                </div>
+                <div class="" id="turnwrap1">
+                    <div class="change-tab2">
+                        <a href="javascript:;" tabid="0">热门经历</a>
+                    </div>
+                    <div id="turncon1">
+                        <div class="li_page">
+                            <ul class="ullist-1 js_agent" agenttag="li">
+                                <li agenturl="/zhiwei/view/29546736/" agenttarget="_blank">
+
+                                    <h2 title="" class="ulli-1-title">
+                                        <a target="_blank" href="#" title="销售工程师">销售工程师</a>
+                                    </h2>
+
+                                    <div class="txt-inline1">
+
+                                        <p>
+                                            <span>行业：</span>
+                                            制造业 </p>
+
+                                        <p>
+                                            <span>入职时间：</span>2009/10</p>
+
+                                        <p>
+                                            <span>在该岗位时间：</span>6年</p>
+                                        <p>
+                                            <span>入职薪资：</span>
+                                            3000元 </p>
+                                        <p class="p-w100">
+                                            <span>3～5年后薪资：</span>
+                                            8k~9K 税前 无灰色收入 </p>
+                                        <p>
+                                            <span>地点：</span>
+                                            上海 </p>
+                                        <p>
+                                            <span>上班/下班时间：</span>
+                                            09：00~17：00 </p>
+
+                                        <div class="clear"></div>
+                                    </div>
+                                    <p class="fc-gray">2017-09-05发布
+                                        <a class="btn btn-sm  w-110 xx btn-green3" target="_blank" href="#">查看详情</a>
+                                    </p>
+
+                                    <p class="mt20 xx">
+
+                                        <div class="clear"></div>
+                                </li>
+                            </ul>
+                            <div class="pages_more">
+                                <a href="#/zhaopin/" class="more btn btn-info">查看更多经历&gt;&gt;</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="m-right4">
+
+                <div class="i-ebox1 mt10">
+                    <div class="title" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;, &#39;index&#39;, &#39;click_recommendCompany&#39;])">
+                        <i class="ico ico-square"></i>推荐会员</div>
+                    <div class="conbox">
+                        <ul class="i-recommend-company evenParent" even_cell="li">
+
+                            <li>
+                                <a href="#">
+                                    <img src="__DIST__/image/1442028166"> </a>
+                                <a href="#">小高</a>
+                            </li>
+
+                            <li>
+                                <a href="#">
+                                    <img src="__DIST__/image/1442028166"> </a>
+                                <a href="#">小高</a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="__DIST__/image/1442028166"> </a>
+                                <a href="#">小高</a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="__DIST__/image/1442028166"> </a>
+                                <a href="#">小高</a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="__DIST__/image/1442028166"> </a>
+                                <a href="#">小高</a>
+                            </li>
+                        </ul>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <include file="App/Home/View/component/footer.html" />
+
+
+
+        <script src="__DIST__/js/jquery.ba-resize.js"></script>
+        <script src="__DIST__/js/basic.js"></script>
+        <script src="__DIST__/js/bl_jsvalidate.js"></script>
+        <script src="__DIST__/js/uuid.js"></script>
+
+        <script type="text/javascript">
+            $(function () {
+                popnormal({
+                    "popTplId": "#popup_sendemailtpl", //内容模板id
+                    "eventEle": ".js_pop_send_email", //点击事件元素（不定义：立即弹出）
+                    "popId": "popSendemail", //弹出层id 默认为popnormal,（可自定义）
+                    "popCallbackFun": function (args, TfThis) {
+                        console.log(args);
+                    }
+                });
+                $.ajax({
+                    url: '/main/index/recommendAjax',
+                    type: 'POST',
+                    dataType: 'html',
+                    success: function (html) {
+                        if (html != '') {
+                            //兼容  单数据源 对 1个模板1个位置
+                            $("#recommended_pos_list").html(html);
+                            refreshFamous();
+                        }
+                    }
+                }); FS
+                $.ajax({
+                    url: '/main/index/isEmailCheckedAjax',
+                    type: 'POST',
+                    dataType: 'html',
+                    success: function (html) {
+                        $("body").prepend(html);
+                    }
+                });
+            })
+
+        </script>
+
+        <script type="text/javascript">
+            //ajax 搜索提示 调用
+            //搜索提示 返回数据结构 data： ["php\u5de5\u7a0b\u5e08","php\u7a0b\u5e8f\u5458","php\u9ad8\u7ea7","php\u4e2d\u7ea7"]
+            ajaxSearchFun({
+                "eventEle": ".ajaxSearch",
+                "promptUrl": "/position/search/autoCompleteAjax",
+                "searchCallback": function (args) {
+                    $('#pos_search_form').submit();
+                }
+            });
+        </script>
+
+        <script src="__DIST__/js/new_city.js"></script>
+        <script src="__DIST__/js/new_job_duty.js"></script>
+        <script src="__DIST__/js/new_industry.js"></script>
+        <script src="__DIST__/js/data_type.js"></script>
+        <script src="__DIST__/js/play.js"></script>
+
+        <!-- footer end-->
+        <script src="__DIST__/js/handlebars-v3.0.3.js"></script>
+
+</body>
+
+</html>

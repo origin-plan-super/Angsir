@@ -24,6 +24,13 @@ define('PAPER_DATA_PATH', './data/');
 // 全局key
 define('__KEY__', 'angsir12138..');
 
+//定义工作路径
+define('WORKING_PATH', str_replace('\\', '/', __DIR__));
+//定义上传的跟目录——用户
+define('UPLOAD_ROOT_PATH_USER', '/Public/Upload/user/');
+//定义上传的跟目录——管理
+define('UPLOAD_ROOT_PATH_ADMIN', '/Public/Upload/admin/');
+
 // 引入ThinkPHP入口文件
 require './ThinkPHP/ThinkPHP.php';
 

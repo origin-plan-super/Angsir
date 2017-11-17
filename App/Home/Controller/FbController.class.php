@@ -71,7 +71,7 @@ class FbController extends CommonController {
             $add['duty_text']=I('post.duty_text');
             $add['duty_id']=I('post.duty_id');
             //是否有证书
-            $add['duty_id']=I('post.duty_id');
+            $add['is_certificate']=I('post.is_certificate');
             //入职时间
             $add['entry_time']=I('post.entry_time');
             //在岗时间
@@ -121,14 +121,20 @@ class FbController extends CommonController {
             //添加时间
             $add['add_time']=time();
             //修改时间
-            $add['edit_itme']=$add['add_time'];
+            $add['edit_time']=$add['add_time'];
             //经验id
             $add['live_id']=md5($add['user_id']. $add['add_time'].__KEY__);
             
             
+            $model=M('Live');
+            $result=$model->add($add);
+            if($result!==false){
+                $url_id['live_id']= $add['live_id'];
+                $url=U('Article/article',$url_id);
+                echo "<script>top.location.href='$url'</script>";
+            }
             
             
-            dump(I('post.'));
             
         }else{
             $this->display();

@@ -17,6 +17,9 @@ namespace Home\Controller;
 use Think\Controller;
 class SearchController extends Controller {
     public function Search() {
+        $model=M('User');
+        $result=$model->where('is_up = 1')->select();
+        $this->assign('up_user_info',$result);
         $this->display();
     }
     

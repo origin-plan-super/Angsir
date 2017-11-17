@@ -6,7 +6,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-    <title>angsir网</title>
+    <title>angsir网 | {$live_info.title}</title>
     <meta name="keywords" content="angsir网">
     <meta name="description" content="angsir网">
     <meta name="baidu_ssp_verify" content="012083dea3cb5ea1b27406bc9fe3dc22">
@@ -284,7 +284,7 @@
             <div class="tbar3-left">
                 <div class="tbar3-top">
                     <h1 class="tbar2-title1">
-                        <strong>销售工程师</strong>
+                        <strong>{$live_info.title}</strong>
                         <span class="ico-wrap">
                         </span>
                     </h1>
@@ -292,11 +292,11 @@
 
                         <div class="tbar3-duty">
                             <span>行业：</span>
-                            <h2>制造业</h2>
+                            <h2>{$live_info.industry_text}</h2>
                         </div>
                         <div class="tbar3-duty">
                             <span>该行业或该职位有无相关证书，是否必须持证上岗：</span>
-                            <h2>无</h2>
+                            <h2>{$live_info.is_certificate}</h2>
                         </div>
                         <div class="clear"></div>
                     </div>
@@ -305,23 +305,23 @@
                     <ul class="ullist-inline1">
                         <li>
                             <span>入职时间：</span>
-                            <h2>2009/10</h2>
+                            <h2>{$live_info.entry_time}</h2>
                         </li>
                         <li>
                             <span>在该岗位时间：</span>
-                            <h2>6年</h2>
+                            <h2>{$live_info.in_job_time}</h2>
                         </li>
                         <li>
                             <span>入职薪资：</span>
-                            <h2>3000（税前）</h2>
+                            <h2>{$live_info.salary}</h2>
                         </li>
                         <li>
                             <span>3～5年后薪资：</span>
-                            <h2>8k~9K 税前 无灰色收入</h2>
+                            <h2>{$live_info.year_3_5_salary} {$live_info.salary_type_0} {$live_info.salary_type_1}</h2>
                         </li>
                         <li>
                             <span>地点：</span>
-                            <h2>上海市</h2>
+                            <h2>{$live_info.location}</h2>
                         </li>
                         <li>
                             <span>上班/下班时间：</span>
@@ -330,7 +330,7 @@
                     </ul>
                     <div class="clear"></div>
                     <div class="clear"></div>
-                    <div class="publish-time">更新时间：2017-09-05发布</div>
+                    <div class="publish-time">更新时间：{$live_info.edit_time|date='Y-m-d H:i:s',###}发布</div>
                 </div>
             </div>
             <div class="tbar3-right">
@@ -405,76 +405,134 @@
                                 <span class="cd">
                                     是否经常加班</span>
                             </li>
-                            <li>若客户处有事，则经常周末也在客户处，直至处理好问题，无加班工资。 </li>
+                            <li>
+                                <if condition="$live_info.is_overtime gt 0 ">
+                                    <span>不经常加班</span>
+                                    <else />
+                                    <span>{$live_info.overtime_info}</span>
+                                </if>
+                            </li>
                             <li>
                                 <strong>
                                     <span class="cd">工作环境</span>
                                 </strong>
                             </li>
-                            <li>在办公楼上班，有时也要到客户工厂车间去短暂工作，车间环境较差，粉尘较多。 </li>
+                            <li>{$live_info.work_environment}</li>
 
                             <li>
                                 <span class="cd">人际氛围</span>
                             </li>
-                            <li>人际氛围还可以，同事们比较和善，但也有隐隐的竞争关系，因为是民营企业，主要要看老板脸色。</li>
+                            <li>{$live_info.interpersonal_atmosphere}</li>
 
                             <li>
                                 <span class="cd">工作中男女比例</span>
                             </li>
-                            <li>销售部几个男的一个女的，财务部女生倒有好几个。</li>
+                            <li>{$live_info.male_to_female_ratio}</li>
 
                             <li>
                                 <span class="cd">人员流动是否频繁</span>
                             </li>
-                            <li>比较频繁，业务上做不出业绩很难留下。</li>
+                            <li>{$live_info.is_the_turnover_of_personnel_frequent}</li>
 
                             <li>
                                 <span class="cd">上升空间及发展前景</span>
                             </li>
-                            <li>业务员——资深业务员——部门主管/经理——销售副总</li>
+                            <li>{$live_info.rising_space_and_development_prospect}</li>
 
                             <li>
                                 <span class="cd">需要接触哪些方面的人</span>
                             </li>
-                            <li>老板（听老板战略方针，最终工作成绩要老板认可）、主管领导（听主管领导安排具体工作，向主管领导汇报具体工作）、客户（客户随叫随到，需要解决客户要求的各类问题）、供应商 （和产品供应商沟通，对供货品质进行控制，和物流供应商进行沟通，确保准时准确送货到客户那）
-                                （老板/主管/客户/供应商/下属/同事） </li>
+                            <li>{$live_info.who_do_you_need_to_contact}</li>
+
                             <li>
                                 <span class="cd">典型的一天工作</span>
                             </li>
-                            <li>早上打开电脑，处理客户邮件，包括新的订单，处理客户的疑问和配合解决客户的问题。 上午再对潜在客户进行电话拜访，若客户给机会给时间，再进一步的进行实地面对面交流，推广我们的产品，由于我们的产品市场上有很多同类产品，因此推广时要花不少力气。
-                                下午赶到老客户现场车间，和工人及班组长交流我们产品的使用情况，若有使用不顺利，顺便要解决他们的问题，这就要求我们熟悉我们的产品，甚至有些技术问题也要熟悉。 在进行这些工作的同时，打电话给有逾期款未付的客户进行催款，以及解决工作上的一些日常事物。
-                            </li>
-                            <li>
+                            <li>{$live_info.a_typical_day_work}</li>
 
+                            <li>
                                 <span class="cd">什么时候压力最大</span>
                             </li>
-                            <li>新客户开发遇阻，老客户被竞争对手抢走，或者老客户要求降价。催款时压力也大，既不能很强硬地催，这样会得罪客户，但是催不回来，自己公司内部又会扣自己绩效工资。客户处出现质量问题，发生客户抱怨或者客诉，因为索赔很厉害，所以也要求我们销售在客户这，将大事化小，小事化了。</li>
+                            <li>{$live_info.when_is_the_maximum_pressure}</li>
                             <li>
                                 <span class="cd">想对后来人说点什么</span>
                             </li>
-                            <li>学好一门能养家糊口的专业，学好外语及口语（特别重要，学好外语你的选择机会更多上升空间更大）</li>
+                            <li>{$live_info.what_do_you_want_to_say_to_later_people}</li>
                             <li>
                                 <span class="cd">一则自己亲身经历的职场故事</span>
                             </li>
-                            <li>有一次客户（客户中我的线人）下午打电话给我，说我们的产品在各生产线上都反映不好用，我紧急赶赴客户现场，现场查看后，发现产品确实有问题，二话不说，立即在不惊动客户领导的情况下，安排自己公司物流发货，给客户各相关部门的具体操办人打招呼，给客户车间里换另一批产品。很不巧，换来的另一批产品质量也不好，车间工人普遍反映不好用，此时我急了，因为我知道我们仓库里主要就是这两个批次的产品，如果这两个批次都不好用，客户车间就无法正常生产，就得停线，由于我们客户是给汽车整机厂供货的，每天必须做出这么多数量的，如果因为我们产品质量原因造成客户停线，我们公司每小时就得赔偿客户几十万，想到这里，我不敢再想下去。
-                                冷静下来后，我找各个生产线的领导，请他们帮忙把下午撑过去，同时不要把这事捅到他们领导那去（这时就看出平时和他们关系的好坏了，平时要多烧香，关键时别人才能帮你）。之后我和晚班的车间领导沟通，晚班需要多少我们的产品，我马上开车去我们的仓库再去拿这么多产品给他们用，得确保他们晚班能生产！福无双至，祸不单行，那天正好是过节，路上很堵，等我心急火燎地将仓库里除了确定有问题的那两批货，其他零星批次的货再次送到客户现场时，离客户晚班开始只有十五分钟了，也就是说，我晚十五分钟，客户就会停线，我们公司得赔死，直到现在，写下这些文字时，我还有些后怕。
-                                后面的几天我都在客户现场跟踪，确认后续产品无质量问题时才回到公司交差。
-                            </li>
+                            <li>{$live_info.story}</li>
 
-                            <li style="float:right; font-size:14px">阅读量：23 点赞：6
-                                <a href="#">
+
+                            <li style="float:right; font-size:14px">留言：{$comment_info|count=###} 阅读量：{$readCount} 点赞：
+                                <div style='display: inline' id="liveGoodCount">{$liveGoodCount}</div>
+                                <a id="liveGood" data-href="{:U('Article/good')}">
                                     <img src="__DIST__/image/z.png" width="26" height="24" />
                                 </a>
                             </li>
                         </ul>
                     </div>
                     <div>
-                        <textarea cols="" rows="12" class="w-682"></textarea>
-                        <li class="mt20 fb" style="margin-left:180px">
-                            <input type="submit" id="login_submit" value="留  言" class="btn btn-primary btn-lg btn-block mlr0 fb " style="width:300px; margin:20px  "
+
+                        <style>
+                            #commentBox img {
+                                width: 50px;
+                                height: 50px;
+                                border-radius: 50%;
+                            }
+
+                            .comment-item {
+                                padding: 10px 0;
+                            }
+                        </style>
+                        <fieldset class="layui-elem-field layui-field-title">
+                            <legend>留言</legend>
+                            <div class="layui-field-box">
+                                <ul id="commentBox">
+                                    <!-- comment_info -->
+
+                                    <volist name='comment_info' id='vol' empty="没有留言">
+
+                                        <li class="comment-item">
+                                            <div class="layui-row">
+                                                <div class="layui-col-md2" style='text-align: center'>
+
+                                                    <img class="user_img" src="{$vol.user_img}" onerror='this.src="__DIST__/image/default_headpic.png"' />
+                                                    <div>
+                                                        {$vol.user_name}
+                                                    </div>
+                                                    <notempty name='is_admin'>
+                                                        <div>
+                                                            <a href="{:U('Admin/Comment/del','comment_id='.$vol['comment_id'])}">删除此条评论</a>
+                                                        </div>
+                                                    </notempty>
+                                                </div>
+                                                <div class="layui-col-md10">
+                                                    <p>
+                                                        <span class="layui-badge-rim">{$vol.live_add_time|date='Y-m-d H:i:s',###}</span>
+                                                    </p>
+                                                    <p>&nbsp</p>
+                                                    <span>
+                                                        {$vol.content}
+                                                    </span>
+                                                </div>
+
+                                            </div>
+                                        </li>
+                                        <hr class="layui-bg-gray">
+                                    </volist>
+                                </ul>
+                            </div>
+                        </fieldset>
+
+                    </div>
+                    <form class="layui-form" action="{:U('Comment/add')}" method="post">
+                        <textarea cols="" rows="12" class="w-682 " name="content"></textarea>
+                        <input type="hidden" name="live_id" value="{$live_info.live_id}">
+                        <li class="mt20 fb " style="margin-left:180px">
+                            <input type="submit" id="comment" value="留  言" class="btn btn-primary btn-lg btn-block mlr0 fb " style="width:300px; margin:20px"
                                 align="middle">
                         </li>
-                    </div>
+                    </form>
 
                 </div>
 
@@ -487,22 +545,22 @@
                     </h4>
                     <div class="ebox5">
                         <div class="company-logo">
-                            <img src="__DIST__/image/company_logo666601_169.jpg" data-bd-imgshare-binded="1">
+                            <img src="{$user_info.user_img}" onerror='this.src="__DIST__/image/company_logo666601_169.jpg"' data-bd-imgshare-binded="1">
 
                         </div>
-                        <h2>老张</h2>
+                        <h2>{$user_info.user_name}</h2>
 
                         <ul class="text-list3 mt20">
                             <li>
-                                <span>年龄：</span>34</li>
+                                <span>年龄：</span>{$user_info.user_age}</li>
                             <li>
-                                <span>行业：</span>制造业</li>
+                                <span>行业：</span>{$user_info.industry_text}</li>
                             <li>
-                                <span>职位：</span>销售</li>
+                                <span>职位：</span>{$user_info.duty_text}</li>
                             <li>
-                                <span>地址：</span>北京市海淀</li>
+                                <span>地址：</span>{$user_info.user_address}</li>
                             <li>
-                                <span>邮箱：</span>997945@qq.com</li>
+                                <span>邮箱：</span>{$user_info.user_id}</li>
                         </ul>
                     </div>
                 </div>
@@ -623,6 +681,47 @@
         </a>
 
     </div>
+
+    <script>
+        /**
+    点赞功能
+        */
+        $(document).on('click', '#liveGood', function () {
+
+
+            var live_id;
+
+            $.get('{:U("ArticleTool/good")}', { live_id: '{$live_info.live_id}' }, function (res) {
+
+                res = JSON.parse(res);
+                if (res.res > 0) {
+                    //点赞成功
+                    var count = parseInt($('#liveGoodCount').text());
+                    console.log(count);
+                    $('#liveGoodCount').text(++count);
+                }
+                if (res.res == 0) {
+                    //点赞失败
+                    layer.msg('点赞失败，可能网络有问题~');
+                }
+                if (res.res == -1) {
+                    //点赞失败
+                    layer.msg('你已经点过赞了~');
+                }
+                if (res.res == -10) {
+                    //点赞失败
+                    layer.msg('未登录~');
+                }
+
+            });
+
+
+        });
+
+
+
+
+    </script>
 
 </body>
 

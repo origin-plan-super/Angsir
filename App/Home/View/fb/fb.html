@@ -17,7 +17,6 @@
 
     <link href="__DIST__/css/basic.css" rel="stylesheet" type="text/css">
     <link href="__DIST__/css/public.css" rel="stylesheet" type="text/css">
-    <link href="__VENDOR__/layui/css/layui.css" rel="stylesheet" type="text/css">
 
     <!--  -->
     <script type="text/javascript" async="" src="__DIST__/js/ga.js"></script>
@@ -200,18 +199,18 @@
                                 <label for="industry" class=" fz-14 fbt">行&nbsp;&nbsp;业：</label>
                                 <div class="select_pop js_popindustry" maxselectcount="3" style="width:422px" selecttxt="行业">
                                     <i class="ico_select_pop"></i>
-                                    <input lay-verify='required' class="form-control control-sm js_pop_text" placeholder="" name="industry[text]" type="text"
+                                    <input lay-verify='required' class="form-control control-sm js_pop_text" placeholder="" name="industry_text" type="text"
                                         value="" readonly="" style="width:400px">
-                                    <input class="form-control control-sm js_pop_val" placeholder="" id="" name="industry[id]" type="hidden" style="width:400px">
+                                    <input class="form-control control-sm js_pop_val" placeholder="" id="" name="industry_id" type="hidden" style="width:400px">
                                 </div>
                             </li>
                             <li class="label-inline1">
                                 <label for="duty" class=" fz-14 fbt">职&nbsp;&nbsp;位：</label>
                                 <div class="select_pop js_popjobduty" maxselectcount="3" style="width:422px" selecttxt="职能">
                                     <i class="ico_select_pop"></i>
-                                    <input lay-verify='required' class="form-control control-sm js_pop_text" placeholder="" name="duty[text]" type="text" value=""
+                                    <input lay-verify='required' class="form-control control-sm js_pop_text" placeholder="" name="duty_text" type="text" value=""
                                         readonly="" style="width:400px">
-                                    <input class="form-control control-sm js_pop_val" placeholder="" id="" name="duty[id]" type="hidden" style="width:400px">
+                                    <input class="form-control control-sm js_pop_val" placeholder="" id="" name="duty_id" type="hidden" style="width:400px">
                                 </div>
                             </li>
 
@@ -258,7 +257,6 @@
                                     <input type="radio" lay-ignore name="salary_type_1" value="无灰色收入" id="salary_type_1_1" /> 无灰色收入
                                 </label>
 
-
                             </li>
                             <li class="label-inline1">
                                 <label for="location" class="fz-14 fbt">地&nbsp;&nbsp;点：</label>
@@ -278,8 +276,8 @@
                                 <label for="work_environment" class=" fz-14 fbt">工作环境：</label>
                                 <input lay-verify='required' type="text" id="work_environment" name="work_environment" value="" class="form-control  w-400 js_validate"> </li>
                             <li class="label-inline1">
-                                <label for="Interpersonal_atmosphere" class=" fz-14 fbt">人际氛围：</label>
-                                <input lay-verify='required' type="text" id="Interpersonal_atmosphere" name="Interpersonal_atmosphere" value="" class="form-control  w-400 js_validate"> </li>
+                                <label for="interpersonal_atmosphere" class=" fz-14 fbt">人际氛围：</label>
+                                <input lay-verify='required' type="text" id="interpersonal_atmosphere" name="interpersonal_atmosphere" value="" class="form-control  w-400 js_validate"> </li>
 
                             <li class="label-inline1">
                                 <label for="male_to_female_ratio" class=" fz-14 fbt">工作中男女比例：</label>
@@ -330,92 +328,69 @@
     <!-- main end-->
 
     <!-- footer start-->
-    <div class="clear"></div>
-    <div class="footer" id="js_footer">
-        <div class="wrap">
-            <div class="footer-link-list" style="padding-right: 0px; text-align: center;">
-                <p class="footer-li1" style="float:none;">
-                    <a href="#/about/about/index">关于angsir网</a>|
-                    <a href="#/about/about/contactUs">联系我们</a>|
-                    <a href="#/about/about/joinUs">加入我们</a>|
-                    <a href="#/about/about/help">帮助中心</a>
-
-                </p>
-                <p class="footer-li2" style="line-height: 25px; float:none;">Copyright©2005-2015 angsir网 沪ICP备05050523号</p>
-                <div style="text-align: center; padding:5px 0;">
-                    <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010102002503" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
-                        <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">
-                            <img src="__DIST__/image/picp_bg_new.png" alt="沪公网备" border="0" style="margin-right: 5px; margin-top:-3px;">沪公网安备 31010102002503号</p>
-                    </a>
-                </div>
-
-            </div>
-
-        </div>
+    <include file="App/Home/View/component/footer.html" />
 
 
-        <!--  Common js file -->
-        <script src="__DIST__/js/jquery.ba-resize.js"></script>
-        <script src="__DIST__/js/basic.js"></script>
-        <script src="__DIST__/js/bl_jsvalidate.js"></script>
-        <script src="__DIST__/js/uuid.js"></script>
 
-        <script type="text/javascript">
-            $(function () {
-                popnormal({
-                    "popTplId": "#popup_sendemailtpl",//内容模板id
-                    "eventEle": ".js_pop_send_email",//点击事件元素（不定义：立即弹出）
-                    "popId": "popSendemail",//弹出层id 默认为popnormal,（可自定义）
-                    "popCallbackFun": function (args, TfThis) {
-                        console.log(args);
+    <!--  Common js file -->
+    <script src="__DIST__/js/jquery.ba-resize.js"></script>
+    <script src="__DIST__/js/basic.js"></script>
+    <script src="__DIST__/js/bl_jsvalidate.js"></script>
+    <script src="__DIST__/js/uuid.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            popnormal({
+                "popTplId": "#popup_sendemailtpl",//内容模板id
+                "eventEle": ".js_pop_send_email",//点击事件元素（不定义：立即弹出）
+                "popId": "popSendemail",//弹出层id 默认为popnormal,（可自定义）
+                "popCallbackFun": function (args, TfThis) {
+                    console.log(args);
+                }
+            });
+            $.ajax({
+                url: '/main/index/recommendAjax',
+                type: 'POST',
+                dataType: 'html',
+                success: function (html) {
+                    if (html != '') {
+                        //兼容  单数据源 对 1个模板1个位置
+                        $("#recommended_pos_list").html(html);
+                        refreshFamous();
                     }
-                });
-                $.ajax({
-                    url: '/main/index/recommendAjax',
-                    type: 'POST',
-                    dataType: 'html',
-                    success: function (html) {
-                        if (html != '') {
-                            //兼容  单数据源 对 1个模板1个位置
-                            $("#recommended_pos_list").html(html);
-                            refreshFamous();
-                        }
-                    }
-                });
-                $.ajax({
-                    url: '/main/index/isEmailCheckedAjax',
-                    type: 'POST',
-                    dataType: 'html',
-                    success: function (html) {
-                        $("body").prepend(html);
-                    }
-                });
-
-            })
-
-        </script>
-
-        <script src="__DIST__/js/new_city.js"></script>
-        <script src="__DIST__/js/new_job_duty.js"></script>
-        <script src="__DIST__/js/new_industry.js"></script>
-        <script src="__DIST__/js/data_type.js"></script>
-        <script src="__DIST__/js/play.js"></script>
-        <script src="__VENDOR__/layui/layui.js"></script>
-
-        <!-- footer end-->
-
-        <script>
-
-            layui.use('form', function () {
-                var form = layui.form;
-
-                //各种基于事件的操作，下面会有进一步介绍
+                }
+            });
+            $.ajax({
+                url: '/main/index/isEmailCheckedAjax',
+                type: 'POST',
+                dataType: 'html',
+                success: function (html) {
+                    $("body").prepend(html);
+                }
             });
 
+        })
+
+    </script>
+
+    <script src="__DIST__/js/new_city.js"></script>
+    <script src="__DIST__/js/new_job_duty.js"></script>
+    <script src="__DIST__/js/new_industry.js"></script>
+    <script src="__DIST__/js/data_type.js"></script>
+    <script src="__DIST__/js/play.js"></script>
+
+    <!-- footer end-->
+
+    <script>
+
+        layui.use('form', function () {
+            var form = layui.form;
+
+            //各种基于事件的操作，下面会有进一步介绍
+        });
 
 
-
-        </script>
+    </script>
 
 </body>
 
