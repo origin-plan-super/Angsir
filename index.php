@@ -21,9 +21,9 @@ define('APP_DEBUG', true);
 // 定义应用目录
 define('APP_PATH', './App/');
 define('PAPER_DATA_PATH', './data/');
+
 // 全局key
 define('__KEY__', 'angsir12138..');
-
 //定义工作路径
 define('WORKING_PATH', str_replace('\\', '/', __DIR__));
 //定义上传的跟目录——用户
