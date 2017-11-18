@@ -35,7 +35,7 @@ class FileController extends CommonController {
             if ($info) {
                 
                 //图片地址
-                $img_url = UPLOAD_ROOT_PATH_USER . $info['savepath'] . $info['savename'];
+                $img_url = __ROOT__.UPLOAD_ROOT_PATH_USER . $info['savepath'] . $info['savename'];
                 $result['code'] = 0;
                 $result['msg'] = '成功';
                 $result['data'] =[];

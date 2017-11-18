@@ -534,6 +534,8 @@
                 , done: function (res) {
                     //上传完毕回调
 
+                    console.log(res);
+
                     $('#user_img_box').attr('src', res.data.src);
                     $('#user_img').val(res.data.src);
 

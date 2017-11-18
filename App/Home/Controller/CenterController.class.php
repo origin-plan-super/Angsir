@@ -31,8 +31,13 @@ class CenterController extends CommonController {
             $where['user_id']=session('user_id');
             $model=M('user');
             $result=$model->where($where)->save($save);
+            
             if($result!==false){
                 $res['res']=0;
+                
+                session('user_name',$save['user_name']);
+                session('user_img',$save['user_img']);
+                
             }else{
                 $res['res']=-1;
             }

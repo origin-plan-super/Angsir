@@ -12,11 +12,11 @@
 
     <meta name="renderer" content="webkit|ie-comp|ie-stand">
     <!-- page Common css file -->
-    <script src="/Public/vendor/vue/vue.js"></script>
+    <script src="/Angsir/code/Angsir/Public/vendor/vue/vue.js"></script>
 
-    <link href="/Public/dist/css/basic.css" rel="stylesheet" type="text/css">
-    <link href="/Public/dist/css/public.css" rel="stylesheet" type="text/css">
-    <script type="text/javascript" async="" src="/Public/dist/js/atrk.js"></script>
+    <link href="/Angsir/code/Angsir/Public/dist/css/basic.css" rel="stylesheet" type="text/css">
+    <link href="/Angsir/code/Angsir/Public/dist/css/public.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" async="" src="/Angsir/code/Angsir/Public/dist/js/atrk.js"></script>
     <script>
         // console.log
         if (window.console == undefined) {
@@ -29,8 +29,8 @@
     </script>
     <!-- page Common jquery file -->
 
-    <script src="/Public/dist/js/jquery-1.11.3.min.js"></script>
-    <script src="/Public/dist/js/user.agent.js"></script>
+    <script src="/Angsir/code/Angsir/Public/dist/js/jquery-1.11.3.min.js"></script>
+    <script src="/Angsir/code/Angsir/Public/dist/js/user.agent.js"></script>
     <script>
         //控制ajax 并发请求数量
         (function (jQuery) {
@@ -72,7 +72,7 @@
 
 
     <!-- End Alexa Certify Javascript -->
-    <link href="/Public/dist/css/search.css" rel="stylesheet" type="text/css">
+    <link href="/Angsir/code/Angsir/Public/dist/css/search.css" rel="stylesheet" type="text/css">
     <!-- 请置于所有广告位代码之前 -->
 
 
@@ -81,7 +81,7 @@
 <body>
     <!-- header start-->
 
-    <script src="/Public/dist/js/js.cookie.js"></script>
+    <script src="/Angsir/code/Angsir/Public/dist/js/js.cookie.js"></script>
     <script>
             //ajax 刷新用户菜单 的现实和隐藏
             //$(".nav-menu").hide();
@@ -175,8 +175,8 @@
             })()
 
     </script>
-    <link href="/Public/vendor/layui/css/layui.css" rel="stylesheet" type="text/css">
-<script src="/Public/vendor/layui/layui.js"></script>
+    <link href="/Angsir/code/Angsir/Public/vendor/layui/css/layui.css" rel="stylesheet" type="text/css">
+<script src="/Angsir/code/Angsir/Public/vendor/layui/layui.js"></script>
 <style>
     .m-right1 .text-list3 span {
         width: auto;
@@ -201,7 +201,7 @@
                     <p>
                         <span class="user-name"><?php echo (session('user_name')); ?></span>
                         <span class="user-gravatar">
-                            <img src="<?php echo (session('user_img')); ?>" onerror='this.src="/Public/dist/image/gravatar-default.jpg"' class="img-responsive" alt="Responsive image"
+                            <img src="<?php echo (session('user_img')); ?>" onerror='this.src="/Angsir/code/Angsir/Public/dist/image/gravatar-default.jpg"' class="img-responsive" alt="Responsive image"
                                 widht="20" height="20"> </span>
                     </p>
                     <div class="nav-userlist js_navuserlist ">
@@ -483,9 +483,9 @@
 <div class="side-bar1">
     <a href="javascript:;" gotodata="body" class="js_goto">
         <p class="sb-img">
-            <img src="/Public/dist/image/ico_arrowup.png" alt="" data-bd-imgshare-binded="1">
+            <img src="/Angsir/code/Angsir/Public/dist/image/ico_arrowup.png" alt="" data-bd-imgshare-binded="1">
             <span class="img-hover">
-                <img src="/Public/dist/image/ico_arrowup_color.png" alt="" data-bd-imgshare-binded="1">
+                <img src="/Angsir/code/Angsir/Public/dist/image/ico_arrowup_color.png" alt="" data-bd-imgshare-binded="1">
             </span>
         </p>
         <p class="sb-txt1">回到顶部</p>
@@ -493,9 +493,9 @@
 
     <a href="javascript:;">
         <p class="sb-img">
-            <img src="/Public/dist/image/ico_sb_qr.png" alt="" data-bd-imgshare-binded="1">
+            <img src="/Angsir/code/Angsir/Public/dist/image/ico_sb_qr.png" alt="" data-bd-imgshare-binded="1">
             <span class="img-hover">
-                <img src="/Public/dist/image/ico_sb_qr_color.png" alt="" data-bd-imgshare-binded="1">
+                <img src="/Angsir/code/Angsir/Public/dist/image/ico_sb_qr_color.png" alt="" data-bd-imgshare-binded="1">
             </span>
         </p>
         <p class="sb-txt1">关注微信</p>
@@ -503,7 +503,7 @@
             <i class="tips1"></i>
             <i class="tips-arrow"></i>
             <p class="qr-box">
-                <img src="/Public/dist/image/bl_weixin.jpg" alt="" class="js_bl_qr_weixin" data-bd-imgshare-binded="1"> </p>
+                <img src="/Angsir/code/Angsir/Public/dist/image/bl_weixin.jpg" alt="" class="js_bl_qr_weixin" data-bd-imgshare-binded="1"> </p>
             <p class="qr-txt">(仅限本人使用)</p>
         </div>
     </a>
@@ -669,10 +669,10 @@
                 <div class="" id="turnwrap1">
                     <div class="change-tab2">
                         <a href="javascript:;" tabid="0">按阅读量
-                            <img src="/Public/dist/image/up.png" width="18" height="15" style="margin-top:-5px" />
+                            <img src="/Angsir/code/Angsir/Public/dist/image/up.png" width="18" height="15" style="margin-top:-5px" />
                         </a>
                         <a href="javascript:;" tabid="1">按点赞数
-                            <img src="/Public/dist/image/up.png" width="18" height="15" style="margin-top:-5px" />
+                            <img src="/Angsir/code/Angsir/Public/dist/image/up.png" width="18" height="15" style="margin-top:-5px" />
                         </a>
 
                     </div>
@@ -799,10 +799,10 @@
             <?php else: ?>
             <div class="change-tab2">
                 <a href="javascript:;" tabid="0" @click='setType("read")'>按阅读量
-                    <img src="/Public/dist/image/up.png" width="18" height="15" style="margin-top:-5px" />
+                    <img src="/Angsir/code/Angsir/Public/dist/image/up.png" width="18" height="15" style="margin-top:-5px" />
                 </a>
                 <a href="javascript:;" tabid="1" @click='setType("good")'>按点赞数
-                    <img src="/Public/dist/image/up.png" width="18" height="15" style="margin-top:-5px" />
+                    <img src="/Angsir/code/Angsir/Public/dist/image/up.png" width="18" height="15" style="margin-top:-5px" />
                 </a>
             </div><?php endif; ?>
 
@@ -1110,7 +1110,7 @@
 
                             <?php if(is_array($up_user_info)): $i = 0; $__LIST__ = $up_user_info;if( count($__LIST__)==0 ) : echo "没有被推荐的会员" ;else: foreach($__LIST__ as $key=>$vol): $mod = ($i % 2 );++$i;?><li>
                                     <a href="#">
-                                        <img src="<?php echo ($vol["user_img"]); ?>" onerror='this.src="/Public/dist/image/default_headpic.png"'>
+                                        <img src="<?php echo ($vol["user_img"]); ?>" onerror='this.src="/Angsir/code/Angsir/Public/dist/image/default_headpic.png"'>
                                     </a>
                                     <a href="#"><?php echo ($vol["user_name"]); ?></a>
                                 </li><?php endforeach; endif; else: echo "没有被推荐的会员" ;endif; ?>
@@ -1139,7 +1139,7 @@
             <div style="text-align: center; padding:5px 0;">
                 <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010102002503" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
                     <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">
-                        <img src="/Public/dist/image/picp_bg_new.png" alt="沪公网备" border="0" style="margin-right: 5px; margin-top:-3px;">沪公网安备 31010102002503号</p>
+                        <img src="/Angsir/code/Angsir/Public/dist/image/picp_bg_new.png" alt="沪公网备" border="0" style="margin-right: 5px; margin-top:-3px;">沪公网安备 31010102002503号</p>
                 </a>
             </div>
             <div class="clear"></div>
@@ -1149,10 +1149,10 @@
 </div>
 
 
-        <script src="/Public/dist/js/jquery.ba-resize.js"></script>
-        <script src="/Public/dist/js/basic.js"></script>
-        <script src="/Public/dist/js/bl_jsvalidate.js"></script>
-        <script src="/Public/dist/js/uuid.js"></script>
+        <script src="/Angsir/code/Angsir/Public/dist/js/jquery.ba-resize.js"></script>
+        <script src="/Angsir/code/Angsir/Public/dist/js/basic.js"></script>
+        <script src="/Angsir/code/Angsir/Public/dist/js/bl_jsvalidate.js"></script>
+        <script src="/Angsir/code/Angsir/Public/dist/js/uuid.js"></script>
 
         <script type="text/javascript">
             $(function () {
@@ -1191,14 +1191,14 @@
 
 
 
-        <script src="/Public/dist/js/new_city.js"></script>
-        <script src="/Public/dist/js/new_job_duty.js"></script>
-        <script src="/Public/dist/js/new_industry.js"></script>
-        <script src="/Public/dist/js/data_type.js"></script>
-        <script src="/Public/dist/js/play.js"></script>
+        <script src="/Angsir/code/Angsir/Public/dist/js/new_city.js"></script>
+        <script src="/Angsir/code/Angsir/Public/dist/js/new_job_duty.js"></script>
+        <script src="/Angsir/code/Angsir/Public/dist/js/new_industry.js"></script>
+        <script src="/Angsir/code/Angsir/Public/dist/js/data_type.js"></script>
+        <script src="/Angsir/code/Angsir/Public/dist/js/play.js"></script>
 
         <!-- footer end-->
-        <script src="/Public/dist/js/handlebars-v3.0.3.js"></script>
+        <script src="/Angsir/code/Angsir/Public/dist/js/handlebars-v3.0.3.js"></script>
 
 
 
