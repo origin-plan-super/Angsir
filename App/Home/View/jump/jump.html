@@ -10,16 +10,27 @@
     <link href="__DIST__/css/public.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" async="" src="__DIST__/js/atrk.js"></script>
 
-    <script src="__DIST__/js/jquery.ba-resize.js"></script>
-    <script src="__DIST__/js/basic.js"></script>
-    <script src="__DIST__/js/bl_jsvalidate.js"></script>
-    <script src="__DIST__/js/uuid.js"></script>
+
+    <script src="__DIST__/js/jquery-1.11.3.min.js"></script>
 
     <style>
         .box {
             width: 300px;
             margin: 0 auto;
             height: 80vh;
+        }
+
+        #black {
+            cursor: pointer;
+            font-size: 30px;
+        }
+
+        #black:hover {
+            color: #0f88eb;
+
+        }
+        #time{
+            color: #ff0000;
         }
     </style>
 </head>
@@ -35,10 +46,27 @@
         <h2>
             {$info}
         </h2>
-    </div>
-    <include file="App/Home/View/component/footer.html" />
+        <h2>正在为您跳转：
+            <span id="time"></span>
+        </h2>
+        <h1 id="black" onclick="window.history.back();">点击跳转</h1>
 
+    </div>
+
+    <include file="App/Home/View/component/footer.html" />
     <script>
+
+        var time = 2;
+        $('#time').text(time);
+        setInterval(function () {
+            time--;
+            $('#time').text(time);
+            if (time <= 0) {
+                window.history.back();
+            }
+
+        }, 1000);
+
 
     </script>
 

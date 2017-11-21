@@ -9,14 +9,20 @@
     <meta name="keywords" content="angsir网">
     <meta name="description" content="angsir网">
     <meta name="baidu_ssp_verify" content="012083dea3cb5ea1b27406bc9fe3dc22">
-    <script src="/Angsir/code/Angsir/Public/vendor/vue/vue.js"></script>
 
     <meta name="renderer" content="webkit|ie-comp|ie-stand">
     <!-- page Common css file -->
 
     <link href="/Angsir/code/Angsir/Public/dist/css/basic.css" rel="stylesheet" type="text/css">
     <link href="/Angsir/code/Angsir/Public/dist/css/public.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/Angsir/code/Angsir/Public/dist/css/main.html_aio_0a6f700.css">
     <script type="text/javascript" async="" src="/Angsir/code/Angsir/Public/dist/js/atrk.js"></script>
+
+    <style>
+            .input_box p {
+                padding: 5px 0;
+            }
+        </style>
     <script>
         // console.log
         if (window.console == undefined) {
@@ -28,6 +34,34 @@
 
     </script>
     <!-- page Common jquery file -->
+    <script type="text/javascript">
+
+        (function () {
+            var protocol = window.location.protocol;
+            var host = window.location.host;
+            var baseUrl = protocol + '//' + host;
+
+            window.GLOBAL_DOMAIN = window.GLOBAL_DOMAIN || {
+                ctx: '#',
+                rctx: '#',
+                crctx: '#',
+                pctx: '#',
+                actx: '#',
+                cpctx: '#',
+                paictx: '#',
+                sctx: '#',
+                zctx: '#',
+                ectx: '#',
+                proctx: '#',
+                lgsctx: protocol + '//static.lagou.com',
+                FE_frontLogin: baseUrl + '/frontLogin.do',
+                FE_frontLogout: baseUrl + '/frontLogout.do',
+                FE_frontRegister: baseUrl + '/frontRegister.do'
+            };
+
+            window.GLOBAL_CDN_DOMAIN = '#';
+        })();
+    </script>
 
     <script src="/Angsir/code/Angsir/Public/dist/js/jquery-1.11.3.min.js"></script>
     <script src="/Angsir/code/Angsir/Public/dist/js/user.agent.js"></script>
@@ -72,6 +106,7 @@
 
 
     <!-- End Alexa Certify Javascript -->
+
     <link href="/Angsir/code/Angsir/Public/dist/css/search.css" rel="stylesheet" type="text/css">
     <!-- 请置于所有广告位代码之前 -->
 
@@ -548,410 +583,83 @@
 
     <!-- header end-->
 
+
     <div class="main">
         <div class="wrap">
-            <div id="_qs31qxs5p5"></div>
+            <div class="container clearfix" id="container">
+                <!--
+    @require "common/widgets/account-c-sidebar/main.less"
+-->
+                <div class="user_bindSidebar">
+                    <ul class="user_sideBarmenu">
+                        <li>
+                            <a href="#" class="hover" data-lg-tj-id="18g0" data-lg-tj-no="idnull" data-lg-tj-cid="idnull">用户信息</a>
+                        </li>
 
-            <div class="m-left4 " id="searchBox">
-    <div class="s-ebox1 pos-search">
-        <form id="pos_search_form" name="pos_search_form" action="#/zhiwei/search/url" class="layui-form">
-            <div class="ebox-input">
-                <input autocomplete="off" class="form-control bor-c-green ajaxSearch" type="text" placeholder="请输入关键字，关键字之间用空格分割" name="query_key"
-                    id="query_key">
-                <div class="clear"></div>
-            </div>
-            <div class="ebox-tag">
-                <span class="pos-search-tag-title">热门搜索：</span>
-                <a href="#/zhaopin/kw-%E5%9F%B9%E8%AE%AD%E8%AE%B2%E5%B8%88/">
-                    <strong>培训讲师</strong>
-                </a>
-                <a href="#/zhaopin/kw-%E9%A2%84%E7%BB%93%E7%AE%97%E5%91%98/">
-                    <strong>预结算员</strong>
-                </a>
-                <a href="#/zhaopin/kw-%E6%95%99%E5%B8%88/">
-                    <strong>教师</strong>
-                </a>
-                <a href="#/zhaopin/kw-%E6%8A%A4%E5%A3%AB/">
-                    <strong>护士</strong>
-                </a>
-                <a href="#/zhaopin/kw-%E8%B4%A7%E8%BF%90%E4%BB%A3%E7%90%86/">
-                    <strong>货运代理</strong>
-                </a>
-                <a href="#/zhaopin/kw-%E5%8C%BB%E7%96%97%E6%9C%BA%E6%A2%B0/">
-                    <strong>医疗机械</strong>
-                </a>
-                <a href="#/zhaopin/kw-%E7%94%9F%E7%89%A9%E5%88%B6%E8%8D%AF/">
-                    <strong>生物制药</strong>
-                </a>
-                <a href="#/zhaopin/kw-%E8%90%A5%E8%BF%90%E7%BB%8F%E7%90%86/">
-                    <strong>营运经理</strong>
-                </a>
-                <a href="#/zhaopin/kw-%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%9B%91/">
-                    <strong>项目总监</strong>
-                </a>
-                <a href="#/zhaopin/kw-%E8%84%9A%E6%9C%AC%E5%BC%80%E5%8F%91/">
-                    <strong>脚本开发</strong>
-                </a>
-
-            </div>
-
-            <div class="ebox-condition">
-                <div class="select_pop js_popcity" maxselectcount="3" selecttxt="工作地点">
-                    <i class="ico_select_pop"></i>
-                    <input class="form-control control-sm js_pop_text" placeholder="工作地点" id="" name="city_text" type="text" value="" readonly="">
-                    <input class="form-control control-sm js_pop_val" placeholder="" id="" name="city_id" type="hidden">
+                    </ul>
                 </div>
-                <div class="select_pop js_popjobduty" maxselectcount="3" selecttxt="职能">
-                    <i class="ico_select_pop"></i>
-                    <input class="form-control control-sm js_pop_text" placeholder="职能" name="duty_text" type="text" value="" readonly="">
-                    <input class="form-control control-sm js_pop_val" placeholder="" id="" name="duty_id" type="hidden">
-                </div>
-                <div class="select_pop js_popindustry" maxselectcount="3" selecttxt="行业">
-                    <i class="ico_select_pop"></i>
-                    <input class="form-control control-sm js_pop_text" placeholder="行业" name="industry_text" type="text" value="" readonly="">
-                    <input class="form-control control-sm js_pop_val" placeholder="" id="" name="industry_id" type="hidden">
-                </div>
-            </div>
+                <input type="hidden" value="1" id="hasSidebar">
 
-            <div class="ebox-btn">
-                <!-- <div class="fl-right">                  
-            <input class="btn_link fc-blue3" type="reset" value="重置">
-        </div> -->
-                <a href="javascript:;" lay-submit class="btn btn-orange w-220" lay-filter="*">搜索</a>
-            </div>
-            <div id="test"></div>
-        </form>
-    </div>
-    <div class="" id="infoApp">
-        <?php if(search == 'index' ): ?><div class="change-tab2">
-                <a href="javascript:;" tabid="0">热门经历</a>
-            </div>
-            <?php else: ?>
-            <div class="change-tab2">
-                <a href="javascript:;" tabid="0" @click='setType("read")'>按阅读量
-                    <img src="/Angsir/code/Angsir/Public/dist/image/up.png" width="18" height="15" style="margin-top:-5px" />
-                </a>
-                <a href="javascript:;" tabid="1" @click='setType("good")'>按点赞数
-                    <img src="/Angsir/code/Angsir/Public/dist/image/up.png" width="18" height="15" style="margin-top:-5px" />
-                </a>
-            </div><?php endif; ?>
+                <!--
+    @require "account-c/modules/common/main.less"
+    @require "account-c/modules/userinfo/main.less"
+-->
+                <div class="user_userinfo_content">
+                    <div class="c_section">
+                        <div class="userinfo_edit">
 
 
 
-        <div id="turncon1 hidden">
-            <div class="li_page">
-                <ul class="ullist-1 js_agent" agenttag="li">
-                    <!-- <li agenturl="/zhiwei/view/29546736/" agenttarget="_blank">
-                            <h2 title="" class="ulli-1-title">
-                                <a target="_blank" href="#" title="销售工程师">销售工程师</a>
-                            </h2>
-                            <div class="txt-inline1">
-                                <p>
-                                    <span>行业：</span>
-                                    制造业 </p>
-                                <p>
-                                    <span>入职时间：</span>2009/10</p>
-                                <p>
-                                    <span>在该岗位时间：</span>6年</p>
-                                <p>
-                                    <span>入职薪资：</span>
-                                    3000元 </p>
-                                <p class="p-w100">
-                                    <span>3～5年后薪资：</span>
-                                    8k~9K 税前 无灰色收入 </p>
-                                <p>
-                                    <span>地点：</span>
-                                    上海 </p>
-                                <p>
-                                    <span>上班/下班时间：</span>
-                                    09：00~17：00 </p>
-                                <div class="clear"></div>
+                            <div class="c_section">
+                                <div class="userinfo_edit" id="userinfoEdit">
+                                    <div class="hadInfo">
+                                        <div class="avatar" id="user_img_file">
+                                            <img class="avatar_img" id="user_img_box" src="<?php echo ($user_info["user_img"]); ?>" onerror='this.src="/Angsir/code/Angsir/Public/dist/image/default_headpic.png"'
+                                                width="100" height="100" alt="未配置头像">
+                                            <input type="text" name="user_img" id="user_img" value="images/myresume/default_headpic.png">
+                                        </div>
+
+                                        <div class="username input_box" style="text-align: left;">
+                                            <p>昵称：<?php echo ($user_info["user_name"]); ?></p>
+                                            <p>年龄：<?php echo ($user_info["user_age"]); ?></p>
+                                            <p>工作：<?php echo ($user_info["industry_text"]); ?></p>
+                                            <p>职位：<?php echo ($user_info["duty_text"]); ?></p>
+                                            <p>地址：<?php echo ($user_info["user_address"]); ?></p>
+                                            <p>联系方式：<?php echo ($user_info["contact"]); ?></p>
+
+                                        </div>
+                                    </div>
+
+
+                                </div>
                             </div>
-                            <p class="fc-gray">2017-09-05发布
-                                <a class="btn btn-sm  w-110 xx btn-green3" target="_blank" href="#">查看详情</a>
-                            </p>
-                            <p class="mt20 xx">
-                                <div class="clear"></div>
-                        </li> -->
-                    <li :agenturl="getUrl(item.live_id)" agenttarget="_blank" v-for='(item,index) in items' :key='item.live_id'>
-                        <h2 title="" class="ulli-1-title">
-                            <a target="_blank" :href="getUrl(item.live_id)" title="销售工程师">{{item.title}}</a>
-                        </h2>
-                        <div class="txt-inline1">
-                            <p>
-                                <span>行业：</span>
-                                {{item.industry_text}} </p>
-                            <p>
-                                <span>入职时间：</span>{{item.entry_time}}</p>
-                            <p>
-                                <span>在该岗位时间：</span>{{item.in_job_time}}</p>
-                            <p>
-                                <span>入职薪资：</span>
-                                {{item.salary}}元 </p>
-                            <p class="p-w100">
-                                <span>3～5年后薪资：</span>
-                                {{item.year_3_5_salary}} {{item.salary_type_0}} {{item.salary_type_1}} </p>
-                            <p>
-                                <span>地点：</span>
-                                {{item.location}} </p>
-                            <p>
-                                <span>上班/下班时间：</span>
-                                09：00~17：00 </p>
-                            <div class="clear"></div>
                         </div>
-                        <p class="fc-gray">{{getTime(item.edit_time)}}发布
-                            <a class="btn btn-sm  w-110 xx btn-green3" target="_blank" :href="getUrl(item.live_id)">查看详情</a>
-                        </p>
-                        <p class="mt20 xx">
-                            <div class="clear"></div>
-                    </li>
 
-                </ul>
-                <div class="pages_more">
-                    <botton id="getMore" class="more btn btn-info">查看更多经历&gt;&gt;</botton>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
-
-<script>
-    var infoApp = new Vue({
-        el: '#infoApp',
-        data: {
-            items: [],
-            queryDate: [],
-            type: 'read',
-        },
-        methods: {
-            update: function (f) {
-                var _this = this;
-
-                $.get('<?php echo U("Query/getInit");?>', {
-                    type: _this.type,
-                }, function (res) {
-                    res = JSON.parse(res);
-                    console.log(res);
-                    _this.items = [];
-                    if (res.res > 0) {
-                        // 有数据
-                        _this.items = res.msg;
-                    }
-
-                    if (f != null) {
-                        f();
-                    }
-
-                });
-
-            },
-            query: function (queryDate) {
-                var load = layer.load(1); //换了种风格
-                if (queryDate != null) {
-                    this.queryDate = queryDate;
-                }
-
-                /**
-                 * start：开始的位置
-                 * num：一次显示多少,
-                 * queryDate：搜索的数据
-                 * 
-                */
-                var _this = this;
-                this.queryDate.start = 0;
-                this.queryDate.num = 2;
-                this.queryDate.type = this.type;
-                $.get('<?php echo U("Query/query");?>', this.queryDate, function (res) {
-                    _this.items = [];
+                        <hr>
 
 
-                    res = JSON.parse(res);
-                    layer.close(load);
-                    if (res.res > 0) {
-                        // 有数据
-                        _this.items = res.msg;
-                        layer.msg('找到了' + res.res + '条数据~');
-                    }
-                    if (res.res < 1) {
-                        // 没有相关数据
-                        layer.msg('没有相关数据~');
-                    }
-                });
-            },
-            addQuery: function (queryDate) {
-
-                if (queryDate != null) {
-                    this.queryDate = queryDate;
-                }
-
-
-                /**
-                 * start：开始的位置
-                 * num：一次显示多少,
-                 * queryDate：搜索的数据
-                 * f
-                 */
-                var _this = this;
-                this.queryDate.start += 2;
-                this.queryDate.type = this.type;
-                $.get('<?php echo U("Query/query");?>', this.queryDate, function (res) {
-
-                    // $('#test').html(res);
-                    res = JSON.parse(res);
-                    console.log(res);
-                    if (res.res > 0) {
-                        // 有数据
-                        layer.msg('更新了' + res.res + '条数据~');
-                        for (var x in res.msg) {
-                            _this.items.push(res.msg[x]);
-                        }
-                    }
-                    if (res.res < 1) {
-                        // 已经没有数据了
-                        layer.msg('已经没有更多数据了~');
-                    }
-                });
-            },
-            getTime: function (time) {
-                return time;
-            },
-            getUrl: function (id) {
-                return '<?php echo U("Article/article","","");?>' + '/live_id/' + id;
-            },
-            setType: function (type) {
-                this.type = type;
-                this.update();
-            }
-        }
-
-
-
-
-    });
-    infoApp.update(function () {
-        $('#turncon1').removeClass('hidden');
-    });
-    $(document).on('click', '#getMore', function () {
-        infoApp.addQuery();
-    });
-
-
-    //搜索处理
-    layui.use('form', function () {
-
-        var form = layui.form;
-        //各种基于事件的操作，下面会有进一步介绍
-
-        form.on('submit(*)', function (data) {
-            // console.log(data.elem) //被执行事件的元素DOM对象，一般为button对象
-            // console.log(data.form) //被执行提交的form对象，一般在存在form标签时才会返回
-            // console.log(data.field) //当前容器的全部表单字段，名值对形式：{name: value}
-
-            // city_id
-            // city_text
-            // duty_id
-            // duty_text
-            // industry_id
-            // industry_text
-            // query_key
-
-            // duty_id
-            // "23001,23004,23007"
-
-            // duty_text
-            // "高级软件工程师,仿真应用工程师,需求工程师"
-
-            // industry_id
-            // "32026,32028"
-
-            // industry_text
-            // "制药/生物工程,医疗设备/器械"
-
-            //搜索关键字
-            if (data.field.query_key.length >= 1) {
-                var queryKey = data.field.query_key.split(/\s+/);
-                for (x in queryKey) {
-                    queryKey[x] = '%' + queryKey[x] + '%';
-                }
-            }
-
-
-
-            //地址
-            if (data.field.city_text.length >= 1) {
-
-                var city_text = data.field.city_text.split(',');
-                for (x in city_text) {
-                    city_text[x] = '%' + city_text[x] + '%';
-                }
-
-            }
-
-
-            //职位id
-            if (data.field.duty_id.length >= 1) {
-
-                var duty_id = data.field.duty_id.split(',');
-                for (x in duty_id) {
-                    duty_id[x] = '%' + duty_id[x] + '%';
-                }
-
-            }
-
-            //行业id
-
-            if (data.field.industry_id.length >= 1) {
-                var industry_id = data.field.industry_id.split(',');
-                for (var x in industry_id) {
-                    industry_id[x] = '%' + industry_id[x] + '%';
-                }
-            }
-
-
-            var queryDate = {
-                queryKey: queryKey,
-                city_text: city_text,
-                duty_id: duty_id,
-                industry_id: industry_id,
-            };
-
-
-
-            infoApp.query(queryDate);
-
-            return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
-        });
-
-    });
-
-
-</script>
-
-            <div class="m-right4">
-
-
-                <div class="i-ebox1 mt10">
-                    <div class="title" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;, &#39;index&#39;, &#39;click_recommendCompany&#39;])">
-                        <i class="ico ico-square"></i>推荐会员</div>
-                    <div class="conbox">
-                        <ul class="i-recommend-company evenParent" even_cell="li">
-                            <?php if(is_array($up_user_info)): $i = 0; $__LIST__ = $up_user_info;if( count($__LIST__)==0 ) : echo "没有被推荐的会员" ;else: foreach($__LIST__ as $key=>$vol): $mod = ($i % 2 );++$i;?><li>
-                                    <a href="#">
-
-                                        <img src="<?php echo ($vol["user_img"]); ?>" onerror='this.src="/Angsir/code/Angsir/Public/dist/image/default_headpic.png"'>
-                                    </a>
-                                    <a href="#"><?php echo ($vol["user_name"]); ?></a>
-                                </li><?php endforeach; endif; else: echo "没有被推荐的会员" ;endif; ?>
-                        </ul>
-                        <div class="clear"></div>
+                        <div class="user_userinfo_content" style="margin-left: 15px;">
+                            <div class="c_section">
+                                <div class="userinfo_edit" id="userinfoEdit">
+                                    <div class="hadInfo">
+                                        <ul>
+                                            <?php if(is_array($live_info)): $i = 0; $__LIST__ = $live_info;if( count($__LIST__)==0 ) : echo "未发布任何简历" ;else: foreach($__LIST__ as $key=>$vol): $mod = ($i % 2 );++$i;?><li>
+                                                    <a href="<?php echo U('Article/article','live_id='.$vol['live_id']);?>"><?php echo ($vol["title"]); ?></a>
+                                                </li><?php endforeach; endif; else: echo "未发布任何简历" ;endif; ?>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
             </div>
         </div>
-        <!-- footer start-->
-        <!-- footer start-->
+        <!-- 页面主体END -->
+    </div>
+    </div>
+    <!-- footer start-->
+    <!-- footer start-->
 <div class="clear"></div>
 <div class="footer" id="js_footer">
     <div class="wrap">
@@ -976,60 +684,213 @@
     </div>
 </div>
 
+    <script src="/Angsir/code/Angsir/Public/dist/js/jquery.ba-resize.js"></script>
+    <script src="/Angsir/code/Angsir/Public/dist/js/basic.js"></script>
+    <script src="/Angsir/code/Angsir/Public/dist/js/bl_jsvalidate.js"></script>
+    <script src="/Angsir/code/Angsir/Public/dist/js/uuid.js"></script>
 
-        <script src="/Angsir/code/Angsir/Public/dist/js/jquery.ba-resize.js"></script>
-        <script src="/Angsir/code/Angsir/Public/dist/js/basic.js"></script>
-        <script src="/Angsir/code/Angsir/Public/dist/js/bl_jsvalidate.js"></script>
-        <script src="/Angsir/code/Angsir/Public/dist/js/uuid.js"></script>
+    <script type="text/javascript" src="/Angsir/code/Angsir/Public/dist/js/vendor_e3ddeee.js"></script>
+    <script type="text/javascript" src="/Angsir/code/Angsir/Public/dist/js/main.html_aio_b1a1945.js"></script>
+    <script type="text/javascript" src="/Angsir/code/Angsir/Public/dist/js/widgets_817b964.js"></script>
+    <script type="text/javascript" src="/Angsir/code/Angsir/Public/dist/js/userinfo_7f282e9.js"></script>
+    <script type="text/javascript" src="/Angsir/code/Angsir/Public/dist/js/layout_6a3a86f.js"></script>
+    <script type="text/javascript" src="/Angsir/code/Angsir/Public/dist/js/main.html_aio_2_3543cee.js"></script>
+    <script type="text/javascript">
+        require(['common/widgets/header_c/modules/emailvalid/main']);
 
-        <script type="text/javascript">
-            $(function () {
-                popnormal({
-                    "popTplId": "#popup_sendemailtpl",//内容模板id
-                    "eventEle": ".js_pop_send_email",//点击事件元素（不定义：立即弹出）
-                    "popId": "popSendemail",//弹出层id 默认为popnormal,（可自定义）
-                    "popCallbackFun": function (args, TfThis) {
-                        console.log(args);
+
+        require(['common/widgets/passport/passport'], function () {
+
+
+            require(['common/widgets/common/msgPopup']);
+            // require('notice');
+
+
+        });
+
+
+        require(['common/widgets/header_c/layout/main']);
+
+
+        require(['account-c/modules/userinfo/main']);
+
+
+        require(['common/widgets/footer_c/modules/feedback/feedback']);
+
+
+        require(['common/widgets/footer_c/layout/main']);
+
+        $(document).ready(function () {
+            var selector = '#webchat7moor';
+            if ($(selector).length) {
+                return;
+            }
+
+            var jqIframe = $('<iframe>', {
+                id: selector.slice(1),
+                src: '//static.lagou.com/third-parties/webchat7moor/main_22faef3.html',
+                style: 'margin:0;'
+                    + 'padding:0;'
+                    + 'width:320px;'
+                    + 'height:500px;'
+                    + 'border-width:0;'
+                    + 'border-radius: 3px;'
+                    + 'transition: height 0.5s ease-out;'
+                    + 'z-index:-99999;'
+                    + 'display: none;'
+                    + 'bottom:0;'
+                    + 'right:0;'
+                    + 'position:fixed;'
+            });
+            $(document.body).append(jqIframe);
+
+            var child = jqIframe[0].contentWindow;
+            var target = window.location.protocol + '//' + (window.GLOBAL_CDN_DOMAIN || 'static.lagou.com');
+
+            $('#onlineService, #feedback-icon').on('click', function (e) {
+                jqIframe.css('z-index', 99999).show();
+                child.postMessage('{"code":1,"message":"open webchat plugin"}', target);
+            });
+
+            $(window).on('message', function (e) {
+                var origin = e.origin || e.originalEvent.origin;
+                if (origin.indexOf(target) !== 0) {
+                    return;
+                }
+
+                var data = e.data || e.originalEvent.data;
+                if (data.code === 2 && typeof data.css !== 'undefined') {
+                    jqIframe.css(data.css);
+                } else {
+                    jqIframe.css('z-index', -99999).hide();
+                }
+            });
+        });
+    </script>
+
+    <script src="/Angsir/code/Angsir/Public/dist/js/jquery.ba-resize.js"></script>
+    <script src="/Angsir/code/Angsir/Public/dist/js/basic.js"></script>
+    <script src="/Angsir/code/Angsir/Public/dist/js/bl_jsvalidate.js"></script>
+    <script src="/Angsir/code/Angsir/Public/dist/js/uuid.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            popnormal({
+                "popTplId": "#popup_sendemailtpl",//内容模板id
+                "eventEle": ".js_pop_send_email",//点击事件元素（不定义：立即弹出）
+                "popId": "popSendemail",//弹出层id 默认为popnormal,（可自定义）
+                "popCallbackFun": function (args, TfThis) {
+                    console.log(args);
+                }
+            });
+            $.ajax({
+                url: '/main/index/recommendAjax',
+                type: 'POST',
+                dataType: 'html',
+                success: function (html) {
+                    if (html != '') {
+                        //兼容  单数据源 对 1个模板1个位置
+                        $("#recommended_pos_list").html(html);
+                        refreshFamous();
                     }
-                });
-                $.ajax({
-                    url: '/main/index/recommendAjax',
-                    type: 'POST',
-                    dataType: 'html',
-                    success: function (html) {
-                        if (html != '') {
-                            //兼容  单数据源 对 1个模板1个位置
-                            $("#recommended_pos_list").html(html);
-                            refreshFamous();
-                        }
+                }
+            });
+            $.ajax({
+                url: '/main/index/isEmailCheckedAjax',
+                type: 'POST',
+                dataType: 'html',
+                success: function (html) {
+                    $("body").prepend(html);
+                }
+            });
+
+        })
+
+    </script>
+
+    <script type="text/javascript">
+        //ajax 搜索提示 调用
+        //搜索提示 返回数据结构 data： ["php\u5de5\u7a0b\u5e08","php\u7a0b\u5e8f\u5458","php\u9ad8\u7ea7","php\u4e2d\u7ea7"]
+        ajaxSearchFun({
+            "eventEle": ".ajaxSearch",
+            "promptUrl": "/position/search/autoCompleteAjax",
+            "searchCallback": function (args) {
+                $('#pos_search_form').submit();
+            }
+        });
+    </script>
+
+    <script src="/Angsir/code/Angsir/Public/dist/js/new_city.js"></script>
+    <script src="/Angsir/code/Angsir/Public/dist/js/new_job_duty.js"></script>
+    <script src="/Angsir/code/Angsir/Public/dist/js/new_industry.js"></script>
+    <script src="/Angsir/code/Angsir/Public/dist/js/data_type.js"></script>
+    <script src="/Angsir/code/Angsir/Public/dist/js/play.js"></script>
+
+    <!-- footer end-->
+    <script src="/Angsir/code/Angsir/Public/dist/js/handlebars-v3.0.3.js"></script>
+
+    <script>
+        //上传头像
+        layui.use('upload', function () {
+            var upload = layui.upload;
+
+            //执行实例
+            var uploadInst = upload.render({
+                elem: '#user_img_file' //绑定元素
+                , url: '<?php echo U("File/upFile");?>' //上传接口
+                , done: function (res) {
+                    //上传完毕回调
+
+                    console.log(res);
+
+                    $('#user_img_box').attr('src', res.data.src);
+                    $('#user_img').val(res.data.src);
+
+                }
+                , error: function () {
+                    //请求异常回调
+                    //                      console.log(index);
+                    //                      console.log(upload);
+                    //当上传失败时，你可以生成一个“重新上传”的按钮，点击该按钮时，执行 upload() 方法即可实现重新上传
+                }
+            });
+        });
+
+
+        //搜索处理
+        layui.use('form', function () {
+
+            var form = layui.form;
+            //各种基于事件的操作，下面会有进一步介绍
+
+            form.on('submit(save)', function (data) {
+                console.log(data.elem) //被执行事件的元素DOM对象，一般为button对象
+                console.log(data.form) //被执行提交的form对象，一般在存在form标签时才会返回
+                field = data.field; //当前容器的全部表单字段，名值对形式：{name: value}
+
+                console.log(field);
+
+                $.post("", field, function (res) {
+
+                    res = JSON.parse(res);
+                    console.log(res);
+                    if (res.res == 0) {
+                        // 保存成功
+                        layer.msg('保存成功~');
                     }
-                });
-                $.ajax({
-                    url: '/main/index/isEmailCheckedAjax',
-                    type: 'POST',
-                    dataType: 'html',
-                    success: function (html) {
-                        $("body").prepend(html);
-                    }
+
                 });
 
-            })
 
-        </script>
-
+                return false;
 
 
-        <script src="/Angsir/code/Angsir/Public/dist/js/new_city.js"></script>
-        <script src="/Angsir/code/Angsir/Public/dist/js/new_job_duty.js"></script>
-        <script src="/Angsir/code/Angsir/Public/dist/js/new_industry.js"></script>
-        <script src="/Angsir/code/Angsir/Public/dist/js/data_type.js"></script>
-        <script src="/Angsir/code/Angsir/Public/dist/js/play.js"></script>
+            });
 
-        <!-- footer end-->
-        <script src="/Angsir/code/Angsir/Public/dist/js/handlebars-v3.0.3.js"></script>
+        });
 
 
-
+    </script>
 </body>
 
 </html>

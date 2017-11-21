@@ -206,7 +206,7 @@
                     </p>
                     <div class="nav-userlist js_navuserlist ">
                         <p>
-                            <a href="<?php echo U('Center/Center');?>">个人中心</a>rw
+                            <a href="<?php echo U('Center/Center');?>">个人中心</a>
                         </p>
 
                         <!-- <p>
@@ -266,13 +266,13 @@
                                 <input lay-verify='required' type="password" id="user_pwd" name="user_pwd" value="" class="form-control w-248 js_validate"
                                     placeholder="6-16个字符，不能有空格，区分大小写" autocomplete="off"> </li>
                             <li>
-                                <a href="#passport/password/findPassword" class="fl-right">找回密码</a>
+                                <a href="<?php echo U('Login/findPassword');?>" target="_black" class="fl-right">找回密码</a>
                                 <label for="remember">
                                     <input type="checkbox" name="remember" checked="" lay-skin='primary'> 下次自动登录
                                 </label>
                             </li>
                             <li class="mt20">
-                                <input lay-submit type="button" lay-filter="login" value="登 录" class="btn btn-primary btn-lg btn-block mlr0">
+                                <input type="button" lay-submit lay-filter="login" value="登 录" class="btn btn-primary btn-lg btn-block mlr0">
 
                                 <li class="tx-right">
                                     没有账号，
@@ -317,14 +317,10 @@
                                 <input type="password" id="user_pwd2" name="user_pwd2" value="" lay-verify='required' class="form-control w-248 js_validate"
                                     placeholder="6-16个字符，不能有空格，区分大小写" autocomplete="off">
                             </li>
-                            <li class="label-inline1 hidden" id="user_code_box">
-                                <label for="user_code" class="label-1 fz-14">验证码</label>
-                                <input type="text" id="user_code" name="user_code" value="" class="form-control w-248 js_validate" placeholder="6-16个字符，不能有空格，区分大小写"
-                                    autocomplete="off">
-                            </li>
+
 
                             <li class="mt20">
-                                <input lay-submit type="button" lay-filter="reg" value="发送验证码到邮箱" class="btn btn-primary btn-lg btn-block mlr0">
+                                <input lay-submit type="button" lay-filter="reg" value="注册" class="btn btn-primary btn-lg btn-block ">
                             </li>
 
                             <li>
@@ -348,7 +344,7 @@
     layui.use('form', function () {
 
         var form = layui.form;
-        //各种基于事件的操作，下面会有进一步介绍
+        //各种基于事件的操作
 
         form.on('submit(reg)', function (data) {
             // console.log(data.elem) //被执行事件的元素DOM对象，一般为button对象
@@ -356,81 +352,42 @@
             field = data.field; //当前容器的全部表单字段，名值对形式：{name: value}
             var user_id = data.field.user_id;
 
-            if ($(data.elem).val() == '发送验证码到邮箱') {
-                //发送验证码
-                $(data.elem).val('注册');
-                $('#user_code_box').removeClass('hidden');
-                $('#user_code').attr('lay-verify', 'required');
-                var index = layer.load(2);
-                $.get('<?php echo U("Email/sendCode");?>', {
-                    user_id: user_id
-                }, function (res) {
-                    layer.close(index);
+            var index = layer.load(2);
+            $.post("<?php echo U('Login/reg');?>", field, function (res) {
 
-                    res = JSON.parse(res);
+                layer.close(index);
+                res = JSON.parse(res);
+                // console.log(res);
 
-                    if (res.res == 0) {
-                        // 成功
-                        layer.msg('发送成功，快去查看吧~');
-                    }
-                    if (res.res == -1) {
-                        //失败
-                        layer.msg('发送失败，请重新发送~');
-                    }
-                    if (res.res == -2) {
-                        //失败
-                        layer.msg('邮箱已经注册~');
-                    }
-                });
-                return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+                if (res.res == 0) {
+                    // 注册成功
+                    layer.msg('注册成功~正在为您跳转~');
 
-            }
-            if ($(data.elem).val() == '注册') {
-                var index = layer.load(2);
-                $.post("<?php echo U('Login/reg');?>", field, function (res) {
+                    setTimeout(function () {
+                        location.reload(true);
+                    }, 300);
 
-                    layer.close(index);
-                    res = JSON.parse(res);
-                    console.log(res);
+                }
 
+                if (res.res == -1) {
+                    //1：必填字段为空
+                    layer.msg('必填字段为空~');
+                }
+                if (res.res == -2) {
+                    //2：密码不等
+                    layer.msg('密码不等~');
+                }
+                if (res.res == -3) {
+                    //3：插入到数据库的时候失败
+                    layer.msg('插入到数据库的时候失败~');
+                }
+                if (res.res == -4) {
+                    //4：用户已经存在
+                    layer.msg('用户已经存在~');
+                }
 
-                    if (res.res == 0) {
-                        // 注册成功
-                        layer.msg('注册成功~');
-                        console.log('location');
-                        console.log(location);
-                        console.log('location.replace');
-                        console.log(location.replace);
-                        console.log('location.href');
-                        console.log(location.href);
-                        setTimeout(function () {
-                            window.location.replace(window.location.href);
-                        }, 200);
-
-                    }
-                    if (res.res == -1) {
-                        //1：必填字段为空
-                        layer.msg('必填字段为空~');
-                    }
-                    if (res.res == -2) {
-                        //2：密码不等
-                        layer.msg('密码不等~');
-                    }
-                    if (res.res == -3) {
-                        //3：插入到数据库的时候失败
-                        layer.msg('插入到数据库的时候失败~');
-                    }
-                    if (res.res == -4) {
-                        //4：用户已经存在
-                        layer.msg('用户已经存在~');
-                    }
-                    if (res.res == -5) {
-                        //5：验证码错误
-                        layer.msg('验证码错误~');
-                        $(data.elem).val('发送验证码到邮箱');
-                    }
-                });
-            }
+            });
+            return false;
         });
         form.on('submit(login)', function (data) {
             // console.log(data.elem) //被执行事件的元素DOM对象，一般为button对象
@@ -442,9 +399,9 @@
 
                 if (res.res == 0) {
                     // 登录成功
-                    layer.msg('登录成功~');
+                    layer.msg('登录成功~正在为您跳转~');
                     setTimeout(function () {
-                        window.location.replace(window.location.href);
+                        location.reload(true);
                     }, 200);
 
                 }
@@ -458,7 +415,7 @@
                 }
 
             });
-
+            return false;
         });
     });
 
@@ -484,9 +441,7 @@
     <a href="javascript:;" gotodata="body" class="js_goto">
         <p class="sb-img">
             <img src="/Angsir/code/Angsir/Public/dist/image/ico_arrowup.png" alt="" data-bd-imgshare-binded="1">
-            <span class="img-hover">
-                <img src="/Angsir/code/Angsir/Public/dist/image/ico_arrowup_color.png" alt="" data-bd-imgshare-binded="1">
-            </span>
+
         </p>
         <p class="sb-txt1">回到顶部</p>
     </a>
@@ -494,9 +449,7 @@
     <a href="javascript:;">
         <p class="sb-img">
             <img src="/Angsir/code/Angsir/Public/dist/image/ico_sb_qr.png" alt="" data-bd-imgshare-binded="1">
-            <span class="img-hover">
-                <img src="/Angsir/code/Angsir/Public/dist/image/ico_sb_qr_color.png" alt="" data-bd-imgshare-binded="1">
-            </span>
+
         </p>
         <p class="sb-txt1">关注微信</p>
         <div class="sb-hover">
@@ -1129,7 +1082,7 @@
     <div class="wrap">
         <div class="footer-link-list" style="padding-right: 0px; text-align: center;">
             <p class="footer-li1" style="float:none;">
-                <a href="<?php echo U('Index/about');?>">关于angsir网</a>|
+                <a href="<?php echo U('Index/about');?>">关于Angsir网</a>|
                 <a href="<?php echo U('Index/about');?>">联系我们</a>|
                 <a href="<?php echo U('Index/about');?>">加入我们</a>|
                 <a href="<?php echo U('Index/about');?>">帮助中心</a>

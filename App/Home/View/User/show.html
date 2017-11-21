@@ -18,6 +18,11 @@
     <link rel="stylesheet" type="text/css" href="__DIST__/css/main.html_aio_0a6f700.css">
     <script type="text/javascript" async="" src="__DIST__/js/atrk.js"></script>
 
+    <style>
+        .input_box p {
+            padding: 5px 0;
+        }
+    </style>
     <script>
         // console.log
         if (window.console == undefined) {
@@ -292,11 +297,6 @@
 
     <!-- header end-->
 
-    <div class="top-bar">
-        <div class="wrap">
-            <h3 class="title1">个人中心</h3>
-        </div>
-    </div>
 
     <div class="main">
         <div class="wrap">
@@ -307,16 +307,9 @@
                 <div class="user_bindSidebar">
                     <ul class="user_sideBarmenu">
                         <li>
-                            <a href="center.html" class="hover" data-lg-tj-id="18g0" data-lg-tj-no="idnull" data-lg-tj-cid="idnull">个人信息</a>
+                            <a href="#" class="hover" data-lg-tj-id="18g0" data-lg-tj-no="idnull" data-lg-tj-cid="idnull">用户信息</a>
                         </li>
 
-                        <li>
-                            <a href="{:U('Center/my')}" data-lg-tj-id="18j0" data-lg-tj-no="idnull" data-lg-tj-cid="idnull">我的经历</a>
-                        </li>
-
-                        <li>
-                            <a href="am.html" data-lg-tj-id="18j0" data-lg-tj-no="idnull" data-lg-tj-cid="idnull">修改密码</a>
-                        </li>
                     </ul>
                 </div>
                 <input type="hidden" value="1" id="hasSidebar">
@@ -329,47 +322,57 @@
                     <div class="c_section">
                         <div class="userinfo_edit">
 
-                            <form action="" method="post" class="layui-form">
-                                <div class="avatar" id="user_img_file">
-                                    <img class="avatar_img" id="user_img_box" src="{$user_info.user_img}" onerror='this.src="__DIST__/image/default_headpic.png"'
-                                        width="100" height="100" alt="未配置头像">
-                                    <input type="text" name="user_img" id="user_img" value="images/myresume/default_headpic.png">
-                                </div>
 
-                                <div class="username input_box">
-                                    <input type="text" value="{$user_info.user_name}" name="user_name" placeholder="请输入常用昵称" maxlength="15" data-maxlength="15">
-                                    <input type="text" value="{$user_info.user_age}" name="user_age" placeholder="请输入年龄" maxlength="15" data-maxlength="15">
 
-                                    <div class="select_pop js_popindustry" maxselectcount="3" style="width:400px; margin:10px 0" selecttxt="行业">
-                                        <i class="ico_select_pop"></i>
-                                        <input class="form-control control-sm js_pop_text" placeholder="请选择行业" name="industry_text" type="text" value="{$user_info.industry_text}"
-                                            readonly="" style="width:400px; border-left:1px #eee solid;border-right:1px #eee solid;">
-                                        <input class="form-control control-sm js_pop_val" value="{$user_info.industry_id}" placeholder="" name="industry_id" type="hidden"
-                                            style="width:400px;border-left:1px #3ab679 solid;border-right:1px #3ab679 solid;">
+                            <div class="c_section">
+                                <div class="userinfo_edit" id="userinfoEdit">
+                                    <div class="hadInfo">
+                                        <div class="avatar" id="user_img_file">
+                                            <img class="avatar_img" id="user_img_box" src="{$user_info.user_img}" onerror='this.src="__DIST__/image/default_headpic.png"'
+                                                width="100" height="100" alt="未配置头像">
+                                            <input type="text" name="user_img" id="user_img" value="images/myresume/default_headpic.png">
+                                        </div>
+
+                                        <div class="username input_box" style="text-align: left;">
+                                            <p>昵称：{$user_info.user_name}</p>
+                                            <p>年龄：{$user_info.user_age}</p>
+                                            <p>工作：{$user_info.industry_text}</p>
+                                            <p>职位：{$user_info.duty_text}</p>
+                                            <p>地址：{$user_info.user_address}</p>
+                                            <p>联系方式：{$user_info.contact}</p>
+
+                                        </div>
                                     </div>
-                                    <div class="select_pop js_popjobduty" maxselectcount="3" style="width:400px" selecttxt="职能">
-                                        <i class="ico_select_pop"></i>
-                                        <input class="form-control control-sm js_pop_text" placeholder="请选择职位" name="duty_text" type="text" value="{$user_info.duty_text}"
-                                            readonly="" style="width:400px;border-left:1px #eee solid;border-right:1px #eee solid;">
-                                        <input class="form-control control-sm js_pop_val" value="{$user_info.duty_id}" placeholder="" id="" name="duty_id" type="hidden"
-                                            style="width:400px;border-left:1px #3ab679 solid;border-right:1px #3ab679 solid;">
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr>
+
+
+                        <div class="user_userinfo_content" style="margin-left: 15px;">
+                            <div class="c_section">
+                                <div class="userinfo_edit" id="userinfoEdit">
+                                    <div class="hadInfo">
+                                        <ul>
+                                            <volist name='live_info' id='vol' empty="未发布任何简历">
+                                                <li>
+                                                    <a href="{:U('Article/article','live_id='.$vol['live_id'])}">{$vol.title}</a>
+                                                </li>
+                                            </volist>
+                                        </ul>
                                     </div>
-                                    <input type="text" name="user_address" placeholder="请输入地址" value="{$user_info.user_address}" maxlength="15" data-maxlength="15">
-                                    <input type="text" name="contact" placeholder="请输入联系方式" maxlength="15" data-maxlength="15" value="{$user_info.contact}">
                                 </div>
-
-                                <div class="toolbar">
-                                    <!-- <a class="btn userinfo_save" href="javascript:;" data-lg-tj-id="18k0" data-lg-tj-no="idnull" data-lg-tj-cid="idnull">保存</a> -->
-                                    <input class="btn userinfo_save" value="保存" lay-submit type="button" lay-filter="save"></input>
-                                </div>
-                            </form>
-
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- 页面主体END -->
         </div>
+        <!-- 页面主体END -->
+    </div>
     </div>
     <!-- footer start-->
     <include file="App/Home/View/component/footer.html" />

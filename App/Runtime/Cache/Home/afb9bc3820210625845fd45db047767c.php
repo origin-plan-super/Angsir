@@ -13,10 +13,10 @@
     <meta name="renderer" content="webkit|ie-comp|ie-stand">
     <!-- page Common css file -->
 
-    <link href="/Public/dist/css/basic.css" rel="stylesheet" type="text/css">
-    <link href="/Public/dist/css/public.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="/Public/dist/css/main.html_aio_0a6f700.css">
-    <script type="text/javascript" async="" src="/Public/dist/js/atrk.js"></script>
+    <link href="/Angsir/code/Angsir/Public/dist/css/basic.css" rel="stylesheet" type="text/css">
+    <link href="/Angsir/code/Angsir/Public/dist/css/public.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/Angsir/code/Angsir/Public/dist/css/main.html_aio_0a6f700.css">
+    <script type="text/javascript" async="" src="/Angsir/code/Angsir/Public/dist/js/atrk.js"></script>
     <script>
         // console.log
         if (window.console == undefined) {
@@ -57,8 +57,8 @@
         })();
     </script>
 
-    <script src="/Public/dist/js/jquery-1.11.3.min.js"></script>
-    <script src="/Public/dist/js/user.agent.js"></script>
+    <script src="/Angsir/code/Angsir/Public/dist/js/jquery-1.11.3.min.js"></script>
+    <script src="/Angsir/code/Angsir/Public/dist/js/user.agent.js"></script>
     <script>
         //控制ajax 并发请求数量
         (function (jQuery) {
@@ -101,7 +101,7 @@
 
     <!-- End Alexa Certify Javascript -->
 
-    <link href="/Public/dist/css/search.css" rel="stylesheet" type="text/css">
+    <link href="/Angsir/code/Angsir/Public/dist/css/search.css" rel="stylesheet" type="text/css">
     <!-- 请置于所有广告位代码之前 -->
 
 
@@ -110,7 +110,7 @@
 <body>
     <!-- header start-->
 
-    <script src="/Public/dist/js/js.cookie.js"></script>
+    <script src="/Angsir/code/Angsir/Public/dist/js/js.cookie.js"></script>
     <script>
             //ajax 刷新用户菜单 的现实和隐藏
             //$(".nav-menu").hide();
@@ -204,8 +204,8 @@
             })()
 
     </script>
-    <link href="/Public/vendor/layui/css/layui.css" rel="stylesheet" type="text/css">
-<script src="/Public/vendor/layui/layui.js"></script>
+    <link href="/Angsir/code/Angsir/Public/vendor/layui/css/layui.css" rel="stylesheet" type="text/css">
+<script src="/Angsir/code/Angsir/Public/vendor/layui/layui.js"></script>
 <style>
     .m-right1 .text-list3 span {
         width: auto;
@@ -230,12 +230,12 @@
                     <p>
                         <span class="user-name"><?php echo (session('user_name')); ?></span>
                         <span class="user-gravatar">
-                            <img src="<?php echo (session('user_img')); ?>" onerror='this.src="/Public/dist/image/gravatar-default.jpg"' class="img-responsive" alt="Responsive image"
+                            <img src="<?php echo (session('user_img')); ?>" onerror='this.src="/Angsir/code/Angsir/Public/dist/image/gravatar-default.jpg"' class="img-responsive" alt="Responsive image"
                                 widht="20" height="20"> </span>
                     </p>
                     <div class="nav-userlist js_navuserlist ">
                         <p>
-                            <a href="<?php echo U('Center/Center');?>">个人中心</a>rw
+                            <a href="<?php echo U('Center/Center');?>">个人中心</a>
                         </p>
 
                         <!-- <p>
@@ -295,13 +295,13 @@
                                 <input lay-verify='required' type="password" id="user_pwd" name="user_pwd" value="" class="form-control w-248 js_validate"
                                     placeholder="6-16个字符，不能有空格，区分大小写" autocomplete="off"> </li>
                             <li>
-                                <a href="#passport/password/findPassword" class="fl-right">找回密码</a>
+                                <a href="<?php echo U('Login/findPassword');?>" target="_black" class="fl-right">找回密码</a>
                                 <label for="remember">
                                     <input type="checkbox" name="remember" checked="" lay-skin='primary'> 下次自动登录
                                 </label>
                             </li>
                             <li class="mt20">
-                                <input lay-submit type="button" lay-filter="login" value="登 录" class="btn btn-primary btn-lg btn-block mlr0">
+                                <input type="button" lay-submit lay-filter="login" value="登 录" class="btn btn-primary btn-lg btn-block mlr0">
 
                                 <li class="tx-right">
                                     没有账号，
@@ -346,14 +346,10 @@
                                 <input type="password" id="user_pwd2" name="user_pwd2" value="" lay-verify='required' class="form-control w-248 js_validate"
                                     placeholder="6-16个字符，不能有空格，区分大小写" autocomplete="off">
                             </li>
-                            <li class="label-inline1 hidden" id="user_code_box">
-                                <label for="user_code" class="label-1 fz-14">验证码</label>
-                                <input type="text" id="user_code" name="user_code" value="" class="form-control w-248 js_validate" placeholder="6-16个字符，不能有空格，区分大小写"
-                                    autocomplete="off">
-                            </li>
+
 
                             <li class="mt20">
-                                <input lay-submit type="button" lay-filter="reg" value="发送验证码到邮箱" class="btn btn-primary btn-lg btn-block mlr0">
+                                <input lay-submit type="button" lay-filter="reg" value="注册" class="btn btn-primary btn-lg btn-block ">
                             </li>
 
                             <li>
@@ -377,7 +373,7 @@
     layui.use('form', function () {
 
         var form = layui.form;
-        //各种基于事件的操作，下面会有进一步介绍
+        //各种基于事件的操作
 
         form.on('submit(reg)', function (data) {
             // console.log(data.elem) //被执行事件的元素DOM对象，一般为button对象
@@ -385,81 +381,42 @@
             field = data.field; //当前容器的全部表单字段，名值对形式：{name: value}
             var user_id = data.field.user_id;
 
-            if ($(data.elem).val() == '发送验证码到邮箱') {
-                //发送验证码
-                $(data.elem).val('注册');
-                $('#user_code_box').removeClass('hidden');
-                $('#user_code').attr('lay-verify', 'required');
-                var index = layer.load(2);
-                $.get('<?php echo U("Email/sendCode");?>', {
-                    user_id: user_id
-                }, function (res) {
-                    layer.close(index);
+            var index = layer.load(2);
+            $.post("<?php echo U('Login/reg');?>", field, function (res) {
 
-                    res = JSON.parse(res);
+                layer.close(index);
+                res = JSON.parse(res);
+                // console.log(res);
 
-                    if (res.res == 0) {
-                        // 成功
-                        layer.msg('发送成功，快去查看吧~');
-                    }
-                    if (res.res == -1) {
-                        //失败
-                        layer.msg('发送失败，请重新发送~');
-                    }
-                    if (res.res == -2) {
-                        //失败
-                        layer.msg('邮箱已经注册~');
-                    }
-                });
-                return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+                if (res.res == 0) {
+                    // 注册成功
+                    layer.msg('注册成功~正在为您跳转~');
 
-            }
-            if ($(data.elem).val() == '注册') {
-                var index = layer.load(2);
-                $.post("<?php echo U('Login/reg');?>", field, function (res) {
+                    setTimeout(function () {
+                        location.reload(true);
+                    }, 300);
 
-                    layer.close(index);
-                    res = JSON.parse(res);
-                    console.log(res);
+                }
 
+                if (res.res == -1) {
+                    //1：必填字段为空
+                    layer.msg('必填字段为空~');
+                }
+                if (res.res == -2) {
+                    //2：密码不等
+                    layer.msg('密码不等~');
+                }
+                if (res.res == -3) {
+                    //3：插入到数据库的时候失败
+                    layer.msg('插入到数据库的时候失败~');
+                }
+                if (res.res == -4) {
+                    //4：用户已经存在
+                    layer.msg('用户已经存在~');
+                }
 
-                    if (res.res == 0) {
-                        // 注册成功
-                        layer.msg('注册成功~');
-                        console.log('location');
-                        console.log(location);
-                        console.log('location.replace');
-                        console.log(location.replace);
-                        console.log('location.href');
-                        console.log(location.href);
-                        setTimeout(function () {
-                            window.location.replace(window.location.href);
-                        }, 200);
-
-                    }
-                    if (res.res == -1) {
-                        //1：必填字段为空
-                        layer.msg('必填字段为空~');
-                    }
-                    if (res.res == -2) {
-                        //2：密码不等
-                        layer.msg('密码不等~');
-                    }
-                    if (res.res == -3) {
-                        //3：插入到数据库的时候失败
-                        layer.msg('插入到数据库的时候失败~');
-                    }
-                    if (res.res == -4) {
-                        //4：用户已经存在
-                        layer.msg('用户已经存在~');
-                    }
-                    if (res.res == -5) {
-                        //5：验证码错误
-                        layer.msg('验证码错误~');
-                        $(data.elem).val('发送验证码到邮箱');
-                    }
-                });
-            }
+            });
+            return false;
         });
         form.on('submit(login)', function (data) {
             // console.log(data.elem) //被执行事件的元素DOM对象，一般为button对象
@@ -471,9 +428,9 @@
 
                 if (res.res == 0) {
                     // 登录成功
-                    layer.msg('登录成功~');
+                    layer.msg('登录成功~正在为您跳转~');
                     setTimeout(function () {
-                        window.location.replace(window.location.href);
+                        location.reload(true);
                     }, 200);
 
                 }
@@ -487,7 +444,7 @@
                 }
 
             });
-
+            return false;
         });
     });
 
@@ -512,27 +469,23 @@
 <div class="side-bar1">
     <a href="javascript:;" gotodata="body" class="js_goto">
         <p class="sb-img">
-            <img src="/Public/dist/image/ico_arrowup.png" alt="" data-bd-imgshare-binded="1">
-            <span class="img-hover">
-                <img src="/Public/dist/image/ico_arrowup_color.png" alt="" data-bd-imgshare-binded="1">
-            </span>
+            <img src="/Angsir/code/Angsir/Public/dist/image/ico_arrowup.png" alt="" data-bd-imgshare-binded="1">
+
         </p>
         <p class="sb-txt1">回到顶部</p>
     </a>
 
     <a href="javascript:;">
         <p class="sb-img">
-            <img src="/Public/dist/image/ico_sb_qr.png" alt="" data-bd-imgshare-binded="1">
-            <span class="img-hover">
-                <img src="/Public/dist/image/ico_sb_qr_color.png" alt="" data-bd-imgshare-binded="1">
-            </span>
+            <img src="/Angsir/code/Angsir/Public/dist/image/ico_sb_qr.png" alt="" data-bd-imgshare-binded="1">
+
         </p>
         <p class="sb-txt1">关注微信</p>
         <div class="sb-hover">
             <i class="tips1"></i>
             <i class="tips-arrow"></i>
             <p class="qr-box">
-                <img src="/Public/dist/image/bl_weixin.jpg" alt="" class="js_bl_qr_weixin" data-bd-imgshare-binded="1"> </p>
+                <img src="/Angsir/code/Angsir/Public/dist/image/bl_weixin.jpg" alt="" class="js_bl_qr_weixin" data-bd-imgshare-binded="1"> </p>
             <p class="qr-txt">(仅限本人使用)</p>
         </div>
     </a>
@@ -626,6 +579,7 @@
 
     <div class="top-bar">
         <div class="wrap">
+
             <h3 class="title1">个人中心</h3>
         </div>
     </div>
@@ -683,7 +637,7 @@
     <div class="wrap">
         <div class="footer-link-list" style="padding-right: 0px; text-align: center;">
             <p class="footer-li1" style="float:none;">
-                <a href="<?php echo U('Index/about');?>">关于angsir网</a>|
+                <a href="<?php echo U('Index/about');?>">关于Angsir网</a>|
                 <a href="<?php echo U('Index/about');?>">联系我们</a>|
                 <a href="<?php echo U('Index/about');?>">加入我们</a>|
                 <a href="<?php echo U('Index/about');?>">帮助中心</a>
@@ -693,7 +647,7 @@
             <div style="text-align: center; padding:5px 0;">
                 <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010102002503" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
                     <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">
-                        <img src="/Public/dist/image/picp_bg_new.png" alt="沪公网备" border="0" style="margin-right: 5px; margin-top:-3px;">沪公网安备 31010102002503号</p>
+                        <img src="/Angsir/code/Angsir/Public/dist/image/picp_bg_new.png" alt="沪公网备" border="0" style="margin-right: 5px; margin-top:-3px;">沪公网安备 31010102002503号</p>
                 </a>
             </div>
             <div class="clear"></div>
@@ -703,17 +657,17 @@
 </div>
 
 
-    <script src="/Public/dist/js/jquery.ba-resize.js"></script>
-    <script src="/Public/dist/js/basic.js"></script>
-    <script src="/Public/dist/js/bl_jsvalidate.js"></script>
-    <script src="/Public/dist/js/uuid.js"></script>
+    <script src="/Angsir/code/Angsir/Public/dist/js/jquery.ba-resize.js"></script>
+    <script src="/Angsir/code/Angsir/Public/dist/js/basic.js"></script>
+    <script src="/Angsir/code/Angsir/Public/dist/js/bl_jsvalidate.js"></script>
+    <script src="/Angsir/code/Angsir/Public/dist/js/uuid.js"></script>
 
-    <script type="text/javascript" src="/Public/dist/js/vendor_e3ddeee.js"></script>
-    <script type="text/javascript" src="/Public/dist/js/main.html_aio_b1a1945.js"></script>
-    <script type="text/javascript" src="/Public/dist/js/widgets_817b964.js"></script>
-    <script type="text/javascript" src="/Public/dist/js/userinfo_7f282e9.js"></script>
-    <script type="text/javascript" src="/Public/dist/js/layout_6a3a86f.js"></script>
-    <script type="text/javascript" src="/Public/dist/js/main.html_aio_2_3543cee.js"></script>
+    <script type="text/javascript" src="/Angsir/code/Angsir/Public/dist/js/vendor_e3ddeee.js"></script>
+    <script type="text/javascript" src="/Angsir/code/Angsir/Public/dist/js/main.html_aio_b1a1945.js"></script>
+    <script type="text/javascript" src="/Angsir/code/Angsir/Public/dist/js/widgets_817b964.js"></script>
+    <script type="text/javascript" src="/Angsir/code/Angsir/Public/dist/js/userinfo_7f282e9.js"></script>
+    <script type="text/javascript" src="/Angsir/code/Angsir/Public/dist/js/layout_6a3a86f.js"></script>
+    <script type="text/javascript" src="/Angsir/code/Angsir/Public/dist/js/main.html_aio_2_3543cee.js"></script>
     <script type="text/javascript">
         require(['common/widgets/header_c/modules/emailvalid/main']);
 
@@ -788,7 +742,7 @@
     </script>
 
     <!-- footer end-->
-    <script src="/Public/dist/js/handlebars-v3.0.3.js"></script>
+    <script src="/Angsir/code/Angsir/Public/dist/js/handlebars-v3.0.3.js"></script>
 
 </body>
 

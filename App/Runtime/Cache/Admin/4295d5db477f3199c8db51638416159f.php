@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="/Public/vendor/layui/css/layui.css" rel="stylesheet" type="text/css">
+    <link href="/Angsir/code/Angsir/Public/vendor/layui/css/layui.css" rel="stylesheet" type="text/css">
     <title>用户列表</title>
     <style>
         body {
@@ -27,9 +27,9 @@
 
     <table id="live_table" lay-filter="live_table_filter"></table>
 
-    <script src="/Public/vendor/Jquery/jquery-2.1.0.js"></script>
-    <script src="/Public/vendor/layer/layer.js"></script>
-    <script src="/Public/vendor/layui/layui.js"></script>
+    <script src="/Angsir/code/Angsir/Public/vendor/Jquery/jquery-2.1.0.js"></script>
+    <script src="/Angsir/code/Angsir/Public/vendor/layer/layer.js"></script>
+    <script src="/Angsir/code/Angsir/Public/vendor/layui/layui.js"></script>
 
     <script type="text/html" id="bar1">
 
@@ -44,6 +44,7 @@
         <input type="checkbox" name="lock" value="{{d.user_id}}" title="推荐" lay-filter="is_up" {{ d.is_up == 1 ? 'checked' : '' }}>
 
       </script>
+	  
     <script>
         var tableIns;
         layui.use('table', function () {
@@ -52,7 +53,7 @@
             //第一个实例
             tableIns = table.render({
                 elem: '#live_table'
-                , url: '/index.php/Admin/User/getList' //数据接口
+                , url: '/Angsir/code/Angsir/index.php/Admin/User/getList' //数据接口
                 , page: true //开启分页
                 , limit: localStorage.limit == null ? 20 : localStorage.limit
                 // , limits: [5, 10]
@@ -100,7 +101,7 @@
                 var user_id = data.user_id;
                 console.log(layEvent);
                 //查看
-                var url = '/index.php/Admin/User/show/user_id/' + user_id;
+                var url = '/Angsir/code/Angsir/index.php/Admin/User/show/user_id/' + user_id;
                 if (layEvent === 'open') {
                     layer.open({
                         type: 2,
@@ -123,7 +124,7 @@
                         layer.close(index);
                         //向服务端发送删除指令
 
-                        $.post('/index.php/Admin/User/del', {
+                        $.post('/Angsir/code/Angsir/index.php/Admin/User/del', {
                             "user_id": obj.data.user_id,
                         }, function (res) {
                             res = JSON.parse(res);

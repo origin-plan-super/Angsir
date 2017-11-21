@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="/Public/vendor/layui/css/layui.css" rel="stylesheet" type="text/css">
+    <link href="/Angsir/code/Angsir/Public/vendor/layui/css/layui.css" rel="stylesheet" type="text/css">
     <title>经历列表</title>
     <style>
         body {
@@ -27,9 +27,9 @@
 
 
     <table id="live_table" lay-filter="live_table_filter"></table>
-    <script src="/Public/vendor/Jquery/jquery-2.1.0.js"></script>
-    <script src="/Public/vendor/layer/layer.js"></script>
-    <script src="/Public/vendor/layui/layui.js"></script>
+    <script src="/Angsir/code/Angsir/Public/vendor/Jquery/jquery-2.1.0.js"></script>
+    <script src="/Angsir/code/Angsir/Public/vendor/layer/layer.js"></script>
+    <script src="/Angsir/code/Angsir/Public/vendor/layui/layui.js"></script>
 
     <script type="text/html" id="bar1">
 
@@ -49,7 +49,7 @@
             //第一个实例
             tableIns = table.render({
                 elem: '#live_table'
-                , url: '/index.php/Admin/Article/getList' //数据接口
+                , url: '/Angsir/code/Angsir/index.php/Admin/Article/getList' //数据接口
                 , page: true //开启分页
                 , limit: localStorage.limit == null ? 20 : localStorage.limit
                 , cols: [[ //表头
@@ -100,7 +100,7 @@
                         layer.close(index);
                         //向服务端发送删除指令
 
-                        $.post('/index.php/Admin/Article/del', {
+                        $.post('/Angsir/code/Angsir/index.php/Admin/Article/del', {
                             "live_id": obj.data.live_id,
                         }, function (res) {
                             res = JSON.parse(res);

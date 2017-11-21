@@ -405,13 +405,15 @@
                                 <span class="cd">
                                     是否经常加班</span>
                             </li>
-                            <li>
-                                <if condition="$live_info.is_overtime gt 0 ">
-                                    <span>不经常加班</span>
-                                    <else />
-                                    <span>{$live_info.overtime_info}</span>
-                                </if>
-                            </li>
+
+                            <if condition="$live_info.is_overtime gt 0 ">
+                                <li>不经常加班</li>
+                                <else />
+                                <li>
+                                    {$live_info.overtime_info}
+                                </li>
+                            </if>
+
                             <li>
                                 <strong>
                                     <span class="cd">工作环境</span>
@@ -465,7 +467,7 @@
 
                             <li style="float:right; font-size:14px">留言：{$comment_info|count=###} 阅读量：{$readCount} 点赞：
                                 <div style='display: inline' id="liveGoodCount">{$liveGoodCount}</div>
-                                <a id="liveGood" data-href="{:U('Article/good')}">
+                                <a id="liveGood">
                                     <img src="__DIST__/image/z.png" width="26" height="24" />
                                 </a>
                             </li>
@@ -496,7 +498,10 @@
                                             <div class="layui-row">
                                                 <div class="layui-col-md2" style='text-align: center'>
 
-                                                    <img class="user_img" src="{$vol.user_img}" onerror='this.src="__DIST__/image/default_headpic.png"' />
+
+                                                    <a href="{:U('User/show','user_id='.$vol['user_id'])}">
+                                                        <img class="user_img" src="{$vol.user_img}" onerror='this.src="__DIST__/image/default_headpic.png"' />
+                                                    </a>
                                                     <div>
                                                         {$vol.user_name}
                                                     </div>
@@ -693,11 +698,13 @@
 
             $.get('{:U("ArticleTool/good")}', { live_id: '{$live_info.live_id}' }, function (res) {
 
+
                 res = JSON.parse(res);
+                console.log(res);
+
                 if (res.res > 0) {
                     //点赞成功
                     var count = parseInt($('#liveGoodCount').text());
-                    console.log(count);
                     $('#liveGoodCount').text(++count);
                 }
                 if (res.res == 0) {
@@ -708,9 +715,9 @@
                     //点赞失败
                     layer.msg('你已经点过赞了~');
                 }
-                if (res.res == -10) {
+                if (res.res == -999) {
                     //点赞失败
-                    layer.msg('未登录~');
+                    layer.msg('请登录后再操作~');
                 }
 
             });
