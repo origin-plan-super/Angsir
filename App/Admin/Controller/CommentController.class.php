@@ -26,11 +26,34 @@ class CommentController extends CommonController {
         
         $model=M('Comment');
         $where['comment_id']=I('get.comment_id');
+        $where['super_id']=I('get.comment_id');
+        $where['_logic'] = "OR";
         $result=$model->where($where)->delete();
-        echo "<script>self.location=document.referrer;</script>";
+        if($result!==false){
+            echo 1;
+        }else{
+            echo -1;
+        }
         
     }
     
+    
+    
+    /**
+    * 删除一条评论
+    */
+    public function delR(){
+        
+        $model=M('Comment');
+        $where['comment_id']=I('get.comment_id');
+        $result=$model->where($where)->delete();
+        if($result!==false){
+            echo 1;
+        }else{
+            echo -1;
+        }
+        
+    }
     
     /**
     *

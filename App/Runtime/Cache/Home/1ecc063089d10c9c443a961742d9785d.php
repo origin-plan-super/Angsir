@@ -19,10 +19,10 @@
     <script type="text/javascript" async="" src="/Angsir/code/Angsir/Public/dist/js/atrk.js"></script>
 
     <style>
-            .input_box p {
-                padding: 5px 0;
-            }
-        </style>
+        .input_box p {
+            padding: 5px 0;
+        }
+    </style>
     <script>
         // console.log
         if (window.console == undefined) {

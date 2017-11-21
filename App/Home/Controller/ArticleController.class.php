@@ -128,6 +128,31 @@ class ArticleController extends Controller {
                 $model=M('');
                 $comment_info = $model -> field('t1.*,t2.*,t1.add_time as live_add_time')->order('t1.add_time desc') -> table('an_comment AS t1,an_user AS t2') -> where('t1.user_id = t2.user_id AND live_id="' .I('get.live_id') . '"') -> select();
                 
+                
+                //组装回复列表
+                
+                //新数组
+                
+                foreach ($comment_info as $key => $value1) {
+                    
+                    if($value1['super_id']){
+                        //如果有父级ID
+                        
+                        foreach ($comment_info as $key2 => $value2) {
+                            if($value2['comment_id']==$value1['super_id']){
+                                //找到了父级
+                                $comment_info[$key2]['list'][]=$value1;
+                                unset($comment_info[$key]);
+                            }
+                            
+                        }
+                        
+                        
+                    }
+                    
+                }
+                
+                
                 // dump($comment_info);
                 // die;
                 

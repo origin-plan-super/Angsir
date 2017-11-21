@@ -4,6 +4,8 @@
 <!--  main layout -->
 
 <head>
+
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
     <title>angsir网 | {$live_info.title}</title>
@@ -485,49 +487,125 @@
                             .comment-item {
                                 padding: 10px 0;
                             }
+
+                            .reply {
+                                position: relative;
+                                opacity: 0
+                            }
+
+                            .comment-item:hover .reply {
+                                opacity: 1
+                            }
+
+                            .reply-box {
+                                background-color: #eeeeee;
+                                padding: 10px 15px;
+                                border-radius: 5px;
+                                margin-top: 10px;
+                                margin-bottom: 10px;
+                            }
+
+                            .reply-item {
+                                padding: 10px 0;
+                                line-height: 1.8;
+                                border-left: solid #ddd 3px;
+                                padding-left: 10px;
+                                margin: 20px 0;
+                            }
+
+                            .reply-item span a {
+                                color: #777;
+                            }
+
+                            .del-r {
+                                color: #f00;
+                            }
                         </style>
-                        <fieldset class="layui-elem-field layui-field-title">
-                            <legend>留言</legend>
-                            <div class="layui-field-box">
-                                <ul id="commentBox">
-                                    <!-- comment_info -->
+                        <hr>
+                        <div class="layui-field-box">
+                            <ul id="commentBox">
+                                <!-- comment_info -->
 
-                                    <volist name='comment_info' id='vol' empty="没有留言">
+                                <volist name='comment_info' id='vol' empty="没有留言">
 
-                                        <li class="comment-item">
-                                            <div class="layui-row">
-                                                <div class="layui-col-md2" style='text-align: center'>
+                                    <li class="comment-item">
+                                        <div class="layui-row">
+                                            <div class="layui-col-md2" style='text-align: center'>
 
 
-                                                    <a href="{:U('User/show','user_id='.$vol['user_id'])}">
-                                                        <img class="user_img" src="{$vol.user_img}" onerror='this.src="__DIST__/image/default_headpic.png"' />
-                                                    </a>
-                                                    <div>
-                                                        {$vol.user_name}
-                                                    </div>
-                                                    <notempty name='is_admin'>
-                                                        <div>
-                                                            <a href="{:U('Admin/Comment/del','comment_id='.$vol['comment_id'])}">删除此条评论</a>
-                                                        </div>
-                                                    </notempty>
+                                                <a href="{:U('User/show','user_id='.$vol['user_id'])}">
+                                                    <img class="user_img" src="{$vol.user_img}" onerror='this.src="__DIST__/image/default_headpic.png"' />
+                                                </a>
+                                                <div>
+                                                    {$vol.user_name}
                                                 </div>
-                                                <div class="layui-col-md10">
-                                                    <p>
-                                                        <span class="layui-badge-rim">{$vol.live_add_time|date='Y-m-d H:i:s',###}</span>
-                                                    </p>
-                                                    <p>&nbsp</p>
-                                                    <span>
-                                                        {$vol.content}
+                                                <notempty name='is_admin'>
+                                                    <div>
+                                                        <a data-href="{:U('Admin/Comment/del','comment_id='.$vol['comment_id'])}" class="del-r">删除评论</a>
+                                                    </div>
+                                                </notempty>
+                                            </div>
+                                            <div class="layui-col-md10">
+                                                <p>
+                                                    <span class="layui-badge-rim">{$vol.live_add_time|date='Y-m-d H:i:s',###}</span>
+                                                </p>
+                                                <p>&nbsp</p>
+                                                <span>
+                                                    {$vol.content}
+                                                </span>
+                                            </div>
+
+                                        </div>
+
+
+                                        <empty name='vol.list'>
+                                            <ul class="reply-box" style='display:none'>
+                                            </ul>
+                                        </empty>
+                                        <notempty name='vol.list'>
+                                            <ul class="reply-box">
+                                                <!-- <p class="text-center">
+                                                    <span style='border-bottom:solid 1px #ddd;color:#777;padding:5px 20px'>回复列表</span>
+                                                </p> -->
+
+
+                                                <volist name='vol.list' id='vol2' empty="没有留言">
+
+                                                    <li class="reply-item">
+                                                        <span>
+                                                            <a href="{:U('User/show','user_id='.$vol['user_id'])}" target="_blank">
+                                                                [{$vol2.user_name} | {$vol.live_add_time|date='Y-m-d H:i:s',###}]
+                                                            </a>
+                                                        </span>：{$vol2.content}
+                                                        <notempty name='is_admin'>
+                                                            <div>
+                                                                <a data-href="{:U('Admin/Comment/delR','comment_id='.$vol2['comment_id'])}" class="del-r" data-type='replay'>删除评论</a>
+                                                            </div>
+                                                        </notempty>
+                                                    </li>
+                                                </volist>
+                                            </ul>
+                                        </notempty>
+
+                                        <div class="row reply">
+                                            <div class="col-lg-12">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" placeholder="回复">
+                                                    <span class="input-group-btn">
+                                                        <button class="btn btn-default post-reply" type="button" data-id='{$vol.comment_id}'>回复</button>
                                                     </span>
                                                 </div>
-
+                                                <!-- /input-group -->
                                             </div>
-                                        </li>
+                                            <!-- /.col-lg-6 -->
+                                        </div>
                                         <hr class="layui-bg-gray">
-                                    </volist>
-                                </ul>
-                            </div>
-                        </fieldset>
+
+                                    </li>
+
+                                </volist>
+                            </ul>
+                        </div>
 
                     </div>
                     <form class="layui-form" action="{:U('Comment/add')}" method="post">
@@ -686,6 +764,37 @@
         </a>
 
     </div>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+
+    <style>
+        .my-input {
+            display: block;
+            width: 100%;
+            height: 34px;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #555;
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+            -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+            -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+            transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+
+        }
+
+        .my-input:focus {
+            border-color: #66afe9;
+            outline: 0;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+        }
+    </style>
+
 
     <script>
         /**
@@ -725,11 +834,138 @@
 
         });
 
+        /**
+        删除评论
+        */
+        $(document).on('click', '.del-r', function () {
+
+
+            var herf = $(this).attr('data-href');
+            var $this = $(this);
+            console.log(herf);
+
+            $.get(herf, {}, function (res) {
+                console.log(res);
+
+
+                if (res == 1) {
+                    //成功
+                    // $this.parents('.comment-item').remove();
+
+
+                    if ($this.attr('data-type') == 'replay') {
+
+                        $this.parents('.reply-item').slideUp(function () {
+                            $this.parents('.reply-item').remove();
+                        });
+                        console.log('删除回复');
+                    } else {
+                        $this.parents('.comment-item').slideUp(function () {
+                            $this.parents('.comment-item').remove();
+                        });
+
+                    }
+
+
+
+
+                    layer.msg('删除成功~');
+
+                }
+                if (res == -1) {
+                    layer.msg('删除失败~');
+                }
+
+            });
+
+
+        });
+        // 
+        //回复功能
+        $(document).on('click', '.post-reply', function () {
+
+            // <div class="row reply">
+            //                                 <div class="col-lg-12">
+            //                                     <div class="input-group">
+            //                                         <input type="text" class="form-control" placeholder="回复">
+            //                                         <span class="input-group-btn">
+            //                                             <button class="btn btn-default" type="button" class="post-reply">发送!</button>
+            //                                         </span>
+            //                                     </div>
+            //                                     <!-- /input-group -->
+            //                                 </div>
+            //                                 <!-- /.col-lg-6 -->
+            //                             </div>
+            //                             <!-- /.row -->
+
+            var $this = $(this);
+            var id = $(this).attr('data-id');
+            var $input = $(this).parents('.input-group').find('.form-control');
+
+            var $replyBox = $this.parents('.row.reply').prev('.reply-box');
+
+            console.log($input.val());
+
+            if ($input.val() != null && $input.val() != '') {
+
+                $.post('{:U("Comment/reply")}', {
+                    "super_id": id,
+                    "content": $input.val(),
+                    "live_id": "{$live_info.live_id}"
+                }, function (res) {
+                    $replyBox.show();
+
+                    console.log(res);
+
+                    res = JSON.parse(res);
+                    console.log(res);
+
+                    if (res.res == 0) {
+                        //成功
+                        layer.msg('回复成功~');
+
+
+
+                        var dom = $('\
+                            <li class= "reply-item" >\
+                                <span>\
+                                    <a href="" target="_blank">\
+                                        [asdasd | 2017年11月21日]\
+                                    </a>\
+                                </span>：<span class="content"></span>\
+                             </li >\
+                            ');
+
+                        dom.find('a').text('[' + res.msg.user_name + ' | ' + res.msg.add_time + ']');
+                        dom.find('a').attr('href', res.msg.url);
+                        dom.find('.content').html($input.val());
+                        $input.val('');
+                        $replyBox.prepend(dom);
+
+                    }
+
+                    if (res.res == -1) {
+                        layer.msg('回复失败~');
+                    }
+
+
+                });
+
+            } else {
+                layer.msg('没有输入内容~');
+
+            }
+
+
+
+
+        });
+
+
 
 
 
     </script>
-
 </body>
 
 </html>

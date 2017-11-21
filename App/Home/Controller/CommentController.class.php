@@ -54,5 +54,38 @@ class CommentController extends CommonController {
         
     }
     
+    /**
+    * 回复一个评论
+    */
+    public function reply(){
+        
+        $post=I('post.');
+        
+        $model=M('Comment');
+        $add['live_id']=I('post.live_id');
+        $add['content']=I('post.content');
+        $add['super_id']=I('post.super_id');
+        $add['user_id']=session('user_id');
+        $add['add_time']=time();
+        $add['edit_time']=$add['add_time'];
+        $add['comment_id']=md5($add['super_id'].$add['user_id'].$add['add_time'].__KEY__.rand());
+        
+        $result=$model->add($add);
+        
+        $msg['user_name']= session('user_name');
+        $msg['add_time']= date('Y-m-d H:i:s');
+        $msg['url']= U('User/show','user_id='.$add['user_id']);
+        
+        
+        if($result!==false){
+            $res['res']=0;
+            $res['msg']=$msg;
+        }else{
+            $res['res']=-1;
+            $res['msg']=$model->_sql();
+        }
+        echo json_encode($res);
+    }
+    
     
 }

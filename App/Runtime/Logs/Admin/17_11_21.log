@@ -766,3 +766,489 @@ INFO: [ app_end ] --START--
 INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001402s ]
 INFO: [ app_end ] --END-- [ RunTime:0.001456s ]
 
+[ 2017-11-21T14:06:29+08:00 ] 192.168.1.196 /Angsir/code/Angsir/index.php/admin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000351s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000706s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000768s ]
+
+[ 2017-11-21T14:06:30+08:00 ] 192.168.1.196 /Angsir/code/Angsir/index.php/Admin/Login/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000411s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000635s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000693s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000061s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000105s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005443s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005496s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000949s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001052s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001055s ]
+
+[ 2017-11-21T14:06:31+08:00 ] 192.168.1.196 /Angsir/code/Angsir/index.php/Admin/Login/getCode
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000562s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001611s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001718s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000675s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000735s ]
+
+[ 2017-11-21T14:06:36+08:00 ] 192.168.1.196 /Angsir/code/Angsir/index.php/Admin/Login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000407s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000580s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000613s ]
+SQL: SHOW COLUMNS FROM `an_admin` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `an_admin` WHERE `admin_id` = 'admin' LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: admin_name D:\database\Project\working\company\Angsir\code\Angsir\App\Admin\Controller\LoginController.class.php 第 55 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000754s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000789s ]
+
+[ 2017-11-21T14:06:37+08:00 ] 192.168.1.196 /Angsir/code/Angsir/index.php/Admin/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000423s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000666s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000715s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000051s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000099s ]
+NOTIC: [8] Undefined variable: admin_url D:\database\Project\working\company\Angsir\code\Angsir\App\Runtime\Cache\Admin\9df924d9a2d217daa77a359c5bee0c33.php 第 87 行.
+NOTIC: [8] Undefined variable: admin_url D:\database\Project\working\company\Angsir\code\Angsir\App\Runtime\Cache\Admin\9df924d9a2d217daa77a359c5bee0c33.php 第 87 行.
+NOTIC: [8] Undefined variable: admin_url D:\database\Project\working\company\Angsir\code\Angsir\App\Runtime\Cache\Admin\9df924d9a2d217daa77a359c5bee0c33.php 第 88 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005636s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005691s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000607s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000654s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000602s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000634s ]
+
+[ 2017-11-21T14:06:37+08:00 ] 192.168.1.196 /Angsir/code/Angsir/index.php/Admin/Index/home
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000365s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000559s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000606s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000080s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000215s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004997s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005049s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000614s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000665s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000894s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000952s ]
+
+[ 2017-11-21T14:07:21+08:00 ] 192.168.1.196 /Angsir/code/Angsir/index.php/Admin/Comment/del/comment_id/fb086724842e4746c6d5d41623eeacd8.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000348s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000606s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000654s ]
+SQL: SHOW COLUMNS FROM `an_comment` [ RunTime:0.0005s ]
+SQL: DELETE FROM `an_comment` WHERE `comment_id` = 'fb086724842e4746c6d5d41623eeacd8' AND `super_id` = 'fb086724842e4746c6d5d41623eeacd8' [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000676s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000711s ]
+
+[ 2017-11-21T14:07:29+08:00 ] 192.168.1.196 /Angsir/code/Angsir/index.php/Admin/Comment/del/comment_id/fb086724842e4746c6d5d41623eeacd8.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000419s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000560s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000599s ]
+SQL: SHOW COLUMNS FROM `an_comment` [ RunTime:0.0005s ]
+SQL: DELETE FROM `an_comment` WHERE `comment_id` = 'fb086724842e4746c6d5d41623eeacd8' AND `super_id` = 'fb086724842e4746c6d5d41623eeacd8' [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000745s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000780s ]
+
+[ 2017-11-21T14:07:33+08:00 ] 192.168.1.196 /Angsir/code/Angsir/index.php/Admin/Comment/del/comment_id/7c7d3eb8330a929d5ea95aa03d1a8624.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000351s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000522s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000561s ]
+SQL: SHOW COLUMNS FROM `an_comment` [ RunTime:0.0005s ]
+SQL: DELETE FROM `an_comment` WHERE `comment_id` = '7c7d3eb8330a929d5ea95aa03d1a8624' AND `super_id` = '7c7d3eb8330a929d5ea95aa03d1a8624' [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000681s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000718s ]
+
+[ 2017-11-21T14:08:18+08:00 ] 192.168.1.196 /Angsir/code/Angsir/index.php/Admin/Comment/del/comment_id/7c7d3eb8330a929d5ea95aa03d1a8624.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000413s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000484s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000535s ]
+SQL: SHOW COLUMNS FROM `an_comment` [ RunTime:0.0005s ]
+SQL: DELETE FROM `an_comment` WHERE `comment_id` = '7c7d3eb8330a929d5ea95aa03d1a8624' OR `super_id` = '7c7d3eb8330a929d5ea95aa03d1a8624' [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000690s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000737s ]
+
+[ 2017-11-21T14:08:27+08:00 ] 192.168.1.196 /Angsir/code/Angsir/index.php/Admin/Comment/del/comment_id/fb086724842e4746c6d5d41623eeacd8.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000352s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000406s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000444s ]
+SQL: SHOW COLUMNS FROM `an_comment` [ RunTime:0.0005s ]
+SQL: DELETE FROM `an_comment` WHERE `comment_id` = 'fb086724842e4746c6d5d41623eeacd8' OR `super_id` = 'fb086724842e4746c6d5d41623eeacd8' [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000723s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000769s ]
+
+[ 2017-11-21T14:11:25+08:00 ] 192.168.1.196 /Angsir/code/Angsir/index.php/Admin/Comment/del/comment_id/0c2df96521649a37d2d75eb5160f8de8.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000354s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000540s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000581s ]
+SQL: SHOW COLUMNS FROM `an_comment` [ RunTime:0.0006s ]
+SQL: DELETE FROM `an_comment` WHERE `comment_id` = '0c2df96521649a37d2d75eb5160f8de8' OR `super_id` = '0c2df96521649a37d2d75eb5160f8de8' [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000721s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000765s ]
+
+[ 2017-11-21T14:11:54+08:00 ] 192.168.1.196 /Angsir/code/Angsir/index.php/Admin/Comment/del/comment_id/e1e5317ac8f8c7fbe7bed62aeb75d17f.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000426s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000601s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000634s ]
+SQL: SHOW COLUMNS FROM `an_comment` [ RunTime:0.0005s ]
+SQL: DELETE FROM `an_comment` WHERE `comment_id` = 'e1e5317ac8f8c7fbe7bed62aeb75d17f' OR `super_id` = 'e1e5317ac8f8c7fbe7bed62aeb75d17f' [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000760s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000795s ]
+
+[ 2017-11-21T14:12:37+08:00 ] 192.168.1.196 /Angsir/code/Angsir/index.php/Admin/Comment/del/comment_id/a1a484710ceecd1f59d8351bfa975a8f.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000320s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000492s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000537s ]
+SQL: SHOW COLUMNS FROM `an_comment` [ RunTime:0.0005s ]
+SQL: DELETE FROM `an_comment` WHERE `comment_id` = 'a1a484710ceecd1f59d8351bfa975a8f' OR `super_id` = 'a1a484710ceecd1f59d8351bfa975a8f' [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000619s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000655s ]
+
+[ 2017-11-21T14:12:45+08:00 ] 192.168.1.196 /Angsir/code/Angsir/index.php/Admin/Comment/del/comment_id/1ebc0c591366b2500bb28db777d7384f.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000416s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000594s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000627s ]
+SQL: SHOW COLUMNS FROM `an_comment` [ RunTime:0.0005s ]
+SQL: DELETE FROM `an_comment` WHERE `comment_id` = '1ebc0c591366b2500bb28db777d7384f' OR `super_id` = '1ebc0c591366b2500bb28db777d7384f' [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000755s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000788s ]
+
+[ 2017-11-21T14:13:59+08:00 ] 192.168.1.196 /Angsir/code/Angsir/index.php/Admin/Comment/del/comment_id/410efcd47e990cf6f9febf8f3261e38a.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000387s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000605s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000646s ]
+SQL: SHOW COLUMNS FROM `an_comment` [ RunTime:0.0005s ]
+SQL: DELETE FROM `an_comment` WHERE `comment_id` = '410efcd47e990cf6f9febf8f3261e38a' OR `super_id` = '410efcd47e990cf6f9febf8f3261e38a' [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000871s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000912s ]
+
+[ 2017-11-21T14:14:07+08:00 ] 192.168.1.196 /Angsir/code/Angsir/index.php/Admin/Comment/del/comment_id/9a6312b8012b13999485c9d5bb24e412.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000416s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000625s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000668s ]
+SQL: SHOW COLUMNS FROM `an_comment` [ RunTime:0.0005s ]
+SQL: DELETE FROM `an_comment` WHERE `comment_id` = '9a6312b8012b13999485c9d5bb24e412' OR `super_id` = '9a6312b8012b13999485c9d5bb24e412' [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000722s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000756s ]
+
+[ 2017-11-21T14:14:26+08:00 ] 192.168.1.196 /Angsir/code/Angsir/index.php/Admin/Comment/del/comment_id/04bd02907ee80b921b3840ee835158d1.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000422s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000592s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000624s ]
+SQL: SHOW COLUMNS FROM `an_comment` [ RunTime:0.0005s ]
+SQL: DELETE FROM `an_comment` WHERE `comment_id` = '04bd02907ee80b921b3840ee835158d1' OR `super_id` = '04bd02907ee80b921b3840ee835158d1' [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000768s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000802s ]
+
+[ 2017-11-21T14:15:17+08:00 ] 192.168.1.196 /Angsir/code/Angsir/index.php/Admin/Comment/del/comment_id/789846d74c65a715ea560d5feed9fd44.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000393s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000599s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000629s ]
+SQL: SHOW COLUMNS FROM `an_comment` [ RunTime:0.0005s ]
+SQL: DELETE FROM `an_comment` WHERE `comment_id` = '789846d74c65a715ea560d5feed9fd44' OR `super_id` = '789846d74c65a715ea560d5feed9fd44' [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000758s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000791s ]
+
+[ 2017-11-21T14:16:16+08:00 ] 192.168.1.196 /Angsir/code/Angsir/index.php/Admin/Comment/del/comment_id/5618880aba591be4aadd1c7399d5c92a.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000416s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000595s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000630s ]
+SQL: SHOW COLUMNS FROM `an_comment` [ RunTime:0.0005s ]
+SQL: DELETE FROM `an_comment` WHERE `comment_id` = '5618880aba591be4aadd1c7399d5c92a' OR `super_id` = '5618880aba591be4aadd1c7399d5c92a' [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000679s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000721s ]
+
+[ 2017-11-21T14:16:27+08:00 ] 192.168.1.196 /Angsir/code/Angsir/index.php/Admin/Comment/del/comment_id/5346fcceb5175164663a596d43b0750c.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000319s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000453s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000490s ]
+SQL: SHOW COLUMNS FROM `an_comment` [ RunTime:0.0005s ]
+SQL: DELETE FROM `an_comment` WHERE `comment_id` = '5346fcceb5175164663a596d43b0750c' OR `super_id` = '5346fcceb5175164663a596d43b0750c' [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000675s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000735s ]
+
+[ 2017-11-21T14:17:09+08:00 ] 192.168.1.196 /Angsir/code/Angsir/index.php/Admin/Comment/del/comment_id/496e2ce271588d1b13a15677c6956807.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000446s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000591s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000622s ]
+SQL: SHOW COLUMNS FROM `an_comment` [ RunTime:0.0005s ]
+SQL: DELETE FROM `an_comment` WHERE `comment_id` = '496e2ce271588d1b13a15677c6956807' OR `super_id` = '496e2ce271588d1b13a15677c6956807' [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000742s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000799s ]
+
+[ 2017-11-21T14:17:50+08:00 ] 192.168.1.196 /Angsir/code/Angsir/index.php/Admin/Comment/del/comment_id/6e2fba861f00353764ad270bd8fb861e.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000413s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000593s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000624s ]
+SQL: SHOW COLUMNS FROM `an_comment` [ RunTime:0.0005s ]
+SQL: DELETE FROM `an_comment` WHERE `comment_id` = '6e2fba861f00353764ad270bd8fb861e' OR `super_id` = '6e2fba861f00353764ad270bd8fb861e' [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000762s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000805s ]
+
+[ 2017-11-21T14:23:04+08:00 ] 192.168.1.196 /Angsir/code/Angsir/index.php/Admin/Comment/del/comment_id/a5434f0446483438f25c00ac40490a2d.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000419s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000571s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000603s ]
+SQL: SHOW COLUMNS FROM `an_comment` [ RunTime:0.0005s ]
+SQL: DELETE FROM `an_comment` WHERE `comment_id` = 'a5434f0446483438f25c00ac40490a2d' OR `super_id` = 'a5434f0446483438f25c00ac40490a2d' [ RunTime:0.0005s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000721s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000754s ]
+
+[ 2017-11-21T14:24:31+08:00 ] 192.168.1.196 /Angsir/code/Angsir/index.php/Admin/Comment/delR/comment_id/8dc6422c90c10b6f4a272cb9f0fd23d8.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000377s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000532s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000572s ]
+SQL: SHOW COLUMNS FROM `an_comment` [ RunTime:0.0005s ]
+SQL: DELETE FROM `an_comment` WHERE `comment_id` = '8dc6422c90c10b6f4a272cb9f0fd23d8' [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000674s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000711s ]
+
+[ 2017-11-21T14:25:41+08:00 ] 192.168.1.196 /Angsir/code/Angsir/index.php/Admin/Comment/del/comment_id/bb946b8a1909548dd87413fd7e313621.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000415s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000616s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000655s ]
+SQL: SHOW COLUMNS FROM `an_comment` [ RunTime:0.0005s ]
+SQL: DELETE FROM `an_comment` WHERE `comment_id` = 'bb946b8a1909548dd87413fd7e313621' OR `super_id` = 'bb946b8a1909548dd87413fd7e313621' [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000679s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000711s ]
+
+[ 2017-11-21T14:25:56+08:00 ] 192.168.1.196 /Angsir/code/Angsir/index.php/Admin/Comment/delR/comment_id/e9da46ceb256a510ac8a0d1e2fa7e3c3.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000422s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000613s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000644s ]
+SQL: SHOW COLUMNS FROM `an_comment` [ RunTime:0.0005s ]
+SQL: DELETE FROM `an_comment` WHERE `comment_id` = 'e9da46ceb256a510ac8a0d1e2fa7e3c3' [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000733s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000767s ]
+
+[ 2017-11-21T14:27:13+08:00 ] 192.168.1.196 /Angsir/code/Angsir/index.php/Admin/Comment/delR/comment_id/d0731761ae80fb2ac300b0aee7319a14.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000420s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000408s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000441s ]
+SQL: SHOW COLUMNS FROM `an_comment` [ RunTime:0.0005s ]
+SQL: DELETE FROM `an_comment` WHERE `comment_id` = 'd0731761ae80fb2ac300b0aee7319a14' [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000674s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000717s ]
+
+[ 2017-11-21T14:28:20+08:00 ] 192.168.1.196 /Angsir/code/Angsir/index.php/Admin/Comment/delR/comment_id/9334d9afc9d9167af8627af27e913d6e.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000417s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000685s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000719s ]
+SQL: SHOW COLUMNS FROM `an_comment` [ RunTime:0.0005s ]
+SQL: DELETE FROM `an_comment` WHERE `comment_id` = '9334d9afc9d9167af8627af27e913d6e' [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000725s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000759s ]
+
+[ 2017-11-21T14:29:36+08:00 ] 192.168.1.196 /Angsir/code/Angsir/index.php/Admin/Comment/delR/comment_id/133cca2da02164f91f3f93fd6ba488b2.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000409s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000615s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000659s ]
+SQL: SHOW COLUMNS FROM `an_comment` [ RunTime:0.0006s ]
+SQL: DELETE FROM `an_comment` WHERE `comment_id` = '133cca2da02164f91f3f93fd6ba488b2' [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000724s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000758s ]
+
+[ 2017-11-21T14:30:49+08:00 ] 192.168.1.196 /Angsir/code/Angsir/index.php/Admin/Comment/delR/comment_id/5168b0b6a35a078050de0aab78f930a0.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000352s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000554s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000593s ]
+SQL: SHOW COLUMNS FROM `an_comment` [ RunTime:0.0005s ]
+SQL: DELETE FROM `an_comment` WHERE `comment_id` = '5168b0b6a35a078050de0aab78f930a0' [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000780s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000832s ]
+
+[ 2017-11-21T14:31:12+08:00 ] 192.168.1.196 /Angsir/code/Angsir/index.php/Admin/Comment/delR/comment_id/0a8f59c941b825287929a8a92c6a10bd.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000033s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000542s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000672s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000741s ]
+SQL: SHOW COLUMNS FROM `an_comment` [ RunTime:0.0005s ]
+SQL: DELETE FROM `an_comment` WHERE `comment_id` = '0a8f59c941b825287929a8a92c6a10bd' [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000622s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000652s ]
+
+[ 2017-11-21T14:31:26+08:00 ] 192.168.1.196 /Angsir/code/Angsir/index.php/Admin/Comment/delR/comment_id/1aa34687c73b3a99cbfdf9489ae163f5.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000402s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000460s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000491s ]
+SQL: SHOW COLUMNS FROM `an_comment` [ RunTime:0.0005s ]
+SQL: DELETE FROM `an_comment` WHERE `comment_id` = '1aa34687c73b3a99cbfdf9489ae163f5' [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000662s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000696s ]
+
+[ 2017-11-21T14:31:28+08:00 ] 192.168.1.196 /Angsir/code/Angsir/index.php/Admin/Comment/del/comment_id/0e1046c3469e85e621fcb14f01953480.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000364s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000648s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000698s ]
+SQL: SHOW COLUMNS FROM `an_comment` [ RunTime:0.0007s ]
+SQL: DELETE FROM `an_comment` WHERE `comment_id` = '0e1046c3469e85e621fcb14f01953480' OR `super_id` = '0e1046c3469e85e621fcb14f01953480' [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000727s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000760s ]
+
+[ 2017-11-21T14:33:43+08:00 ] 192.168.1.196 /Angsir/code/Angsir/index.php/Admin/Comment/delR/comment_id/383c25c76ca984b7715884063114f9e1.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000397s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000615s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000648s ]
+SQL: SHOW COLUMNS FROM `an_comment` [ RunTime:0.0005s ]
+SQL: DELETE FROM `an_comment` WHERE `comment_id` = '383c25c76ca984b7715884063114f9e1' [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000713s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000747s ]
+
+[ 2017-11-21T14:33:44+08:00 ] 192.168.1.196 /Angsir/code/Angsir/index.php/Admin/Comment/delR/comment_id/4177bead35a2493cbc9ca0ac7d726406.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000394s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000600s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000633s ]
+SQL: SHOW COLUMNS FROM `an_comment` [ RunTime:0.0005s ]
+SQL: DELETE FROM `an_comment` WHERE `comment_id` = '4177bead35a2493cbc9ca0ac7d726406' [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000752s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000786s ]
+
