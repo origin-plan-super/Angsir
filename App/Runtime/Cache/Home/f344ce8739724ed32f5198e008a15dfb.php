@@ -673,7 +673,7 @@
                                             style="width:400px;border-left:1px #3ab679 solid;border-right:1px #3ab679 solid;">
                                     </div>
                                     <input type="text" name="user_address" placeholder="请输入地址" value="<?php echo ($user_info["user_address"]); ?>">
-                                    <input type="text" name="contact" placeholder="请输入联系方式" value="<?php echo ($user_info["contact"]); ?>">
+                                    <input type="text" name="contact" placeholder="请输入联系方式（选填）" value="<?php echo ($user_info["contact"]); ?>">
                                 </div>
 
                                 <div class="toolbar">

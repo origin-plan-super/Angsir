@@ -113,7 +113,6 @@ class LoginController extends Controller {
                         $add['user_pwd']=md5($pwd2.__KEY__);
                         $add['user_id']=$id;
                         $add['user_name']=$id;
-                        $add['contact']=$id;
                         
                         if($model->add($add)!==false){
                             
