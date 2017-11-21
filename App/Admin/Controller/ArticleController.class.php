@@ -30,9 +30,10 @@ class ArticleController extends CommonController {
     public function getList(){
         
         $model=M('live');
-        $page=I('get.page')-1;
+        $page=I('get.page');
         $limit=I('get.limit');
         
+        $page=($page-1)* $limit;
         if(!empty(I('get.key'))){
             
             $key=I('get.key');
@@ -98,5 +99,31 @@ class ArticleController extends CommonController {
         
     }
     
+    /**
+    *
+    * 批量删除
+    *
+    */
+    public function removes() {
+        
+        if (!empty(I('post.live_id'))) {
+            
+            $live_id = I('post.live_id');
+            $where = "live_id in($live_id)";
+            $model = M('Live');
+            $result = $model -> where($where) -> delete();
+            
+            if($resut!==false){
+                $res['res'] = $result;
+                $res['msg'] ='成功' ;
+            }else{
+                $res['res'] = -1;
+                $res['msg'] =$result ;
+            }
+            
+        }
+        
+        echo json_encode($res);
+    }
     
 }

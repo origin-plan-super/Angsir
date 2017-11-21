@@ -150,5 +150,31 @@ class UserController extends CommonController {
         
         
     }
+    /**
+    *
+    * 批量删除
+    *
+    */
+    public function removes() {
+        
+        if (!empty(I('post.user_id'))) {
+            
+            $user_id = I('post.user_id');
+            $where = "user_id in($user_id)";
+            $model = M('User');
+            $result = $model -> where($where) -> delete();
+            
+            if($resut!==false){
+                $res['res'] = $result;
+                $res['msg'] ='成功' ;
+            }else{
+                $res['res'] = -1;
+                $res['msg'] =$result ;
+            }
+            
+        }
+        
+        echo json_encode($res);
+    }
     
 }

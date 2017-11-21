@@ -24,8 +24,20 @@
         <input class="layui-input" name="user_id" id="user_id" placeholder="搜索" autocomplete="off">
     </div>
     <button class="layui-btn" id="reload" data-type="reload">搜索</button>
+    <div class="layui-row" style="padding-top:10px">
 
-    <table id="live_table" lay-filter="live_table_filter"></table>
+        <div class="layui-btn-group">
+
+            <button class="layui-btn layui-btn-sm" id="removeAll">
+                <i class="layui-icon">&#xe640;</i>批量删除
+            </button>
+        </div>
+
+
+    </div>
+
+
+    <table id="table" lay-filter="table_filter"></table>
 
     <script src="/Angsir/code/Angsir/Public/vendor/Jquery/jquery-2.1.0.js"></script>
     <script src="/Angsir/code/Angsir/Public/vendor/layer/layer.js"></script>
@@ -44,22 +56,25 @@
         <input type="checkbox" name="lock" value="{{d.user_id}}" title="推荐" lay-filter="is_up" {{ d.is_up == 1 ? 'checked' : '' }}>
 
       </script>
-	  
+
     <script>
         var tableIns;
+        var table;
         layui.use('table', function () {
-            var table = layui.table
+            table = layui.table
                 , form = layui.form;
             //第一个实例
             tableIns = table.render({
-                elem: '#live_table'
+                id: 'table'
+                , elem: '#table'
                 , url: '/Angsir/code/Angsir/index.php/Admin/User/getList' //数据接口
                 , page: true //开启分页
                 , limit: localStorage.limit == null ? 20 : localStorage.limit
                 // , limits: [5, 10]
                 , cols: [[ //表头
                     // { type: 'numbers', title: '序号', }
-                    { field: 'user_id', title: '账号', width: 180 }
+                    { type: 'checkbox', width: 50, fixed: 'lfet' }
+                    , { field: 'user_id', title: '账号', width: 180 }
                     , { field: 'user_name', title: '用户名', edit: 'text', width: 180 }
                     , { field: 'duty_text', title: '职业' }
                     , { field: 'industry_text', title: '行业' }
@@ -94,7 +109,7 @@
 
 
             //监听工具条
-            table.on('tool(live_table_filter)', function (obj) { //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
+            table.on('tool(table_filter)', function (obj) { //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
                 var data = obj.data; //获得当前行数据
                 var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
                 var tr = obj.tr; //获得当前行 tr 的DOM对象
@@ -147,7 +162,7 @@
             /**
             监听单元格编辑
             */
-            table.on('edit(live_table_filter)', function (obj) { //注：edit是固定事件名，test是table原始容器的属性 lay-filter="对应的值"
+            table.on('edit(table_filter)', function (obj) { //注：edit是固定事件名，test是table原始容器的属性 lay-filter="对应的值"
                 console.log(obj.value); //得到修改后的值
                 console.log(obj.field); //当前编辑的字段名
                 console.log(obj.data); //所在行的所有相关数据  
@@ -204,7 +219,44 @@
             });
 
         });
+        // 
+        /**
+          * 批量删除
+          */
+        $(document).on('click', '#removeAll', function () {
+            var o = table.checkStatus('table');
+            if (o.data.length <= 0) {
+                return;
+            }
 
+            layer.confirm('确定删除这些用户？', function (index) {
+                var id = '';
+                for (var i = 0; i < o.data.length; i++) {
+                    id += "'" + o.data[i].user_id + "',";
+                }
+                id = id.substring(0, id.length - 1);
+
+                $.post('/Angsir/code/Angsir/index.php/Admin/User/removes', {
+                    'user_id': id
+                }, function (res) {
+
+                    var res = JSON.parse(res);
+
+                    if (res.res > 0) {
+
+                        layer.msg('成功删除' + res.res + '数据~');
+
+                        tableIns.reload();
+                    } else {
+                        layer.msg('删除失败！' + res.msg);
+
+                    }
+
+                });
+
+            });
+
+        });
         function saveInfo(post, f) {
             $.post('<?php echo U("User/saveInfo");?>', post, function (res) {
                 console.log(res);

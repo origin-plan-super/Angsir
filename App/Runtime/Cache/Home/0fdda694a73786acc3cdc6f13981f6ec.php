@@ -193,6 +193,38 @@
     .m-right1 .text-list3 span {
         width: auto;
     }
+
+    .img-responsive {
+        max-width: 20px;
+    }
+
+    .login-box .login {
+        padding-top: 0;
+
+    }
+
+    .header .login-box .user-info-box {
+        text-align: center;
+        padding: 8px 10px;
+    }
+
+
+    .header .user-name {
+        display: inline-block;
+        padding: 0;
+    }
+
+    .header .user-img-box {
+        display: inline-block;
+        padding: 0;
+    }
+
+    .header .user-img {
+        width: 20px;
+        height: 20px;
+        padding: 0;
+        display: inline-block;
+    }
 </style>
 
 
@@ -210,13 +242,13 @@
                 <?php else: ?>
                 <!-- 不为空 ，已登录-->
                 <div class="login js_navlogin">
-                    <p>
+                    <p class="user-info-box">
                         <span class="user-name"><?php echo (session('user_name')); ?></span>
-                        <span class="user-gravatar">
-                            <img src="<?php echo (session('user_img')); ?>" onerror='this.src="/Angsir/code/Angsir/Public/dist/image/gravatar-default.jpg"' class="img-responsive" alt="Responsive image"
-                                widht="20" height="20"> </span>
+                        <span class="user-img-box">
+                            <img src="<?php echo (session('user_img')); ?>" onerror='this.src="/Angsir/code/Angsir/Public/dist/image/gravatar-default.jpg"' class="user-img" alt="Responsive image">
+                        </span>
                     </p>
-                    <div class="nav-userlist js_navuserlist ">
+                    <div class="nav-userlist js_navuserlist">
                         <p>
                             <a href="<?php echo U('Center/Center');?>">个人中心</a>
                         </p>
@@ -783,7 +815,7 @@
 
                             .reply-box {
                                 background-color: #eeeeee;
-                                padding: 10px 15px;
+                                padding: 5px 15px;
                                 border-radius: 5px;
                                 margin-top: 10px;
                                 margin-bottom: 10px;
@@ -815,7 +847,7 @@
                                             <div class="layui-col-md2" style='text-align: center'>
 
 
-                                                <a href="<?php echo U('User/show','user_id='.$vol['user_id']);?>">
+                                                <a href="<?php echo U('User/show','user_id='.$vol['user_id']);?>" target="_blank">
                                                     <img class="user_img" src="<?php echo ($vol["user_img"]); ?>" onerror='this.src="/Angsir/code/Angsir/Public/dist/image/default_headpic.png"' />
                                                 </a>
                                                 <div>
@@ -1216,7 +1248,9 @@
                     if (res.res == -1) {
                         layer.msg('回复失败~');
                     }
-
+                    if (res.res == -999) {
+                        layer.msg('请登录后再回复~');
+                    }
 
                 });
 

@@ -15,21 +15,30 @@
 
     <style>
         .box {
+            padding-top: 50px;
             width: 300px;
             margin: 0 auto;
             height: 80vh;
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        .box * {
+            font-size: 20px;
         }
 
         #black {
             cursor: pointer;
             font-size: 30px;
+            text-decoration: underline;
         }
 
         #black:hover {
             color: #0f88eb;
 
         }
-        #time{
+
+        #time {
             color: #ff0000;
         }
     </style>
@@ -351,7 +360,7 @@
                 <a href="<?php echo U('Index/about');?>">帮助中心</a>
 
             </p>
-            <p class="footer-li2" style="line-height: 25px; float:none;">Copyright©2005-2015 angsir网 沪ICP备05050523号</p>
+            <p class="footer-li2" style="line-height: 25px; float:none;">Copyright©2005-2015 Angsir网 沪ICP备05050523号</p>
             <div style="text-align: center; padding:5px 0;">
                 <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010102002503" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
                     <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">

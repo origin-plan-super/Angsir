@@ -24,6 +24,17 @@
     </div>
     <button class="layui-btn" id="reload" data-type="reload">搜索</button>
 
+    <div class="layui-row" style="padding-top:10px">
+
+        <div class="layui-btn-group">
+
+            <button class="layui-btn layui-btn-sm" id="removeAll">
+                <i class="layui-icon">&#xe640;</i>批量删除
+            </button>
+        </div>
+
+
+    </div>
 
 
     <table id="live_table" lay-filter="live_table_filter"></table>
@@ -40,20 +51,22 @@
 
     <script>
         var tableIns;
-
+        var table;
         layui.use('table', function () {
-            var table = layui.table
+            table = layui.table
                 , form = layui.form;
 
 
             //第一个实例
             tableIns = table.render({
-                elem: '#live_table'
+                id: 'live_table'
+                , elem: '#live_table'
                 , url: '__CONTROLLER__/getList' //数据接口
                 , page: true //开启分页
                 , limit: localStorage.limit == null ? 20 : localStorage.limit
                 , cols: [[ //表头
-                    { field: 'live_id', title: 'ID', width: 150 }
+                    { type: 'checkbox', width: 50, fixed: 'lfet' }
+                    , { field: 'live_id', title: 'ID', width: 150 }
                     , { field: 'user_id', title: '账号' }
                     , { field: 'read_count', title: '阅读', width: 80, align: 'center' }
                     , { field: 'good_count', title: '点赞', width: 80, align: 'center' }
@@ -149,6 +162,43 @@
                     //得到数据总量
                     console.log(count);
                 }
+            });
+
+        });
+        /**
+     * 批量删除
+     */
+        $(document).on('click', '#removeAll', function () {
+            var o = table.checkStatus('live_table');
+            if (o.data.length <= 0) {
+                return;
+            }
+
+            layer.confirm('确定删除这些经历？', function (index) {
+                var id = '';
+                for (var i = 0; i < o.data.length; i++) {
+                    id += "'" + o.data[i].live_id + "',";
+                }
+                id = id.substring(0, id.length - 1);
+
+                $.post('__CONTROLLER__/removes', {
+                    'live_id': id
+                }, function (res) {
+
+                    var res = JSON.parse(res);
+
+                    if (res.res > 0) {
+
+                        layer.msg('成功删除' + res.res + '数据~');
+
+                        tableIns.reload();
+                    } else {
+                        layer.msg('删除失败！' + res.msg);
+
+                    }
+
+                });
+
             });
 
         });

@@ -499,7 +499,7 @@
 
                             .reply-box {
                                 background-color: #eeeeee;
-                                padding: 10px 15px;
+                                padding: 5px 15px;
                                 border-radius: 5px;
                                 margin-top: 10px;
                                 margin-bottom: 10px;
@@ -533,7 +533,7 @@
                                             <div class="layui-col-md2" style='text-align: center'>
 
 
-                                                <a href="{:U('User/show','user_id='.$vol['user_id'])}">
+                                                <a href="{:U('User/show','user_id='.$vol['user_id'])}" target="_blank">
                                                     <img class="user_img" src="{$vol.user_img}" onerror='this.src="__DIST__/image/default_headpic.png"' />
                                                 </a>
                                                 <div>
@@ -947,7 +947,9 @@
                     if (res.res == -1) {
                         layer.msg('回复失败~');
                     }
-
+                    if (res.res == -999) {
+                        layer.msg('请登录后再回复~');
+                    }
 
                 });
 
