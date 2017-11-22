@@ -3,19 +3,19 @@
 <!--  main layout -->
 
 <head>
+
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
     <title>找回密码</title>
-    <meta name="keywords" content="angsir网">
-    <meta name="description" content="angsir网">
+    <meta name="keywords" content="Angsir网">
+    <meta name="description" content="Angsir网">
     <meta name="baidu_ssp_verify" content="012083dea3cb5ea1b27406bc9fe3dc22">
 
     <meta name="renderer" content="webkit|ie-comp|ie-stand">
     <!-- page Common css file -->
-
+    <link rel="stylesheet" type="text/css" href="/Angsir/code/Angsir/Public/dist/css/main.html_aio_0a6f700.css">
     <link href="/Angsir/code/Angsir/Public/dist/css/basic.css" rel="stylesheet" type="text/css">
     <link href="/Angsir/code/Angsir/Public/dist/css/public.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="/Angsir/code/Angsir/Public/dist/css/main.html_aio_0a6f700.css">
     <script type="text/javascript" async="" src="/Angsir/code/Angsir/Public/dist/js/atrk.js"></script>
     <script>
         // console.log
@@ -210,6 +210,38 @@
     .m-right1 .text-list3 span {
         width: auto;
     }
+
+    .img-responsive {
+        max-width: 20px;
+    }
+
+    .login-box .login {
+        padding-top: 0;
+
+    }
+
+    .header .login-box .user-info-box {
+        text-align: center;
+        padding: 8px 10px;
+    }
+
+
+    .header .user-name {
+        display: inline-block;
+        padding: 0;
+    }
+
+    .header .user-img-box {
+        display: inline-block;
+        padding: 0;
+    }
+
+    .header .user-img {
+        width: 20px;
+        height: 20px;
+        padding: 0;
+        display: inline-block;
+    }
 </style>
 
 
@@ -227,13 +259,13 @@
                 <?php else: ?>
                 <!-- 不为空 ，已登录-->
                 <div class="login js_navlogin">
-                    <p>
+                    <p class="user-info-box">
                         <span class="user-name"><?php echo (session('user_name')); ?></span>
-                        <span class="user-gravatar">
-                            <img src="<?php echo (session('user_img')); ?>" onerror='this.src="/Angsir/code/Angsir/Public/dist/image/gravatar-default.jpg"' class="img-responsive" alt="Responsive image"
-                                widht="20" height="20"> </span>
+                        <span class="user-img-box">
+                            <img src="<?php echo (session('user_img')); ?>" onerror='this.src="/Angsir/code/Angsir/Public/dist/image/gravatar-default.jpg"' class="user-img" alt="Responsive image">
+                        </span>
                     </p>
-                    <div class="nav-userlist js_navuserlist ">
+                    <div class="nav-userlist js_navuserlist">
                         <p>
                             <a href="<?php echo U('Center/Center');?>">个人中心</a>
                         </p>
@@ -252,7 +284,7 @@
 
         </div>
 
-        <a class="bl-logo" href="#/">angsir网</a>
+        <a class="bl-logo" href="#/">Angsir网</a>
 
         <ul class="nav fl-left" identitystate="0">
             <li>
@@ -276,14 +308,14 @@
 <div id="js_popuplogin" class="popUp">
     <div id="gmask"></div>
     <div class="pop mid">
-        <span class="close"></span>
+        <span class="close">x</span>
         <div class="pop-main">
             <div class="pop-con">
                 <div class="w340">
                     <form action="<?php echo U('Login/login');?>" id="login_form" name="login" class="form-signin ptb20 layui-form" method="post">
                         <h1>登录</h1>
 
-                        <!-- <input type="hidden" id="callback" name="callback" value="/zhiwei/view/29546736/"> -->
+                        <!-- <input  type="hidden" id="callback" name="callback" value="/zhiwei/view/29546736/"> -->
                         <ul class="form-list1">
                             <li class="label-inline1">
                                 <label for="user_id" class="label-1 fz-14">账 号</label>
@@ -295,7 +327,7 @@
                                 <input lay-verify='required' type="password" id="user_pwd" name="user_pwd" value="" class="form-control w-248 js_validate"
                                     placeholder="6-16个字符，不能有空格，区分大小写" autocomplete="off"> </li>
                             <li>
-                                <a href="<?php echo U('Login/findPassword');?>" target="_black" class="fl-right">找回密码</a>
+                                <a href="<?php echo U('Login/findPassword');?>" target="_black" class="fl-right">忘记密码</a>
                                 <label for="remember">
                                     <input type="checkbox" name="remember" checked="" lay-skin='primary'> 下次自动登录
                                 </label>
@@ -322,13 +354,13 @@
 <div id="js_popupreg" class="popUp">
     <div id="gmask"></div>
     <div class="pop mid">
-        <span class="close"></span>
+        <span class="close">x</span>
         <div class="pop-main">
             <div class="pop-con">
                 <div class="w340">
                     <form id="reg_form" name="login" class="form-signin ptb20 layui-form" method="post">
                         <h1>注册</h1>
-                        <!-- <input type="hidden" id="callback" name="callback" value="/zhiwei/view/29546736/"> -->
+                        <!-- <input  type="hidden" id="callback" name="callback" value="/zhiwei/view/29546736/"> -->
                         <ul class="form-list1">
                             <li class="label-inline1">
                                 <label for="user_id_reg" class="label-1 fz-14">账 号</label>
@@ -462,6 +494,10 @@
 
     }
 
+    $('#js_popupreg').find('.close').on('click', function () {
+        $('#js_popupreg').fadeOut(300);
+    });
+
 </script>
 
 
@@ -470,9 +506,7 @@
     <a href="javascript:;" gotodata="body" class="js_goto">
         <p class="sb-img">
             <img src="/Angsir/code/Angsir/Public/dist/image/ico_arrowup.png" alt="" data-bd-imgshare-binded="1">
-            <span class="img-hover">
-                <img src="/Angsir/code/Angsir/Public/dist/image/ico_arrowup_color.png" alt="" data-bd-imgshare-binded="1">
-            </span>
+
         </p>
         <p class="sb-txt1">回到顶部</p>
     </a>
@@ -480,9 +514,7 @@
     <a href="javascript:;">
         <p class="sb-img">
             <img src="/Angsir/code/Angsir/Public/dist/image/ico_sb_qr.png" alt="" data-bd-imgshare-binded="1">
-            <span class="img-hover">
-                <img src="/Angsir/code/Angsir/Public/dist/image/ico_sb_qr_color.png" alt="" data-bd-imgshare-binded="1">
-            </span>
+
         </p>
         <p class="sb-txt1">关注微信</p>
         <div class="sb-hover">
@@ -595,7 +627,7 @@
                 <div class="user_bindSidebar">
                     <ul class="user_sideBarmenu">
                         <li>
-                            <a href="center.html" data-lg-tj-id="18g0" data-lg-tj-no="idnull" data-lg-tj-cid="idnull">找回密码</a>
+                            <a href="center.html" data-lg-tj-id="18g0" data-lg-tj-no="idnull" data-lg-tj-cid="idnull">修改密码</a>
                         </li>
                     </ul>
                 </div>
@@ -616,13 +648,13 @@
 
                             <div class="layui-form" id="updatePswForm">
                                 <div class="input_item">
-                                    <input type="text" name="user_id" lay-verify='required' id="user_id" value="1173197065@qq.com" placeholder="请输入您的登录账户" autocomplete="off">
+                                    <input type="text" name="user_id" lay-verify='required' id="user_id" value="" placeholder="请输入您的登录账户" autocomplete="off">
                                 </div>
                                 <div class="input_item">
-                                    <input type="password" name="user_pwd1" id="user_pwd1" lay-verify='required' value='123123' placeholder="请输入新密码" autocomplete="off">
+                                    <input type="password" name="user_pwd1" id="user_pwd1" lay-verify='required' value='' placeholder="请输入新密码" autocomplete="off">
                                 </div>
                                 <div class="input_item">
-                                    <input type="password" name="user_pwd2" id="user_pwd2" lay-verify='required' value='123123' placeholder="确认新密码" autocomplete="off">
+                                    <input type="password" name="user_pwd2" id="user_pwd2" lay-verify='required' value='' placeholder="确认新密码" autocomplete="off">
                                 </div>
                                 <div class="input_item">
                                     <input type="text" name="user_code" id="user_code" disabled placeholder="邮件验证码" autocomplete="off">
@@ -655,7 +687,7 @@
                 <a href="<?php echo U('Index/about');?>">帮助中心</a>
 
             </p>
-            <p class="footer-li2" style="line-height: 25px; float:none;">Copyright©2005-2015 angsir网 沪ICP备05050523号</p>
+            <p class="footer-li2" style="line-height: 25px; float:none;">Copyright©2005-2015 Angsir网 沪ICP备05050523号</p>
             <div style="text-align: center; padding:5px 0;">
                 <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010102002503" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
                     <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">

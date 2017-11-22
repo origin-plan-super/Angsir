@@ -5,9 +5,9 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-    <title>angsir网</title>
-    <meta name="keywords" content="angsir网">
-    <meta name="description" content="angsir网">
+    <title>Angsir网</title>
+    <meta name="keywords" content="Angsir网">
+    <meta name="description" content="Angsir网">
     <meta name="baidu_ssp_verify" content="012083dea3cb5ea1b27406bc9fe3dc22">
     <script src="/Angsir/code/Angsir/Public/vendor/vue/vue.js"></script>
 
@@ -255,7 +255,7 @@
 
         </div>
 
-        <a class="bl-logo" href="#/">angsir网</a>
+        <a class="bl-logo" href="#/">Angsir网</a>
 
         <ul class="nav fl-left" identitystate="0">
             <li>
@@ -279,14 +279,14 @@
 <div id="js_popuplogin" class="popUp">
     <div id="gmask"></div>
     <div class="pop mid">
-        <span class="close"></span>
+        <span class="close">x</span>
         <div class="pop-main">
             <div class="pop-con">
                 <div class="w340">
                     <form action="<?php echo U('Login/login');?>" id="login_form" name="login" class="form-signin ptb20 layui-form" method="post">
                         <h1>登录</h1>
 
-                        <!-- <input type="hidden" id="callback" name="callback" value="/zhiwei/view/29546736/"> -->
+                        <!-- <input  type="hidden" id="callback" name="callback" value="/zhiwei/view/29546736/"> -->
                         <ul class="form-list1">
                             <li class="label-inline1">
                                 <label for="user_id" class="label-1 fz-14">账 号</label>
@@ -298,7 +298,7 @@
                                 <input lay-verify='required' type="password" id="user_pwd" name="user_pwd" value="" class="form-control w-248 js_validate"
                                     placeholder="6-16个字符，不能有空格，区分大小写" autocomplete="off"> </li>
                             <li>
-                                <a href="<?php echo U('Login/findPassword');?>" target="_black" class="fl-right">找回密码</a>
+                                <a href="<?php echo U('Login/findPassword');?>" target="_black" class="fl-right">忘记密码</a>
                                 <label for="remember">
                                     <input type="checkbox" name="remember" checked="" lay-skin='primary'> 下次自动登录
                                 </label>
@@ -325,13 +325,13 @@
 <div id="js_popupreg" class="popUp">
     <div id="gmask"></div>
     <div class="pop mid">
-        <span class="close"></span>
+        <span class="close">x</span>
         <div class="pop-main">
             <div class="pop-con">
                 <div class="w340">
                     <form id="reg_form" name="login" class="form-signin ptb20 layui-form" method="post">
                         <h1>注册</h1>
-                        <!-- <input type="hidden" id="callback" name="callback" value="/zhiwei/view/29546736/"> -->
+                        <!-- <input  type="hidden" id="callback" name="callback" value="/zhiwei/view/29546736/"> -->
                         <ul class="form-list1">
                             <li class="label-inline1">
                                 <label for="user_id_reg" class="label-1 fz-14">账 号</label>
@@ -465,6 +465,10 @@
 
     }
 
+    $('#js_popupreg').find('.close').on('click', function () {
+        $('#js_popupreg').fadeOut(300);
+    });
+
 </script>
 
 
@@ -594,36 +598,10 @@
             </div>
             <div class="ebox-tag">
                 <span class="pos-search-tag-title">热门搜索：</span>
-                <a href="#/zhaopin/kw-%E5%9F%B9%E8%AE%AD%E8%AE%B2%E5%B8%88/">
-                    <strong>培训讲师</strong>
-                </a>
-                <a href="#/zhaopin/kw-%E9%A2%84%E7%BB%93%E7%AE%97%E5%91%98/">
-                    <strong>预结算员</strong>
-                </a>
-                <a href="#/zhaopin/kw-%E6%95%99%E5%B8%88/">
-                    <strong>教师</strong>
-                </a>
-                <a href="#/zhaopin/kw-%E6%8A%A4%E5%A3%AB/">
-                    <strong>护士</strong>
-                </a>
-                <a href="#/zhaopin/kw-%E8%B4%A7%E8%BF%90%E4%BB%A3%E7%90%86/">
-                    <strong>货运代理</strong>
-                </a>
-                <a href="#/zhaopin/kw-%E5%8C%BB%E7%96%97%E6%9C%BA%E6%A2%B0/">
-                    <strong>医疗机械</strong>
-                </a>
-                <a href="#/zhaopin/kw-%E7%94%9F%E7%89%A9%E5%88%B6%E8%8D%AF/">
-                    <strong>生物制药</strong>
-                </a>
-                <a href="#/zhaopin/kw-%E8%90%A5%E8%BF%90%E7%BB%8F%E7%90%86/">
-                    <strong>营运经理</strong>
-                </a>
-                <a href="#/zhaopin/kw-%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%9B%91/">
-                    <strong>项目总监</strong>
-                </a>
-                <a href="#/zhaopin/kw-%E8%84%9A%E6%9C%AC%E5%BC%80%E5%8F%91/">
-                    <strong>脚本开发</strong>
-                </a>
+
+                <?php if(is_array($Hot)): $i = 0; $__LIST__ = $Hot;if( count($__LIST__)==0 ) : echo "没有热门搜索" ;else: foreach($__LIST__ as $key=>$vol): $mod = ($i % 2 );++$i;?><a href="javascript:;" data-value='<?php echo ($vol["value"]); ?>' class="show-hot">
+                        <strong><?php echo ($vol["value"]); ?></strong>
+                    </a><?php endforeach; endif; else: echo "没有热门搜索" ;endif; ?>
 
             </div>
 
@@ -753,7 +731,7 @@
         el: '#infoApp',
         data: {
             items: [],
-            queryDate: [],
+            queryDate: null,
             type: 'read',
         },
         methods: {
@@ -778,6 +756,9 @@
                 });
 
             },
+            /**
+            条件查询
+            */
             query: function (queryDate) {
                 var load = layer.load(1); //换了种风格
                 if (queryDate != null) {
@@ -853,7 +834,11 @@
             },
             setType: function (type) {
                 this.type = type;
-                this.update();
+                if (this.queryDate != null) {
+                    this.query();
+                } else {
+                    this.update();
+                }
             }
         }
 
@@ -866,6 +851,12 @@
     });
     $(document).on('click', '#getMore', function () {
         infoApp.addQuery();
+    });
+
+    $(document).on('click', '.show-hot', function () {
+        var value = $(this).attr('data-value');
+        $('#query_key').val($('#query_key').val() + ' ' + value);
+
     });
 
 
@@ -964,7 +955,7 @@
 
 
                 <div class="i-ebox1 mt10">
-                    <div class="title" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;, &#39;index&#39;, &#39;click_recommendCompany&#39;])">
+                    <div class="title">
                         <i class="ico ico-square"></i>推荐会员</div>
                     <div class="conbox">
                         <ul class="i-recommend-company evenParent" even_cell="li">

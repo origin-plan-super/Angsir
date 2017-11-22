@@ -31,9 +31,9 @@ class UserController extends CommonController {
         // page=1&limit=30
         
         $model=M('User');
-        $page=I('get.page')-1;
+        $page=I('get.page');
         $limit=I('get.limit');
-        
+        $page=($page-1)* $limit;
         
         if(!empty(I('get.key'))){
             

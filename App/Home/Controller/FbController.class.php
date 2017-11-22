@@ -110,8 +110,8 @@ class FbController extends CommonController {
             $add['what_do_you_want_to_say_to_later_people']=I('post.what_do_you_want_to_say_to_later_people');
             //一则自己亲身经历的职场故事
             $add['story']=I('post.story');
-            // title	标题，一般以职位命名
-            $add['title']= $add['duty_text'];
+            // title
+            $add['title']=I('post.title');
             
             /**
             * 必须的基本字段

@@ -5,9 +5,9 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-    <title>angsir网</title>
-    <meta name="keywords" content="angsir网">
-    <meta name="description" content="angsir网">
+    <title>Angsir网</title>
+    <meta name="keywords" content="Angsir网">
+    <meta name="description" content="Angsir网">
     <meta name="baidu_ssp_verify" content="012083dea3cb5ea1b27406bc9fe3dc22">
 
     <meta name="renderer" content="webkit|ie-comp|ie-stand">
@@ -255,7 +255,7 @@
 
         </div>
 
-        <a class="bl-logo" href="#/">angsir网</a>
+        <a class="bl-logo" href="#/">Angsir网</a>
 
         <ul class="nav fl-left" identitystate="0">
             <li>
@@ -279,7 +279,7 @@
 <div id="js_popuplogin" class="popUp">
     <div id="gmask"></div>
     <div class="pop mid">
-        <span class="close"></span>
+        <span class="close">x</span>
         <div class="pop-main">
             <div class="pop-con">
                 <div class="w340">
@@ -298,7 +298,7 @@
                                 <input lay-verify='required' type="password" id="user_pwd" name="user_pwd" value="" class="form-control w-248 js_validate"
                                     placeholder="6-16个字符，不能有空格，区分大小写" autocomplete="off"> </li>
                             <li>
-                                <a href="<?php echo U('Login/findPassword');?>" target="_black" class="fl-right">找回密码</a>
+                                <a href="<?php echo U('Login/findPassword');?>" target="_black" class="fl-right">忘记密码</a>
                                 <label for="remember">
                                     <input type="checkbox" name="remember" checked="" lay-skin='primary'> 下次自动登录
                                 </label>
@@ -325,7 +325,7 @@
 <div id="js_popupreg" class="popUp">
     <div id="gmask"></div>
     <div class="pop mid">
-        <span class="close"></span>
+        <span class="close">x</span>
         <div class="pop-main">
             <div class="pop-con">
                 <div class="w340">
@@ -464,6 +464,11 @@
         $('#js_popupreg').fadeIn(300);
 
     }
+
+    $('#js_popupreg').find('.close').on('click', function () {
+        $('#js_popupreg').fadeOut(300);
+
+    });
 
 </script>
 

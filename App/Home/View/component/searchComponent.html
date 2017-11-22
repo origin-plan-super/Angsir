@@ -8,36 +8,12 @@
             </div>
             <div class="ebox-tag">
                 <span class="pos-search-tag-title">热门搜索：</span>
-                <a href="#/zhaopin/kw-%E5%9F%B9%E8%AE%AD%E8%AE%B2%E5%B8%88/">
-                    <strong>培训讲师</strong>
-                </a>
-                <a href="#/zhaopin/kw-%E9%A2%84%E7%BB%93%E7%AE%97%E5%91%98/">
-                    <strong>预结算员</strong>
-                </a>
-                <a href="#/zhaopin/kw-%E6%95%99%E5%B8%88/">
-                    <strong>教师</strong>
-                </a>
-                <a href="#/zhaopin/kw-%E6%8A%A4%E5%A3%AB/">
-                    <strong>护士</strong>
-                </a>
-                <a href="#/zhaopin/kw-%E8%B4%A7%E8%BF%90%E4%BB%A3%E7%90%86/">
-                    <strong>货运代理</strong>
-                </a>
-                <a href="#/zhaopin/kw-%E5%8C%BB%E7%96%97%E6%9C%BA%E6%A2%B0/">
-                    <strong>医疗机械</strong>
-                </a>
-                <a href="#/zhaopin/kw-%E7%94%9F%E7%89%A9%E5%88%B6%E8%8D%AF/">
-                    <strong>生物制药</strong>
-                </a>
-                <a href="#/zhaopin/kw-%E8%90%A5%E8%BF%90%E7%BB%8F%E7%90%86/">
-                    <strong>营运经理</strong>
-                </a>
-                <a href="#/zhaopin/kw-%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%9B%91/">
-                    <strong>项目总监</strong>
-                </a>
-                <a href="#/zhaopin/kw-%E8%84%9A%E6%9C%AC%E5%BC%80%E5%8F%91/">
-                    <strong>脚本开发</strong>
-                </a>
+
+                <volist name='Hot' id='vol' empty="没有热门搜索">
+                    <a href="javascript:;" data-value='{$vol.value}' class="show-hot">
+                        <strong>{$vol.value}</strong>
+                    </a>
+                </volist>
 
             </div>
 
@@ -169,7 +145,7 @@
         el: '#infoApp',
         data: {
             items: [],
-            queryDate: [],
+            queryDate: null,
             type: 'read',
         },
         methods: {
@@ -194,6 +170,9 @@
                 });
 
             },
+            /**
+            条件查询
+            */
             query: function (queryDate) {
                 var load = layer.load(1); //换了种风格
                 if (queryDate != null) {
@@ -269,7 +248,11 @@
             },
             setType: function (type) {
                 this.type = type;
-                this.update();
+                if (this.queryDate != null) {
+                    this.query();
+                } else {
+                    this.update();
+                }
             }
         }
 
@@ -282,6 +265,12 @@
     });
     $(document).on('click', '#getMore', function () {
         infoApp.addQuery();
+    });
+
+    $(document).on('click', '.show-hot', function () {
+        var value = $(this).attr('data-value');
+        $('#query_key').val($('#query_key').val() + ' ' + value);
+
     });
 
 

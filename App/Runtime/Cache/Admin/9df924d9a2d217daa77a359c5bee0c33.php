@@ -36,9 +36,9 @@
         <div class="layui-header">
             <div class="layui-logo">Angsir</div>
             <!-- 头部区域（可配合layui已有的水平导航） -->
-           
+
             <ul class="layui-nav layui-layout-right">
-              
+
                 <li class="layui-nav-item">
                     <a href="<?php echo U('Login/sinOut');?>">退了</a>
                 </li>
@@ -57,6 +57,9 @@
                     </li>
                     <li class="layui-nav-item">
                         <a href="javascript:;" data-src='User/index'>用户管理</a>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;" data-src='Hot/showList'>热搜管理</a>
                     </li>
                 </ul>
             </div>

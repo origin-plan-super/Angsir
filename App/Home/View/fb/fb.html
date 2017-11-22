@@ -5,9 +5,9 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-    <title>angsir网</title>
-    <meta name="keywords" content="angsir网">
-    <meta name="description" content="angsir网">
+    <title>Angsir网</title>
+    <meta name="keywords" content="Angsir网">
+    <meta name="description" content="Angsir网">
     <meta name="baidu_ssp_verify" content="012083dea3cb5ea1b27406bc9fe3dc22">
 
 
@@ -229,7 +229,9 @@
                             </li>
                             <li class="label-inline1">
                                 <label for="entry_time" class=" fz-14 fbt">入职时间：</label>
-                                <input lay-verify='required' type="text" id="entry_time" name="entry_time" value="" class="form-control  w-400 js_validate"> （年/月） &nbsp;&nbsp; </li>
+                                <input lay-verify='required' type="text" id="entry_time" name="entry_time" value="" class="form-control  w-400 js_validate"
+                                    placeholder="（年/月）">
+                            </li>
                             <li class="label-inline1">
                                 <label for="in_job_time" class=" fz-14 fbt">在该岗位时间：</label>
                                 <input lay-verify='required' type="text" id="in_job_time" name="in_job_time" value="" class="form-control  w-400  js_validate"> </li>
@@ -240,22 +242,24 @@
                             <li class="label-inline1">
                                 <label for="year_3_5_salary" class=" fz-14 fbt">3～5年后薪资：</label>
                                 <input lay-verify='required' type="text" id="year_3_5_salary" name="year_3_5_salary" value="" class="form-control  w-400  js_validate">
+                                <p>
+                                    <label for="year_3_5_salary" class=" fz-14 fbt">&nbsp;</label>
+                                    <label>
+                                        <input type="radio" checked lay-ignore name="salary_type_0" value="税前" id="salary_type_1_0" /> 税前
+                                    </label>
 
-                                <label>
-                                    <input type="radio" checked lay-ignore name="salary_type_0" value="税前" id="salary_type_1_0" /> 税前
-                                </label>
+                                    <label>
+                                        <input type="radio" lay-ignore name="salary_type_0" value="税后" id="salary_type_1_1" /> 税后
+                                    </label>
 
-                                <label>
-                                    <input type="radio" lay-ignore name="salary_type_0" value="税后" id="salary_type_1_1" /> 税后
-                                </label>
+                                    <label>
+                                        <input type="radio" checked lay-ignore name="salary_type_1" value="有灰色收入" id="salary_type_1_0" /> 有灰色收入
+                                    </label>
 
-                                <label>
-                                    <input type="radio" checked lay-ignore name="salary_type_1" value="有灰色收入" id="salary_type_1_0" /> 有灰色收入
-                                </label>
-
-                                <label>
-                                    <input type="radio" lay-ignore name="salary_type_1" value="无灰色收入" id="salary_type_1_1" /> 无灰色收入
-                                </label>
+                                    <label>
+                                        <input type="radio" lay-ignore name="salary_type_1" value="无灰色收入" id="salary_type_1_1" /> 无灰色收入
+                                    </label>
+                                </p>
 
                             </li>
                             <li class="label-inline1">
@@ -267,9 +271,13 @@
                                     <input type="radio" checked lay-ignore name="is_overtime" value="是" id="is_overtime_0" /> 是
                                 </label>
                                 <input type="text" id="overtime_info" name="overtime_info" value="" class="form-control  w-300 js_validate">（加班频率和加班时间，以及是否有加班工资）&nbsp; &nbsp;
-                                <label>
-                                    <input type="radio" lay-ignore name="is_overtime" value="否" id="is_overtime_1" /> 否
-                                </label>
+                                <p>
+                                    <label for="year_3_5_salary" class=" fz-14 fbt">&nbsp;</label>
+                                    <label>
+                                        <input type="radio" lay-ignore name="is_overtime" value="否" id="is_overtime_1" /> 否
+                                    </label>
+                                </p>
+
                             </li>
 
                             <li class="label-inline1">
@@ -285,14 +293,22 @@
                             <li class="label-inline1">
                                 <label for="is_the_turnover_of_personnel_frequent" class=" fz-14 fbt">人员流动是否频繁：</label>
                                 <input lay-verify='required' type="text" id="is_the_turnover_of_personnel_frequent" name="is_the_turnover_of_personnel_frequent"
-                                    value="" class="form-control  w-400  js_validate"> </li>
+                                    value="" class="form-control  w-400  js_validate">
+                            </li>
                             <li class="label-inline1">
                                 <label for="rising_space_and_development_prospect" class=" fz-14 fbt">上升空间及发展前景：&nbsp;</label>
                                 <textarea lay-verify='required' cols="" rows="5" class=" w-400 " name="rising_space_and_development_prospect"></textarea>
                             </li>
                             <li class="label-inline1">
                                 <label for="who_do_you_need_to_contact" class=" fz-14 fbt">需要接触哪些方面的人：</label>
-                                <textarea lay-verify='required' cols="" rows="5" class=" w-400 " name="who_do_you_need_to_contact"></textarea> （老板/主管/客户/供应商/下属/同事）
+                                <textarea lay-verify='required' cols="" rows="5" class=" w-400 " name="who_do_you_need_to_contact"></textarea>
+
+
+                                <p>
+                                    <label for="year_3_5_salary" class=" fz-14 fbt">&nbsp;</label>
+                                    （老板/主管/客户/供应商/下属/同事）
+                                </p>
+
                             </li>
                             <li class="label-inline1">
                                 <label for="a_typical_day_work" class=" fz-14 fbt">典型的一天工作：&nbsp;&nbsp;&nbsp;</label>
@@ -307,12 +323,16 @@
                                 <textarea lay-verify='required' cols="" rows="5" class=" w-400 " name="what_do_you_want_to_say_to_later_people"></textarea>
                             </li>
                             <li class="label-inline1">
-                                <label for="story" class=" fz-14 fbt">一则自己亲身经历的职场故事：</label>
+                                <label for="story" class=" fz-14 fbt">一个自己亲身经历的职场故事：</label>
                                 <textarea lay-verify='required' cols="" rows="10" class=" w-400 " name="story"></textarea>
                             </li>
-
+                            <li class="label-inline1">
+                                <label for="story" class=" fz-14 fbt">标 题：</label>
+                                <input lay-verify='required' type="text" id="title" name="title" value="" class="form-control  w-400  js_validate">
+                            </li>
                             <li class="mt20 fb">
-                                <input type="submit" lay-submit value="发布经历" class="btn btn-primary btn-lg btn-block mlr0 fb " style="width:300px;"> </li>
+                                <input type="submit" lay-submit value="发布经历" class="btn btn-primary btn-lg btn-block mlr0 fb " style="width:300px;">
+                            </li>
 
                         </ul>
                     </form>

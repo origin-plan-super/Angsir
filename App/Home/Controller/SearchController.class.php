@@ -20,6 +20,10 @@ class SearchController extends Controller {
         $model=M('User');
         $result=$model->where('is_up = 1')->select();
         $this->assign('up_user_info',$result);
+        
+        $model=M('Hot');
+        $Hot=$model->select();
+        $this->assign('Hot',$Hot);
         $this->display();
     }
     

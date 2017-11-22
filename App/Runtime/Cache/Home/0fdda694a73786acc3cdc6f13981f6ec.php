@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-    <title>angsir网 | <?php echo ($live_info["title"]); ?></title>
-    <meta name="keywords" content="angsir网">
-    <meta name="description" content="angsir网">
+    <title>Angsir网 | <?php echo ($live_info["title"]); ?></title>
+    <meta name="keywords" content="Angsir网">
+    <meta name="description" content="Angsir网">
     <meta name="baidu_ssp_verify" content="012083dea3cb5ea1b27406bc9fe3dc22">
     <link rel="shortcut icon" href="#favicon.ico">
 
@@ -267,7 +267,7 @@
 
         </div>
 
-        <a class="bl-logo" href="#/">angsir网</a>
+        <a class="bl-logo" href="#/">Angsir网</a>
 
         <ul class="nav fl-left" identitystate="0">
             <li>
@@ -291,14 +291,14 @@
 <div id="js_popuplogin" class="popUp">
     <div id="gmask"></div>
     <div class="pop mid">
-        <span class="close"></span>
+        <span class="close">x</span>
         <div class="pop-main">
             <div class="pop-con">
                 <div class="w340">
                     <form action="<?php echo U('Login/login');?>" id="login_form" name="login" class="form-signin ptb20 layui-form" method="post">
                         <h1>登录</h1>
 
-                        <!-- <input type="hidden" id="callback" name="callback" value="/zhiwei/view/29546736/"> -->
+                        <!-- <input  type="hidden" id="callback" name="callback" value="/zhiwei/view/29546736/"> -->
                         <ul class="form-list1">
                             <li class="label-inline1">
                                 <label for="user_id" class="label-1 fz-14">账 号</label>
@@ -310,7 +310,7 @@
                                 <input lay-verify='required' type="password" id="user_pwd" name="user_pwd" value="" class="form-control w-248 js_validate"
                                     placeholder="6-16个字符，不能有空格，区分大小写" autocomplete="off"> </li>
                             <li>
-                                <a href="<?php echo U('Login/findPassword');?>" target="_black" class="fl-right">找回密码</a>
+                                <a href="<?php echo U('Login/findPassword');?>" target="_black" class="fl-right">忘记密码</a>
                                 <label for="remember">
                                     <input type="checkbox" name="remember" checked="" lay-skin='primary'> 下次自动登录
                                 </label>
@@ -337,13 +337,13 @@
 <div id="js_popupreg" class="popUp">
     <div id="gmask"></div>
     <div class="pop mid">
-        <span class="close"></span>
+        <span class="close">x</span>
         <div class="pop-main">
             <div class="pop-con">
                 <div class="w340">
                     <form id="reg_form" name="login" class="form-signin ptb20 layui-form" method="post">
                         <h1>注册</h1>
-                        <!-- <input type="hidden" id="callback" name="callback" value="/zhiwei/view/29546736/"> -->
+                        <!-- <input  type="hidden" id="callback" name="callback" value="/zhiwei/view/29546736/"> -->
                         <ul class="form-list1">
                             <li class="label-inline1">
                                 <label for="user_id_reg" class="label-1 fz-14">账 号</label>
@@ -476,6 +476,10 @@
         $('#js_popupreg').fadeIn(300);
 
     }
+
+    $('#js_popupreg').find('.close').on('click', function () {
+        $('#js_popupreg').fadeOut(300);
+    });
 
 </script>
 
@@ -1002,12 +1006,12 @@
         <div class="wrap">
             <div class="footer-link-list" style="padding-right: 0px; text-align: center;">
                 <p class="footer-li1" style="float:none;">
-                    <a href="#/about/about/index">关于angsir网</a>|
+                    <a href="#/about/about/index">关于Angsir网</a>|
                     <a href="#/about/about/contactUs">联系我们</a>|
                     <a href="#/about/about/joinUs">加入我们</a>|
                     <a href="#/about/about/help">帮助中心</a>
                 </p>
-                <p class="footer-li2" style="line-height: 25px; float:none;">Copyright©2005-2015 angsir网 沪ICP备05050523号</p>
+                <p class="footer-li2" style="line-height: 25px; float:none;">Copyright©2005-2015 Angsir网 沪ICP备05050523号</p>
                 <div style="text-align: center; padding:5px 0;">
                     <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010102002503" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
                         <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">
