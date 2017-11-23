@@ -414,7 +414,7 @@
 </div>
     <script>
 
-        var time = 2;
+        var time = 6;
         $('#time').text(time);
         setInterval(function () {
             time--;

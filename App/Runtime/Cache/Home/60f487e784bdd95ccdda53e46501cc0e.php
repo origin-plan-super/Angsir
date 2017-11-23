@@ -964,11 +964,10 @@
                     <div class="conbox">
                         <ul class="i-recommend-company evenParent" even_cell="li">
                             <?php if(is_array($up_user_info)): $i = 0; $__LIST__ = $up_user_info;if( count($__LIST__)==0 ) : echo "没有被推荐的会员" ;else: foreach($__LIST__ as $key=>$vol): $mod = ($i % 2 );++$i;?><li>
-                                    <a href="#">
-
+                                    <a href="<?php echo U('User/show','user_id='.$vol['user_id']);?>" target="_blank">
                                         <img src="<?php echo ($vol["user_img"]); ?>" onerror='this.src="/Angsir/code/Angsir/Public/dist/image/default_headpic.png"'>
                                     </a>
-                                    <a href="#"><?php echo ($vol["user_name"]); ?></a>
+                                    <a href="<?php echo U('User/show','user_id='.$vol['user_id']);?>" target="_blank"><?php echo ($vol["user_name"]); ?></a>
                                 </li><?php endforeach; endif; else: echo "没有被推荐的会员" ;endif; ?>
                         </ul>
                         <div class="clear"></div>

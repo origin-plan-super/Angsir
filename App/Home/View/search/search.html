@@ -278,11 +278,10 @@
                         <ul class="i-recommend-company evenParent" even_cell="li">
                             <volist name='up_user_info' id='vol' empty="没有被推荐的会员">
                                 <li>
-                                    <a href="#">
-
+                                    <a href="{:U('User/show','user_id='.$vol['user_id'])}" target="_blank">
                                         <img src="{$vol.user_img}" onerror='this.src="__DIST__/image/default_headpic.png"'>
                                     </a>
-                                    <a href="#">{$vol.user_name}</a>
+                                    <a href="{:U('User/show','user_id='.$vol['user_id'])}" target="_blank">{$vol.user_name}</a>
                                 </li>
                             </volist>
                         </ul>
