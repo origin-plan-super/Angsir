@@ -215,6 +215,7 @@ class LoginController extends Controller {
             echo json_encode($res);
             
         }else{
+            $this->assign('loginIsShow',true);
             $this->display();
         }
         

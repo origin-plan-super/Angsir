@@ -138,10 +138,13 @@
             <!-- 已登录 -->
 
             <?php if(empty($_SESSION['user_id'])): ?><!-- 为空 ，未登录-->
-                <div class="loginout" loginstate="0">
-                    <a class="btn-sign" href="javascript:;" role="button" target="_self" id="js-login" pop-data="#js_popuplogin">登录</a>
-                    <a class="btn-register" href="javascript:;" role="button" id="js-reg" target="_self">注册</a>
-                </div>
+
+                <?php if(!$loginIsShow): ?><div class="loginout" loginstate="0">
+                        <a class="btn-sign" href="javascript:;" role="button" target="_self" id="js-login" pop-data="#js_popuplogin">登录</a>
+                        <a class="btn-register" href="javascript:;" role="button" id="js-reg" target="_self">注册</a>
+                    </div><?php endif; ?>
+
+
 
                 <?php else: ?>
                 <!-- 不为空 ，已登录-->
@@ -158,13 +161,14 @@
                         </p>
 
                         <!-- <p>
-                            <a href="#/passport/manage">账号管理</a>
-                        </p> -->
+                                        <a href="#/passport/manage">账号管理</a>
+                                    </p> -->
                         <p class="btn-logout">
                             <a href="<?php echo U('Login/sinOut');?>" class="btn-logout">退出</a>
                         </p>
                     </div>
                 </div><?php endif; ?>
+
 
 
 
@@ -195,14 +199,14 @@
 <div id="js_popuplogin" class="popUp">
     <div id="gmask"></div>
     <div class="pop mid">
-        <span class="close"></span>
+        <span class="close">x</span>
         <div class="pop-main">
             <div class="pop-con">
                 <div class="w340">
                     <form action="<?php echo U('Login/login');?>" id="login_form" name="login" class="form-signin ptb20 layui-form" method="post">
                         <h1>登录</h1>
 
-                        <!-- <input type="hidden" id="callback" name="callback" value="/zhiwei/view/29546736/"> -->
+                        <!-- <input  type="hidden" id="callback" name="callback" value="/zhiwei/view/29546736/"> -->
                         <ul class="form-list1">
                             <li class="label-inline1">
                                 <label for="user_id" class="label-1 fz-14">账 号</label>
@@ -241,13 +245,13 @@
 <div id="js_popupreg" class="popUp">
     <div id="gmask"></div>
     <div class="pop mid">
-        <span class="close"></span>
+        <span class="close">x</span>
         <div class="pop-main">
             <div class="pop-con">
                 <div class="w340">
                     <form id="reg_form" name="login" class="form-signin ptb20 layui-form" method="post">
                         <h1>注册</h1>
-                        <!-- <input type="hidden" id="callback" name="callback" value="/zhiwei/view/29546736/"> -->
+                        <!-- <input  type="hidden" id="callback" name="callback" value="/zhiwei/view/29546736/"> -->
                         <ul class="form-list1">
                             <li class="label-inline1">
                                 <label for="user_id_reg" class="label-1 fz-14">账 号</label>
@@ -380,6 +384,10 @@
         $('#js_popupreg').fadeIn(300);
 
     }
+
+    $('#js_popupreg').find('.close').on('click', function () {
+        $('#js_popupreg').fadeOut(300);
+    });
 
 </script>
 
@@ -646,7 +654,7 @@
                             </li>
                             <li class="label-inline1">
                                 <label for="story" class=" fz-14 fbt">标 题：</label>
-                                <input lay-verify='required' type="text" id="title" name="title" value="" class="form-control  w-400  js_validate">
+                                <input type="text" id="title" name="title" value="" placeholder="（选填）" class="form-control  w-400  js_validate">
                             </li>
                             <li class="mt20 fb">
                                 <input type="submit" lay-submit value="发布经历" class="btn btn-primary btn-lg btn-block mlr0 fb " style="width:300px;">

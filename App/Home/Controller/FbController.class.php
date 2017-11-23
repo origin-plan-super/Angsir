@@ -111,7 +111,12 @@ class FbController extends CommonController {
             //一则自己亲身经历的职场故事
             $add['story']=I('post.story');
             // title
-            $add['title']=I('post.title');
+            if(empty(I('post.title')) | I('post.title')==''){
+                //用户么有传title
+                $add['title']=I('post.duty_text');
+            }else{
+                $add['title']=I('post.title');
+            }
             
             /**
             * 必须的基本字段

@@ -221,34 +221,36 @@
         <div class="login-box fl-right">
             <!-- 已登录 -->
 
-            <?php if(empty($_SESSION['user_id'])): ?><!-- 为空 ，未登录-->
-                <div class="loginout" loginstate="0">
-                    <a class="btn-sign" href="javascript:;" role="button" target="_self" id="js-login" pop-data="#js_popuplogin">登录</a>
-                    <a class="btn-register" href="javascript:;" role="button" id="js-reg" target="_self">注册</a>
-                </div>
-
-                <?php else: ?>
-                <!-- 不为空 ，已登录-->
-                <div class="login js_navlogin">
-                    <p class="user-info-box">
-                        <span class="user-name"><?php echo (session('user_name')); ?></span>
-                        <span class="user-img-box">
-                            <img src="<?php echo (session('user_img')); ?>" onerror='this.src="/Angsir/code/Angsir/Public/dist/image/gravatar-default.jpg"' class="user-img" alt="Responsive image">
-                        </span>
-                    </p>
-                    <div class="nav-userlist js_navuserlist">
-                        <p>
-                            <a href="<?php echo U('Center/Center');?>">个人中心</a>
-                        </p>
-
-                        <!-- <p>
-                            <a href="#/passport/manage">账号管理</a>
-                        </p> -->
-                        <p class="btn-logout">
-                            <a href="<?php echo U('Login/sinOut');?>" class="btn-logout">退出</a>
-                        </p>
+            <?php if(empty($isShow)): ?>[isShow]
+                <?php if(empty($_SESSION['user_id'])): ?><!-- 为空 ，未登录-->
+                    <div class="loginout" loginstate="0">
+                        <a class="btn-sign" href="javascript:;" role="button" target="_self" id="js-login" pop-data="#js_popuplogin">登录</a>
+                        <a class="btn-register" href="javascript:;" role="button" id="js-reg" target="_self">注册</a>
                     </div>
-                </div><?php endif; ?>
+
+                    <?php else: ?>
+                    <!-- 不为空 ，已登录-->
+                    <div class="login js_navlogin">
+                        <p class="user-info-box">
+                            <span class="user-name"><?php echo (session('user_name')); ?></span>
+                            <span class="user-img-box">
+                                <img src="<?php echo (session('user_img')); ?>" onerror='this.src="/Angsir/code/Angsir/Public/dist/image/gravatar-default.jpg"' class="user-img" alt="Responsive image">
+                            </span>
+                        </p>
+                        <div class="nav-userlist js_navuserlist">
+                            <p>
+                                <a href="<?php echo U('Center/Center');?>">个人中心</a>
+                            </p>
+
+                            <!-- <p>
+                                        <a href="#/passport/manage">账号管理</a>
+                                    </p> -->
+                            <p class="btn-logout">
+                                <a href="<?php echo U('Login/sinOut');?>" class="btn-logout">退出</a>
+                            </p>
+                        </div>
+                    </div><?php endif; endif; ?>
+
 
 
 
@@ -286,7 +288,7 @@
                     <form action="<?php echo U('Login/login');?>" id="login_form" name="login" class="form-signin ptb20 layui-form" method="post">
                         <h1>登录</h1>
 
-                        <!-- <input type="hidden" id="callback" name="callback" value="/zhiwei/view/29546736/"> -->
+                        <!-- <input  type="hidden" id="callback" name="callback" value="/zhiwei/view/29546736/"> -->
                         <ul class="form-list1">
                             <li class="label-inline1">
                                 <label for="user_id" class="label-1 fz-14">账 号</label>
@@ -331,7 +333,7 @@
                 <div class="w340">
                     <form id="reg_form" name="login" class="form-signin ptb20 layui-form" method="post">
                         <h1>注册</h1>
-                        <!-- <input type="hidden" id="callback" name="callback" value="/zhiwei/view/29546736/"> -->
+                        <!-- <input  type="hidden" id="callback" name="callback" value="/zhiwei/view/29546736/"> -->
                         <ul class="form-list1">
                             <li class="label-inline1">
                                 <label for="user_id_reg" class="label-1 fz-14">账 号</label>
@@ -467,7 +469,6 @@
 
     $('#js_popupreg').find('.close').on('click', function () {
         $('#js_popupreg').fadeOut(300);
-
     });
 
 </script>
@@ -722,36 +723,10 @@
             </div>
             <div class="ebox-tag">
                 <span class="pos-search-tag-title">热门搜索：</span>
-                <a href="#/zhaopin/kw-%E5%9F%B9%E8%AE%AD%E8%AE%B2%E5%B8%88/">
-                    <strong>培训讲师</strong>
-                </a>
-                <a href="#/zhaopin/kw-%E9%A2%84%E7%BB%93%E7%AE%97%E5%91%98/">
-                    <strong>预结算员</strong>
-                </a>
-                <a href="#/zhaopin/kw-%E6%95%99%E5%B8%88/">
-                    <strong>教师</strong>
-                </a>
-                <a href="#/zhaopin/kw-%E6%8A%A4%E5%A3%AB/">
-                    <strong>护士</strong>
-                </a>
-                <a href="#/zhaopin/kw-%E8%B4%A7%E8%BF%90%E4%BB%A3%E7%90%86/">
-                    <strong>货运代理</strong>
-                </a>
-                <a href="#/zhaopin/kw-%E5%8C%BB%E7%96%97%E6%9C%BA%E6%A2%B0/">
-                    <strong>医疗机械</strong>
-                </a>
-                <a href="#/zhaopin/kw-%E7%94%9F%E7%89%A9%E5%88%B6%E8%8D%AF/">
-                    <strong>生物制药</strong>
-                </a>
-                <a href="#/zhaopin/kw-%E8%90%A5%E8%BF%90%E7%BB%8F%E7%90%86/">
-                    <strong>营运经理</strong>
-                </a>
-                <a href="#/zhaopin/kw-%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%9B%91/">
-                    <strong>项目总监</strong>
-                </a>
-                <a href="#/zhaopin/kw-%E8%84%9A%E6%9C%AC%E5%BC%80%E5%8F%91/">
-                    <strong>脚本开发</strong>
-                </a>
+
+                <?php if(is_array($Hot)): $i = 0; $__LIST__ = $Hot;if( count($__LIST__)==0 ) : echo "没有热门搜索" ;else: foreach($__LIST__ as $key=>$vol): $mod = ($i % 2 );++$i;?><a href="javascript:;" data-value='<?php echo ($vol["value"]); ?>' class="show-hot">
+                        <strong><?php echo ($vol["value"]); ?></strong>
+                    </a><?php endforeach; endif; else: echo "没有热门搜索" ;endif; ?>
 
             </div>
 
@@ -881,7 +856,7 @@
         el: '#infoApp',
         data: {
             items: [],
-            queryDate: [],
+            queryDate: null,
             type: 'read',
         },
         methods: {
@@ -906,6 +881,9 @@
                 });
 
             },
+            /**
+            条件查询
+            */
             query: function (queryDate) {
                 var load = layer.load(1); //换了种风格
                 if (queryDate != null) {
@@ -981,7 +959,11 @@
             },
             setType: function (type) {
                 this.type = type;
-                this.update();
+                if (this.queryDate != null) {
+                    this.query();
+                } else {
+                    this.update();
+                }
             }
         }
 
@@ -994,6 +976,12 @@
     });
     $(document).on('click', '#getMore', function () {
         infoApp.addQuery();
+    });
+
+    $(document).on('click', '.show-hot', function () {
+        var value = $(this).attr('data-value');
+        $('#query_key').val($('#query_key').val() + ' ' + value);
+
     });
 
 

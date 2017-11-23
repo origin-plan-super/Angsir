@@ -92,7 +92,6 @@
 
             //jQuery.ajax=ajax;
 
-
         })(jQuery)
 
     </script>
@@ -251,10 +250,13 @@
             <!-- 已登录 -->
 
             <?php if(empty($_SESSION['user_id'])): ?><!-- 为空 ，未登录-->
-                <div class="loginout" loginstate="0">
-                    <a class="btn-sign" href="javascript:;" role="button" target="_self" id="js-login" pop-data="#js_popuplogin">登录</a>
-                    <a class="btn-register" href="javascript:;" role="button" id="js-reg" target="_self">注册</a>
-                </div>
+
+                <?php if(!$loginIsShow): ?><div class="loginout" loginstate="0">
+                        <a class="btn-sign" href="javascript:;" role="button" target="_self" id="js-login" pop-data="#js_popuplogin">登录</a>
+                        <a class="btn-register" href="javascript:;" role="button" id="js-reg" target="_self">注册</a>
+                    </div><?php endif; ?>
+
+
 
                 <?php else: ?>
                 <!-- 不为空 ，已登录-->
@@ -271,13 +273,14 @@
                         </p>
 
                         <!-- <p>
-                            <a href="#/passport/manage">账号管理</a>
-                        </p> -->
+                                        <a href="#/passport/manage">账号管理</a>
+                                    </p> -->
                         <p class="btn-logout">
                             <a href="<?php echo U('Login/sinOut');?>" class="btn-logout">退出</a>
                         </p>
                     </div>
                 </div><?php endif; ?>
+
 
 
 
