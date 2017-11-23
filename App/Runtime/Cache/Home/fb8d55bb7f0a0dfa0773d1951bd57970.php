@@ -653,9 +653,10 @@
                                 <textarea lay-verify='required' cols="" rows="10" class=" w-400 " name="story"></textarea>
                             </li>
                             <li class="label-inline1">
-                                <label for="story" class=" fz-14 fbt">标 题：</label>
-                                <input type="text" id="title" name="title" value="" placeholder="（选填）" class="form-control  w-400  js_validate">
+                                <label for="story" class="fz-14 fbt">还有一些要说的：（选填）</label>
+                                <textarea cols="" rows="10" class=" w-400 " name="live_info"></textarea>
                             </li>
+
                             <li class="mt20 fb">
                                 <input type="submit" lay-submit value="发布经历" class="btn btn-primary btn-lg btn-block mlr0 fb " style="width:300px;">
                             </li>

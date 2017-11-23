@@ -5,9 +5,9 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-    <title>angsir网</title>
-    <meta name="keywords" content="angsir网">
-    <meta name="description" content="angsir网">
+    <title>Angsir网</title>
+    <meta name="keywords" content="Angsir网">
+    <meta name="description" content="Angsir网">
     <meta name="baidu_ssp_verify" content="012083dea3cb5ea1b27406bc9fe3dc22">
 
     <meta name="renderer" content="webkit|ie-comp|ie-stand">
@@ -211,6 +211,38 @@
     .m-right1 .text-list3 span {
         width: auto;
     }
+
+    .img-responsive {
+        max-width: 20px;
+    }
+
+    .login-box .login {
+        padding-top: 0;
+
+    }
+
+    .header .login-box .user-info-box {
+        text-align: center;
+        padding: 8px 10px;
+    }
+
+
+    .header .user-name {
+        display: inline-block;
+        padding: 0;
+    }
+
+    .header .user-img-box {
+        display: inline-block;
+        padding: 0;
+    }
+
+    .header .user-img {
+        width: 20px;
+        height: 20px;
+        padding: 0;
+        display: inline-block;
+    }
 </style>
 
 
@@ -220,28 +252,31 @@
             <!-- 已登录 -->
 
             <?php if(empty($_SESSION['user_id'])): ?><!-- 为空 ，未登录-->
-                <div class="loginout" loginstate="0">
-                    <a class="btn-sign" href="javascript:;" role="button" target="_self" id="js-login" pop-data="#js_popuplogin">登录</a>
-                    <a class="btn-register" href="javascript:;" role="button" id="js-reg" target="_self">注册</a>
-                </div>
+
+                <?php if(!$loginIsShow): ?><div class="loginout" loginstate="0">
+                        <a class="btn-sign" href="javascript:;" role="button" target="_self" id="js-login" pop-data="#js_popuplogin">登录</a>
+                        <a class="btn-register" href="javascript:;" role="button" id="js-reg" target="_self">注册</a>
+                    </div><?php endif; ?>
+
+
 
                 <?php else: ?>
                 <!-- 不为空 ，已登录-->
                 <div class="login js_navlogin">
-                    <p>
+                    <p class="user-info-box">
                         <span class="user-name"><?php echo (session('user_name')); ?></span>
-                        <span class="user-gravatar">
-                            <img src="<?php echo (session('user_img')); ?>" onerror='this.src="/Angsir/code/Angsir/Public/dist/image/gravatar-default.jpg"' class="img-responsive" alt="Responsive image"
-                                widht="20" height="20"> </span>
+                        <span class="user-img-box">
+                            <img src="<?php echo (session('user_img')); ?>" onerror='this.src="/Angsir/code/Angsir/Public/dist/image/gravatar-default.jpg"' class="user-img" alt="Responsive image">
+                        </span>
                     </p>
-                    <div class="nav-userlist js_navuserlist ">
+                    <div class="nav-userlist js_navuserlist">
                         <p>
                             <a href="<?php echo U('Center/Center');?>">个人中心</a>
                         </p>
 
                         <!-- <p>
-                            <a href="#/passport/manage">账号管理</a>
-                        </p> -->
+                                        <a href="#/passport/manage">账号管理</a>
+                                    </p> -->
                         <p class="btn-logout">
                             <a href="<?php echo U('Login/sinOut');?>" class="btn-logout">退出</a>
                         </p>
@@ -251,9 +286,10 @@
 
 
 
+
         </div>
 
-        <a class="bl-logo" href="#/">angsir网</a>
+        <a class="bl-logo" href="#/">Angsir网</a>
 
         <ul class="nav fl-left" identitystate="0">
             <li>
@@ -277,14 +313,14 @@
 <div id="js_popuplogin" class="popUp">
     <div id="gmask"></div>
     <div class="pop mid">
-        <span class="close"></span>
+        <span class="close">x</span>
         <div class="pop-main">
             <div class="pop-con">
                 <div class="w340">
                     <form action="<?php echo U('Login/login');?>" id="login_form" name="login" class="form-signin ptb20 layui-form" method="post">
                         <h1>登录</h1>
 
-                        <!-- <input type="hidden" id="callback" name="callback" value="/zhiwei/view/29546736/"> -->
+                        <!-- <input  type="hidden" id="callback" name="callback" value="/zhiwei/view/29546736/"> -->
                         <ul class="form-list1">
                             <li class="label-inline1">
                                 <label for="user_id" class="label-1 fz-14">账 号</label>
@@ -296,7 +332,7 @@
                                 <input lay-verify='required' type="password" id="user_pwd" name="user_pwd" value="" class="form-control w-248 js_validate"
                                     placeholder="6-16个字符，不能有空格，区分大小写" autocomplete="off"> </li>
                             <li>
-                                <a href="<?php echo U('Login/findPassword');?>" target="_black" class="fl-right">找回密码</a>
+                                <a href="<?php echo U('Login/findPassword');?>" target="_black" class="fl-right">忘记密码</a>
                                 <label for="remember">
                                     <input type="checkbox" name="remember" checked="" lay-skin='primary'> 下次自动登录
                                 </label>
@@ -323,13 +359,13 @@
 <div id="js_popupreg" class="popUp">
     <div id="gmask"></div>
     <div class="pop mid">
-        <span class="close"></span>
+        <span class="close">x</span>
         <div class="pop-main">
             <div class="pop-con">
                 <div class="w340">
                     <form id="reg_form" name="login" class="form-signin ptb20 layui-form" method="post">
                         <h1>注册</h1>
-                        <!-- <input type="hidden" id="callback" name="callback" value="/zhiwei/view/29546736/"> -->
+                        <!-- <input  type="hidden" id="callback" name="callback" value="/zhiwei/view/29546736/"> -->
                         <ul class="form-list1">
                             <li class="label-inline1">
                                 <label for="user_id_reg" class="label-1 fz-14">账 号</label>
@@ -462,6 +498,10 @@
         $('#js_popupreg').fadeIn(300);
 
     }
+
+    $('#js_popupreg').find('.close').on('click', function () {
+        $('#js_popupreg').fadeOut(300);
+    });
 
 </script>
 
@@ -623,8 +663,8 @@
                                 </div>
 
                                 <div class="username input_box">
-                                    <input type="text" value="<?php echo ($user_info["user_name"]); ?>" name="user_name" placeholder="请输入常用昵称" maxlength="15" data-maxlength="15">
-                                    <input type="text" value="<?php echo ($user_info["user_age"]); ?>" name="user_age" placeholder="请输入年龄" maxlength="15" data-maxlength="15">
+                                    <input type="text" value="<?php echo ($user_info["user_name"]); ?>" name="user_name" placeholder="请输入常用昵称">
+                                    <input type="text" value="<?php echo ($user_info["user_age"]); ?>" name="user_age" placeholder="请输入年龄">
 
                                     <div class="select_pop js_popindustry" maxselectcount="3" style="width:400px; margin:10px 0" selecttxt="行业">
                                         <i class="ico_select_pop"></i>
@@ -640,8 +680,8 @@
                                         <input class="form-control control-sm js_pop_val" value="<?php echo ($user_info["duty_id"]); ?>" placeholder="" id="" name="duty_id" type="hidden"
                                             style="width:400px;border-left:1px #3ab679 solid;border-right:1px #3ab679 solid;">
                                     </div>
-                                    <input type="text" name="user_address" placeholder="请输入地址" value="<?php echo ($user_info["user_address"]); ?>" maxlength="15" data-maxlength="15">
-                                    <input type="text" name="contact" placeholder="请输入联系方式" maxlength="15" data-maxlength="15" value="<?php echo ($user_info["contact"]); ?>">
+                                    <input type="text" name="user_address" placeholder="请输入地址" value="<?php echo ($user_info["user_address"]); ?>">
+                                    <input type="text" name="contact" placeholder="请输入联系方式（选填）" value="<?php echo ($user_info["contact"]); ?>">
                                 </div>
 
                                 <div class="toolbar">
@@ -670,7 +710,7 @@
                 <a href="<?php echo U('Index/about');?>">帮助中心</a>
 
             </p>
-            <p class="footer-li2" style="line-height: 25px; float:none;">Copyright©2005-2015 angsir网 沪ICP备05050523号</p>
+            <p class="footer-li2" style="line-height: 25px; float:none;">Copyright©2005-2015 Angsir网 沪ICP备05050523号</p>
             <div style="text-align: center; padding:5px 0;">
                 <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010102002503" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
                     <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">

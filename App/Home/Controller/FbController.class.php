@@ -108,6 +108,8 @@ class FbController extends CommonController {
             $add['when_is_the_maximum_pressure']=I('post.when_is_the_maximum_pressure');
             //想对后来人说点什么
             $add['what_do_you_want_to_say_to_later_people']=I('post.what_do_you_want_to_say_to_later_people');
+            //还有一些要说的（选填的）
+            $add['live_info']=I('post.live_info');
             //一则自己亲身经历的职场故事
             $add['story']=I('post.story');
             // title

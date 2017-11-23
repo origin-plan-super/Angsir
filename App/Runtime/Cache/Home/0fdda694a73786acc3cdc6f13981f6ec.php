@@ -234,10 +234,13 @@
             <!-- 已登录 -->
 
             <?php if(empty($_SESSION['user_id'])): ?><!-- 为空 ，未登录-->
-                <div class="loginout" loginstate="0">
-                    <a class="btn-sign" href="javascript:;" role="button" target="_self" id="js-login" pop-data="#js_popuplogin">登录</a>
-                    <a class="btn-register" href="javascript:;" role="button" id="js-reg" target="_self">注册</a>
-                </div>
+
+                <?php if(!$loginIsShow): ?><div class="loginout" loginstate="0">
+                        <a class="btn-sign" href="javascript:;" role="button" target="_self" id="js-login" pop-data="#js_popuplogin">登录</a>
+                        <a class="btn-register" href="javascript:;" role="button" id="js-reg" target="_self">注册</a>
+                    </div><?php endif; ?>
+
+
 
                 <?php else: ?>
                 <!-- 不为空 ，已登录-->
@@ -254,13 +257,14 @@
                         </p>
 
                         <!-- <p>
-                            <a href="#/passport/manage">账号管理</a>
-                        </p> -->
+                                        <a href="#/passport/manage">账号管理</a>
+                                    </p> -->
                         <p class="btn-logout">
                             <a href="<?php echo U('Login/sinOut');?>" class="btn-logout">退出</a>
                         </p>
                     </div>
                 </div><?php endif; ?>
+
 
 
 
@@ -785,7 +789,12 @@
                                 <span class="cd">一则自己亲身经历的职场故事</span>
                             </li>
                             <li><?php echo ($live_info["story"]); ?></li>
+                            <li>
+                                <span class="cd">其他想说的：</span>
+                            </li>
+                            <li><?php echo ($live_info["live_info"]); ?></li>
 
+                            <!--  -->
 
                             <li style="float:right; font-size:14px">留言：<?php echo (count($comment_info)); ?> 阅读量：<?php echo ($readCount); ?> 点赞：
                                 <div style='display: inline' id="liveGoodCount"><?php echo ($liveGoodCount); ?></div>

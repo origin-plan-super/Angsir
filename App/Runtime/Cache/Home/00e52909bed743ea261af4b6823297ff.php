@@ -221,35 +221,37 @@
         <div class="login-box fl-right">
             <!-- 已登录 -->
 
-            <?php if(empty($isShow)): ?>[isShow]
-                <?php if(empty($_SESSION['user_id'])): ?><!-- 为空 ，未登录-->
-                    <div class="loginout" loginstate="0">
+            <?php if(empty($_SESSION['user_id'])): ?><!-- 为空 ，未登录-->
+
+                <?php if(!$loginIsShow): ?><div class="loginout" loginstate="0">
                         <a class="btn-sign" href="javascript:;" role="button" target="_self" id="js-login" pop-data="#js_popuplogin">登录</a>
                         <a class="btn-register" href="javascript:;" role="button" id="js-reg" target="_self">注册</a>
-                    </div>
+                    </div><?php endif; ?>
 
-                    <?php else: ?>
-                    <!-- 不为空 ，已登录-->
-                    <div class="login js_navlogin">
-                        <p class="user-info-box">
-                            <span class="user-name"><?php echo (session('user_name')); ?></span>
-                            <span class="user-img-box">
-                                <img src="<?php echo (session('user_img')); ?>" onerror='this.src="/Angsir/code/Angsir/Public/dist/image/gravatar-default.jpg"' class="user-img" alt="Responsive image">
-                            </span>
+
+
+                <?php else: ?>
+                <!-- 不为空 ，已登录-->
+                <div class="login js_navlogin">
+                    <p class="user-info-box">
+                        <span class="user-name"><?php echo (session('user_name')); ?></span>
+                        <span class="user-img-box">
+                            <img src="<?php echo (session('user_img')); ?>" onerror='this.src="/Angsir/code/Angsir/Public/dist/image/gravatar-default.jpg"' class="user-img" alt="Responsive image">
+                        </span>
+                    </p>
+                    <div class="nav-userlist js_navuserlist">
+                        <p>
+                            <a href="<?php echo U('Center/Center');?>">个人中心</a>
                         </p>
-                        <div class="nav-userlist js_navuserlist">
-                            <p>
-                                <a href="<?php echo U('Center/Center');?>">个人中心</a>
-                            </p>
 
-                            <!-- <p>
+                        <!-- <p>
                                         <a href="#/passport/manage">账号管理</a>
                                     </p> -->
-                            <p class="btn-logout">
-                                <a href="<?php echo U('Login/sinOut');?>" class="btn-logout">退出</a>
-                            </p>
-                        </div>
-                    </div><?php endif; endif; ?>
+                        <p class="btn-logout">
+                            <a href="<?php echo U('Login/sinOut');?>" class="btn-logout">退出</a>
+                        </p>
+                    </div>
+                </div><?php endif; ?>
 
 
 
