@@ -12353,3 +12353,56 @@ INFO: [ app_end ] --START--
 INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000699s ]
 INFO: [ app_end ] --END-- [ RunTime:0.000731s ]
 
+[ 2017-11-23T17:21:09+08:00 ] 127.0.0.1 /Angsir/code/Angsir/index.php/Home/Article/article/live_id/32f569108960e7854b19a0114fd5c6eb
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000455s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000523s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000565s ]
+SQL: SHOW COLUMNS FROM `an_live` [ RunTime:0.0008s ]
+SQL: SELECT * FROM `an_live` WHERE `live_id` = '32f569108960e7854b19a0114fd5c6eb' LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `an_live_read` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `an_live_read` WHERE `live_id` = '32f569108960e7854b19a0114fd5c6eb' AND `user_id` = '1173197065@qq.com' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `an_live_read` WHERE `live_id` = '32f569108960e7854b19a0114fd5c6eb' LIMIT 1   [ RunTime:0.0002s ]
+SQL: UPDATE `an_live` SET `read_count`='4' WHERE `live_id` = '32f569108960e7854b19a0114fd5c6eb' [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `an_user` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `an_user` WHERE `user_id` = '1173197065@qq.com' LIMIT 1   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `an_live_good` [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `an_live_good` WHERE `live_id` = '32f569108960e7854b19a0114fd5c6eb' LIMIT 1   [ RunTime:0.0002s ]
+SQL: UPDATE `an_live` SET `read_count`='4',`good_count`='1' WHERE `live_id` = '32f569108960e7854b19a0114fd5c6eb' [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `an_comment` [ RunTime:0.0005s ]
+SQL: SELECT t1.*,t2.*,t1.add_time as live_add_time FROM an_comment AS t1,an_user AS t2 WHERE ( t1.user_id = t2.user_id AND live_id="32f569108960e7854b19a0114fd5c6eb" ) ORDER BY t1.add_time desc  [ RunTime:0.0004s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000370s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000417s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015769s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015812s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000517s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000558s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000809s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000877s ]
+
+[ 2017-11-23T17:23:05+08:00 ] 127.0.0.1 /Angsir/code/Angsir/index.php/Home/Fb/fb.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000451s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000574s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000615s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000279s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000325s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010104s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010158s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000484s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000521s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001085s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001166s ]
+
