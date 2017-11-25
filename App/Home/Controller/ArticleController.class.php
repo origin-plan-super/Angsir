@@ -94,7 +94,6 @@ class ArticleController extends Controller {
                 $where['user_id']=$live_info['user_id'];
                 $user_info= $model->where($where)->find();
                 
-                
                 /**
                 *======================
                 * 点赞操作
@@ -194,7 +193,20 @@ class ArticleController extends Controller {
                 
                 $this->display();
             }else{
-                $this->error('没有相关经历！');
+                
+                // http://127.0.0.1:12138/Angsir/index.php/Home/Article/article/live_id/657ba3f7958816e330b6ffccc632698c
+                
+                
+                
+                // jump('找不到相关经历！','经历可能已经被删除！','查看经历');
+                $title='找不到相关经历！';
+                $info='经历可能已经被删除！';
+                $pageTitle='查看经历';
+                $this->assign('title',$title);
+                $this->assign('info',$info);
+                $this->assign('pageTitle',$pageTitle);
+                $this->display('jump/jump');
+                
             }
             
             
