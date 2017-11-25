@@ -300,7 +300,9 @@
     $('#js_popupreg').find('.close').on('click', function () {
         $('#js_popupreg').fadeOut(300);
     });
-
+    function getTime(nS) {
+        return new Date(parseInt(nS) * 1000).toLocaleString().replace(/:\d{1,2}$/, ' ');
+    }
 </script>
 
 

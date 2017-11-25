@@ -88,9 +88,6 @@ class QueryController extends Controller {
         // dump($model->_sql());
         // dump($result);
         
-        
-        
-        
         if($result !==null && $result !==false){
             $res['res']=count($result);
             $res['msg']=$result;

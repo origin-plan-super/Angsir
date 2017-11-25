@@ -241,7 +241,8 @@
                 });
             },
             getTime: function (time) {
-                return time;
+
+                return getTime(time);
             },
             getUrl: function (id) {
                 return '{:U("Article/article","","")}' + '/live_id/' + id;
