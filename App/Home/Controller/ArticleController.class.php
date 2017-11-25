@@ -215,6 +215,13 @@ class ArticleController extends Controller {
             $where['live_id']=$id;
             $result=$model->where($where)->delete();
             if($result){
+                //删除经历的关联，
+                //1、经历的评论
+                $model=M('Comment');
+                $model->where($where)->delete();
+                
+                
+                
                 $res['res']=1;
                 $res['msg']=$result;
             }else{
