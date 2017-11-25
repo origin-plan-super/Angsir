@@ -203,6 +203,28 @@ class ArticleController extends Controller {
         
     }
     
+    /**
+    * 删除经历
+    */
+    public function del(){
+        
+        if(IS_POST){
+            //记录id
+            $id=I('post.id');
+            $model=M('live');
+            $where['live_id']=$id;
+            $result=$model->where($where)->delete();
+            if($result){
+                $res['res']=1;
+                $res['msg']=$result;
+            }else{
+                $res['res']=-1;
+                $res['msg']=$result;
+            }
+            echo json_encode($res);
+        }
+    }
+    
     
     
 }

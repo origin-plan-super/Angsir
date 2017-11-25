@@ -325,6 +325,32 @@
     @require "account-c/modules/common/main.less"
     @require "account-c/modules/userinfo/main.less"
 -->
+
+                <style>
+                    .hadInfo li {
+                        position: relative;
+                    }
+
+                    .hadInfo li:hover .remove-live {
+                        display: block;
+                    }
+
+                    .remove-live {
+                        position: absolute;
+                        right: 0;
+                        /* top: 0; */
+                        bottom: 0;
+                        color: #f00;
+                        display: none;
+
+                    }
+
+                    .remove-live:hover {
+                        cursor: pointer;
+                        text-decoration: underline;
+                    }
+                </style>
+
                 <div class="user_userinfo_content">
                     <div class="c_section">
                         <div class="userinfo_edit" id="userinfoEdit">
@@ -332,7 +358,10 @@
                                 <ul>
                                     <volist name='live_info' id='vol' empty="未发布任何简历">
                                         <li>
-                                            <a href="{:U('Article/article','live_id='.$vol['live_id'])}">{$vol.title}</a>
+                                            <a href="{:U('Article/del','live_id='.$vol['live_id'])}">{$vol.title}</a>
+                                            <div class="remove-live" data-id="{$vol['live_id']}">
+                                                删除
+                                            </div>
                                         </li>
                                     </volist>
                                 </ul>
@@ -437,6 +466,47 @@
     <!-- footer end-->
     <script src="__DIST__/js/handlebars-v3.0.3.js"></script>
 
+    <script>
+
+        $(document).on('click', '.remove-live', function () {
+            var $this = $(this);
+
+            //询问框
+            layer.confirm('确定此条删除经历？', {
+                btn: ['确定', '取消'] //按钮
+            }, function () {
+
+                var id = $this.attr('data-id');
+
+                $.post('__MODULE__/Article/del', {
+                    id: id
+                }, function (res) {
+                    try {
+                        res = JSON.parse(res);
+                        //在这里运行代码
+                    } catch (err) {
+                        layer.msg('删除失败');
+                    }
+
+                    if (res.res == 1) {
+                        layer.msg('删除成功');
+                        $this.parents('li').remove();
+
+                    } else {
+                        layer.msg('删除失败');
+                    }
+
+                });
+
+
+            });
+
+
+        });
+
+
+
+    </script>
 </body>
 
 </html>
