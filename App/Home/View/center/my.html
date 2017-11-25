@@ -358,7 +358,7 @@
                                 <ul>
                                     <volist name='live_info' id='vol' empty="未发布任何简历">
                                         <li>
-                                            <a href="{:U('Article/del','live_id='.$vol['live_id'])}">{$vol.title}</a>
+                                            <a href="{:U('Article/article','live_id='.$vol['live_id'])}">{$vol.title}</a>
                                             <div class="remove-live" data-id="{$vol['live_id']}">
                                                 删除
                                             </div>
