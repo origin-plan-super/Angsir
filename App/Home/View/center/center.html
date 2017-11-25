@@ -333,7 +333,7 @@
                                 <div class="avatar" id="user_img_file">
                                     <img class="avatar_img" id="user_img_box" src="{$user_info.user_img}" onerror='this.src="__DIST__/image/default_headpic.png"'
                                         width="100" height="100" alt="未配置头像">
-                                    <input type="text" name="user_img" id="user_img" value="images/myresume/default_headpic.png">
+                                    <input type="text" name="user_img" id="user_img" value="{$user_info.user_img}" onerror='this.src="__DIST__/image/default_headpic.png"'>
                                 </div>
 
                                 <div class="username input_box">
@@ -547,18 +547,18 @@
         });
 
 
-        //搜索处理
+        //保存信息
         layui.use('form', function () {
 
             var form = layui.form;
             //各种基于事件的操作，下面会有进一步介绍
 
             form.on('submit(save)', function (data) {
-                console.log(data.elem) //被执行事件的元素DOM对象，一般为button对象
-                console.log(data.form) //被执行提交的form对象，一般在存在form标签时才会返回
+                // console.log(data.elem) //被执行事件的元素DOM对象，一般为button对象
+                // console.log(data.form) //被执行提交的form对象，一般在存在form标签时才会返回
                 field = data.field; //当前容器的全部表单字段，名值对形式：{name: value}
 
-                console.log(field);
+                // console.log(field);
 
                 $.post("", field, function (res) {
 

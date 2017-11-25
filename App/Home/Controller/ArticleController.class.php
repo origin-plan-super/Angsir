@@ -127,8 +127,6 @@ class ArticleController extends Controller {
                 
                 $model=M('');
                 $comment_info = $model -> field('t1.*,t2.*,t1.add_time as live_add_time')->order('t1.add_time desc') -> table('an_comment AS t1,an_user AS t2') -> where('t1.user_id = t2.user_id AND live_id="' .I('get.live_id') . '"') -> select();
-                
-                
                 //组装回复列表
                 
                 //新数组
@@ -153,6 +151,12 @@ class ArticleController extends Controller {
                 }
                 
                 
+                //统计回复总数
+                $model=M('Comment');
+                $where=[];
+                $where['live_id']=I('get.live_id');;
+                $commentCount=$model->where($where)->count();
+                
                 // dump($comment_info);
                 // die;
                 
@@ -163,11 +167,12 @@ class ArticleController extends Controller {
                 *======================
                 */
                 
-                $this->assign('readCount',$readCount);
-                $this->assign('liveGoodCount',$liveGoodCount);
-                $this->assign('comment_info',$comment_info);
-                $this->assign('live_info',$live_info);
-                $this->assign('user_info',$user_info);
+                $this->assign('readCount',$readCount);//阅读量
+                $this->assign('liveGoodCount',$liveGoodCount);//点赞量
+                $this->assign('comment_info',$comment_info);//回复的arr
+                $this->assign('commentCount',$commentCount);//回复的数量
+                $this->assign('live_info',$live_info);//简历信息
+                $this->assign('user_info',$user_info);//用户信息
                 
                 
                 /**
