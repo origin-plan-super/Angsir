@@ -12,10 +12,8 @@
 
     <meta name="renderer" content="webkit|ie-comp|ie-stand">
     <!-- page Common css file -->
-
     <link href="__DIST__/css/basic.css" rel="stylesheet" type="text/css">
     <link href="__DIST__/css/public.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="__DIST__/css/main.html_aio_0a6f700.css">
     <script type="text/javascript" async="" src="__DIST__/js/atrk.js"></script>
 
     <style>
@@ -301,69 +299,112 @@
     <div class="main">
         <div class="wrap">
             <div class="container clearfix" id="container">
-                <!--
-    @require "common/widgets/account-c-sidebar/main.less"
--->
-                <div class="user_bindSidebar">
-                    <ul class="user_sideBarmenu">
-                        <li>
-                            <a href="#" class="hover" data-lg-tj-id="18g0" data-lg-tj-no="idnull" data-lg-tj-cid="idnull">用户信息</a>
-                        </li>
 
-                    </ul>
-                </div>
-                <input type="hidden" value="1" id="hasSidebar">
+                <style>
+                    .user-info {
+                        /* text-align: center; */
+                        width: 100%;
+                        position: relative;
+                        top: 100px;
+                        box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.1);
+                    }
 
-                <!--
-    @require "account-c/modules/common/main.less"
-    @require "account-c/modules/userinfo/main.less"
--->
-                <div class="user_userinfo_content">
-                    <div class="c_section">
-                        <div class="userinfo_edit">
+                    .user-info-left {
+                        /* border-radius: 10px 0 0 10px; */
+                        width: 200px;
+                        background-color: #f8f8f8;
+                        padding: 10px 10px;
+
+                    }
+
+                    .user-info-left img {
+                        max-width: 100%;
+                        width: 100px;
+                        height: 100px;
+                        border-radius: 50%;
+                        display: block;
+                        margin: 0 auto;
+
+                    }
+
+                    .user-info-right {
+                        background-color: #f8f8f8;
+                        position: absolute;
+                        left: 210px;
+                        right: 0;
+                        top: 0;
+                        bottom: 0;
+                        padding-top: 50px;
+                        padding-left: 100px;
+                        border-left: solid 1px #eee;
+                        overflow: auto;
+                    }
 
 
+                    .user-info-right .title {
+                        font-size: 16px;
+                        font-weight: bold;
+                    }
 
-                            <div class="c_section">
-                                <div class="userinfo_edit" id="userinfoEdit">
-                                    <div class="hadInfo">
-                                        <img class="avatar" src="{$user_info.user_img}" onerror='this.src="__DIST__/image/default_headpic.png"' width="100" height="100"
-                                            alt="未配置头像">
+                    .user-name {
+                        font-size: 15px;
+                        font-weight: bold;
+                    }
 
-                                        <div class="username input_box" style="text-align: left;">
-                                            <p>昵称：{$user_info.user_name}</p>
-                                            <p>年龄：{$user_info.user_age}</p>
-                                            <p>工作：{$user_info.industry_text}</p>
-                                            <p>职位：{$user_info.duty_text}</p>
-                                            <p>地址：{$user_info.user_address}</p>
-                                            <p>联系方式：{$user_info.contact}</p>
+                    .user-info-title {
+                        color: #000;
+                    }
 
-                                        </div>
-                                    </div>
+                    .user-info-content {
+                        color: #777;
+                        line-height: 1.5;
+                    }
 
+                    .live_info {
+                        line-height: 2;
+                    }
+                </style>
+                <div class="user-info">
 
-                                </div>
-                            </div>
+                    <div class="user-info-left">
+                        <img class="avatar" src="{$user_info.user_img}" onerror='this.src="__DIST__/image/default_headpic.png"' alt="未配置头像">
+
+                        <div class="">
+                            <p class="user-name">{$user_info.user_name}</p>
+                            <p>
+                                <span class='user-info-title'>年龄：</span>
+                                <span class='user-info-content'>{$user_info.user_age}</span>
+                            </p>
+                            <p>
+                                <span class='user-info-title'>工作：</span>
+                                <span class='user-info-content'>{$user_info.industry_text}</span>
+                            </p>
+                            <p>
+                                <span class='user-info-title'>职位：</span>
+                                <span class='user-info-content'>{$user_info.duty_text}</span>
+                            </p>
+                            <p>
+                                <span class='user-info-title'>地址：</span>
+                                <span class='user-info-content'>{$user_info.user_address}</span>
+                            </p>
+                            <p>
+                                <span class='user-info-title'>联系方式：</span>
+                                <span class='user-info-content'>{$user_info.contact}</span>
+                            </p>
+
                         </div>
+                    </div>
 
-                        <hr>
-
-
-                        <div class="user_userinfo_content" style="margin-left: 15px;">
-                            <div class="c_section">
-                                <div class="userinfo_edit" id="userinfoEdit">
-                                    <div class="hadInfo">
-                                        <ul>
-                                            <volist name='live_info' id='vol' empty="未发布任何简历">
-                                                <li>
-                                                    <a href="{:U('Article/article','live_id='.$vol['live_id'])}">{$vol.title}</a>
-                                                </li>
-                                            </volist>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="user-info-right">
+                        <div class="title">发布的经历</div>
+                        <br/>
+                        <ul>
+                            <volist name='live_info' id='vol' empty="未发布任何简历">
+                                <li>
+                                    <a class="live_info" href="{:U('Article/article','live_id='.$vol['live_id'])}">{$vol.title}</a>
+                                </li>
+                            </volist>
+                        </ul>
                     </div>
                 </div>
             </div>
