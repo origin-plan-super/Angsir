@@ -32,9 +32,6 @@ class AboutController extends Controller{
     }
     
     public function edit(){
-        
-        
-        
         if(IS_POST){
             
             //=========保存数据=========
@@ -78,11 +75,66 @@ class AboutController extends Controller{
             
             
         }
+    }
+    
+    public function g(){
         
+        
+        if(IS_POST){
+            
+            echo json_encode(saveContent(I('post.about_id'),I('post.content')));
+            
+        }else{
+            
+            $this->assign('about', getContent(1));
+            $this->display();
+            
+        }
         
         
     }
     
+    public function l(){
+        
+        if(IS_POST){
+            
+            echo json_encode(saveContent(I('post.about_id'),I('post.content')));
+            
+        }else{
+            
+            $this->assign('about', getContent(2));
+            $this->display();
+            
+        }
+    }
+    
+    public function j(){
+        
+        if(IS_POST){
+            
+            echo json_encode(saveContent(I('post.about_id'),I('post.content')));
+            
+        }else{
+            
+            $this->assign('about', getContent(3));
+            $this->display();
+            
+        }
+    }
+    
+    public function b(){
+        
+        if(IS_POST){
+            
+            echo json_encode(saveContent(I('post.about_id'),I('post.content')));
+            
+        }else{
+            
+            $this->assign('about', getContent(4));
+            $this->display();
+            
+        }
+    }
     
     
     

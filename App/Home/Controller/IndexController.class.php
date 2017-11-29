@@ -18,23 +18,25 @@ use Think\Controller;
 class IndexController extends Controller {
     public function index() {
         
-        
         $model=M('User');
         $result=$model->where('is_up = 1')->select();
         $this->assign('up_user_info',$result);
         
         $this->display();
     }
+    
+    
     public function about(){
         
         $model=M('about');
         $where=[];
-        $where['about_id']=1;
+        $where['about_id']=I('get.about_id');
         $result=$model->where($where)->find();
         
         $this->assign('about',$result);
         $this->display();
         
     }
+    
     
 }
