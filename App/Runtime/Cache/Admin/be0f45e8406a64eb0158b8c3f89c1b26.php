@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="/Angsir/code/Angsir/Public/vendor/layui/css/layui.css" rel="stylesheet" type="text/css">
+    <link href="/Angsir/Public/vendor/layui/css/layui.css" rel="stylesheet" type="text/css">
     <title>热搜管理</title>
     <style>
         body {
@@ -42,9 +42,9 @@
 
     <table id="table" lay-filter="table_filter"></table>
 
-    <script src="/Angsir/code/Angsir/Public/vendor/Jquery/jquery-2.1.0.js"></script>
-    <script src="/Angsir/code/Angsir/Public/vendor/layer/layer.js"></script>
-    <script src="/Angsir/code/Angsir/Public/vendor/layui/layui.js"></script>
+    <script src="/Angsir/Public/vendor/Jquery/jquery-2.1.0.js"></script>
+    <script src="/Angsir/Public/vendor/layer/layer.js"></script>
+    <script src="/Angsir/Public/vendor/layui/layui.js"></script>
 
     <script type="text/html" id="bar1">
         <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
@@ -60,7 +60,7 @@
             tableIns = table.render({
                 id: 'table'
                 , elem: '#table'
-                , url: '/Angsir/code/Angsir/index.php/Admin/Hot/getList' //数据接口
+                , url: '/Angsir/index.php/Admin/Hot/getList' //数据接口
                 , page: true //开启分页
                 , limit: localStorage.limit == null ? 20 : localStorage.limit
                 // , limits: [5, 10]
@@ -105,7 +105,7 @@
                 var hot_id = data.hot_id;
                 console.log(layEvent);
                 //查看
-                var url = '/Angsir/code/Angsir/index.php/Admin/Hot/add/';
+                var url = '/Angsir/index.php/Admin/Hot/add/';
 
 
 
@@ -116,7 +116,7 @@
                         layer.close(index);
                         //向服务端发送删除指令
 
-                        $.post('/Angsir/code/Angsir/index.php/Admin/Hot/del', {
+                        $.post('/Angsir/index.php/Admin/Hot/del', {
                             "hot_id": obj.data.hot_id,
                         }, function (res) {
                             res = JSON.parse(res);
@@ -213,7 +213,7 @@
                 }
                 id = id.substring(0, id.length - 1);
 
-                $.post('/Angsir/code/Angsir/index.php/Admin/Hot/removes', {
+                $.post('/Angsir/index.php/Admin/Hot/removes', {
                     'hot_id': id
                 }, function (res) {
 
@@ -244,7 +244,7 @@
                 layer.close(index);
 
 
-                $.post('/Angsir/code/Angsir/index.php/Admin/Hot/add', {
+                $.post('/Angsir/index.php/Admin/Hot/add', {
                     value: info
                 }, function (res) {
                     res = JSON.parse(res);

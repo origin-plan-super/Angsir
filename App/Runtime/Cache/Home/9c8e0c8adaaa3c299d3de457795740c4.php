@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?php echo ($pageTitle); ?></title>
-    <link href="/Angsir/code/Angsir/Public/dist/css/basic.css" rel="stylesheet" type="text/css">
-    <link href="/Angsir/code/Angsir/Public/dist/css/public.css" rel="stylesheet" type="text/css">
-    <script type="text/javascript" async="" src="/Angsir/code/Angsir/Public/dist/js/atrk.js"></script>
+    <link href="/Angsir/Public/dist/css/basic.css" rel="stylesheet" type="text/css">
+    <link href="/Angsir/Public/dist/css/public.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" async="" src="/Angsir/Public/dist/js/atrk.js"></script>
 
 
-    <script src="/Angsir/code/Angsir/Public/dist/js/jquery-1.11.3.min.js"></script>
+    <script src="/Angsir/Public/dist/js/jquery-1.11.3.min.js"></script>
 
     <style>
         .box {
@@ -46,8 +46,8 @@
 
 <body>
 
-    <link href="/Angsir/code/Angsir/Public/vendor/layui/css/layui.css" rel="stylesheet" type="text/css">
-<script src="/Angsir/code/Angsir/Public/vendor/layui/layui.js"></script>
+    <link href="/Angsir/Public/vendor/layui/css/layui.css" rel="stylesheet" type="text/css">
+<script src="/Angsir/Public/vendor/layui/layui.js"></script>
 <style>
     .m-right1 .text-list3 span {
         width: auto;
@@ -107,7 +107,7 @@
                     <p class="user-info-box">
                         <span class="user-name"><?php echo (session('user_name')); ?></span>
                         <span class="user-img-box">
-                            <img src="<?php echo (session('user_img')); ?>" onerror='this.src="/Angsir/code/Angsir/Public/dist/image/gravatar-default.jpg"' class="user-img" alt="Responsive image">
+                            <img src="<?php echo (session('user_img')); ?>" onerror='this.src="/Angsir/Public/dist/image/gravatar-default.jpg"' class="user-img" alt="Responsive image">
                         </span>
                     </p>
                     <div class="nav-userlist js_navuserlist">
@@ -343,7 +343,9 @@
     $('#js_popupreg').find('.close').on('click', function () {
         $('#js_popupreg').fadeOut(300);
     });
-
+    function getTime(nS) {
+        return new Date(parseInt(nS) * 1000).toLocaleString().replace(/:\d{1,2}$/, ' ');
+    }
 </script>
 
 
@@ -351,7 +353,7 @@
 <div class="side-bar1">
     <a href="javascript:;" gotodata="body" class="js_goto">
         <p class="sb-img">
-            <img src="/Angsir/code/Angsir/Public/dist/image/ico_arrowup.png" alt="" data-bd-imgshare-binded="1">
+            <img src="/Angsir/Public/dist/image/ico_arrowup.png" alt="" data-bd-imgshare-binded="1">
 
         </p>
         <p class="sb-txt1">回到顶部</p>
@@ -359,7 +361,7 @@
 
     <a href="javascript:;">
         <p class="sb-img">
-            <img src="/Angsir/code/Angsir/Public/dist/image/ico_sb_qr.png" alt="" data-bd-imgshare-binded="1">
+            <img src="/Angsir/Public/dist/image/ico_sb_qr.png" alt="" data-bd-imgshare-binded="1">
 
         </p>
         <p class="sb-txt1">关注微信</p>
@@ -367,7 +369,7 @@
             <i class="tips1"></i>
             <i class="tips-arrow"></i>
             <p class="qr-box">
-                <img src="/Angsir/code/Angsir/Public/dist/image/bl_weixin.jpg" alt="" class="js_bl_qr_weixin" data-bd-imgshare-binded="1"> </p>
+                <img src="/Angsir/Public/img/wx.jpg" alt="" class="js_bl_qr_weixin" data-bd-imgshare-binded="1"> </p>
             <p class="qr-txt">(仅限本人使用)</p>
         </div>
     </a>
@@ -404,7 +406,7 @@
             <div style="text-align: center; padding:5px 0;">
                 <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010102002503" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
                     <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">
-                        <img src="/Angsir/code/Angsir/Public/dist/image/picp_bg_new.png" alt="沪公网备" border="0" style="margin-right: 5px; margin-top:-3px;">沪公网安备 31010102002503号</p>
+                        <img src="/Angsir/Public/dist/image/picp_bg_new.png" alt="沪公网备" border="0" style="margin-right: 5px; margin-top:-3px;">沪公网安备 31010102002503号</p>
                 </a>
             </div>
             <div class="clear"></div>

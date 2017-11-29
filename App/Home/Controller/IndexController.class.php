@@ -26,6 +26,13 @@ class IndexController extends Controller {
         $this->display();
     }
     public function about(){
+        
+        $model=M('about');
+        $where=[];
+        $where['about_id']=1;
+        $result=$model->where($where)->find();
+        
+        $this->assign('about',$result);
         $this->display();
         
     }

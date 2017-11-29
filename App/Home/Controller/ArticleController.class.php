@@ -196,8 +196,6 @@ class ArticleController extends Controller {
                 
                 // http://127.0.0.1:12138/Angsir/index.php/Home/Article/article/live_id/657ba3f7958816e330b6ffccc632698c
                 
-                
-                
                 // jump('找不到相关经历！','经历可能已经被删除！','查看经历');
                 $title='找不到相关经历！';
                 $info='经历可能已经被删除！';

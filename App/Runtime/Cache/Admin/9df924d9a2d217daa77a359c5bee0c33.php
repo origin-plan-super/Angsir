@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>管理后台</title>
-    <link href="/Angsir/code/Angsir/Public/vendor/layui/css/layui.css" rel="stylesheet" type="text/css">
+    <link href="/Angsir/Public/vendor/layui/css/layui.css" rel="stylesheet" type="text/css">
     <style>
         #iframeBox {
             position: absolute;
@@ -61,6 +61,9 @@
                     <li class="layui-nav-item">
                         <a href="javascript:;" data-src='Hot/showList'>热搜管理</a>
                     </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;" data-src='About/edit'>关于我们</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -68,7 +71,7 @@
         <div class="layui-body">
             <!-- 内容主体区域 -->
             <div id="iframeBox">
-                <iframe src="/Angsir/code/Angsir/index.php/Admin/Index/home" id="fream" frameborder="0"></iframe>
+                <iframe src="/Angsir/index.php/Admin/Index/home" id="fream" frameborder="0"></iframe>
             </div>
         </div>
 
@@ -76,9 +79,9 @@
     </div>
 
 
-    <script src="/Angsir/code/Angsir/Public/vendor/Jquery/jquery-2.1.0.js"></script>
-    <script src="/Angsir/code/Angsir/Public/vendor/layer/layer.js"></script>
-    <script src="/Angsir/code/Angsir/Public/vendor/layui/layui.js"></script>
+    <script src="/Angsir/Public/vendor/Jquery/jquery-2.1.0.js"></script>
+    <script src="/Angsir/Public/vendor/layer/layer.js"></script>
+    <script src="/Angsir/Public/vendor/layui/layui.js"></script>
     <!-- popper.min.js 用于弹窗、提示、下拉菜单 -->
     <script>
 

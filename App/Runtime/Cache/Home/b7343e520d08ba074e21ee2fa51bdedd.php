@@ -13,10 +13,10 @@
     <meta name="renderer" content="webkit|ie-comp|ie-stand">
     <!-- page Common css file -->
 
-    <link href="/Angsir/code/Angsir/Public/dist/css/basic.css" rel="stylesheet" type="text/css">
-    <link href="/Angsir/code/Angsir/Public/dist/css/public.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="/Angsir/code/Angsir/Public/dist/css/main.html_aio_0a6f700.css">
-    <script type="text/javascript" async="" src="/Angsir/code/Angsir/Public/dist/js/atrk.js"></script>
+    <link href="/Angsir/Public/dist/css/basic.css" rel="stylesheet" type="text/css">
+    <link href="/Angsir/Public/dist/css/public.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/Angsir/Public/dist/css/main.html_aio_0a6f700.css">
+    <script type="text/javascript" async="" src="/Angsir/Public/dist/js/atrk.js"></script>
     <script>
         // console.log
         if (window.console == undefined) {
@@ -57,8 +57,8 @@
         })();
     </script>
 
-    <script src="/Angsir/code/Angsir/Public/dist/js/jquery-1.11.3.min.js"></script>
-    <script src="/Angsir/code/Angsir/Public/dist/js/user.agent.js"></script>
+    <script src="/Angsir/Public/dist/js/jquery-1.11.3.min.js"></script>
+    <script src="/Angsir/Public/dist/js/user.agent.js"></script>
     <script>
         //控制ajax 并发请求数量
         (function (jQuery) {
@@ -101,7 +101,7 @@
 
     <!-- End Alexa Certify Javascript -->
 
-    <link href="/Angsir/code/Angsir/Public/dist/css/search.css" rel="stylesheet" type="text/css">
+    <link href="/Angsir/Public/dist/css/search.css" rel="stylesheet" type="text/css">
     <!-- 请置于所有广告位代码之前 -->
 
 
@@ -110,7 +110,7 @@
 <body>
     <!-- header start-->
 
-    <script src="/Angsir/code/Angsir/Public/dist/js/js.cookie.js"></script>
+    <script src="/Angsir/Public/dist/js/js.cookie.js"></script>
     <script>
             //ajax 刷新用户菜单 的现实和隐藏
             //$(".nav-menu").hide();
@@ -205,8 +205,8 @@
 
     </script>
 
-    <link href="/Angsir/code/Angsir/Public/vendor/layui/css/layui.css" rel="stylesheet" type="text/css">
-<script src="/Angsir/code/Angsir/Public/vendor/layui/layui.js"></script>
+    <link href="/Angsir/Public/vendor/layui/css/layui.css" rel="stylesheet" type="text/css">
+<script src="/Angsir/Public/vendor/layui/layui.js"></script>
 <style>
     .m-right1 .text-list3 span {
         width: auto;
@@ -252,10 +252,13 @@
             <!-- 已登录 -->
 
             <?php if(empty($_SESSION['user_id'])): ?><!-- 为空 ，未登录-->
-                <div class="loginout" loginstate="0">
-                    <a class="btn-sign" href="javascript:;" role="button" target="_self" id="js-login" pop-data="#js_popuplogin">登录</a>
-                    <a class="btn-register" href="javascript:;" role="button" id="js-reg" target="_self">注册</a>
-                </div>
+
+                <?php if(!$loginIsShow): ?><div class="loginout" loginstate="0">
+                        <a class="btn-sign" href="javascript:;" role="button" target="_self" id="js-login" pop-data="#js_popuplogin">登录</a>
+                        <a class="btn-register" href="javascript:;" role="button" id="js-reg" target="_self">注册</a>
+                    </div><?php endif; ?>
+
+
 
                 <?php else: ?>
                 <!-- 不为空 ，已登录-->
@@ -263,7 +266,7 @@
                     <p class="user-info-box">
                         <span class="user-name"><?php echo (session('user_name')); ?></span>
                         <span class="user-img-box">
-                            <img src="<?php echo (session('user_img')); ?>" onerror='this.src="/Angsir/code/Angsir/Public/dist/image/gravatar-default.jpg"' class="user-img" alt="Responsive image">
+                            <img src="<?php echo (session('user_img')); ?>" onerror='this.src="/Angsir/Public/dist/image/gravatar-default.jpg"' class="user-img" alt="Responsive image">
                         </span>
                     </p>
                     <div class="nav-userlist js_navuserlist">
@@ -272,13 +275,14 @@
                         </p>
 
                         <!-- <p>
-                            <a href="#/passport/manage">账号管理</a>
-                        </p> -->
+                                        <a href="#/passport/manage">账号管理</a>
+                                    </p> -->
                         <p class="btn-logout">
                             <a href="<?php echo U('Login/sinOut');?>" class="btn-logout">退出</a>
                         </p>
                     </div>
                 </div><?php endif; ?>
+
 
 
 
@@ -309,14 +313,14 @@
 <div id="js_popuplogin" class="popUp">
     <div id="gmask"></div>
     <div class="pop mid">
-        <span class="close"></span>
+        <span class="close">x</span>
         <div class="pop-main">
             <div class="pop-con">
                 <div class="w340">
                     <form action="<?php echo U('Login/login');?>" id="login_form" name="login" class="form-signin ptb20 layui-form" method="post">
                         <h1>登录</h1>
 
-                        <!-- <input type="hidden" id="callback" name="callback" value="/zhiwei/view/29546736/"> -->
+                        <!-- <input  type="hidden" id="callback" name="callback" value="/zhiwei/view/29546736/"> -->
                         <ul class="form-list1">
                             <li class="label-inline1">
                                 <label for="user_id" class="label-1 fz-14">账 号</label>
@@ -328,7 +332,7 @@
                                 <input lay-verify='required' type="password" id="user_pwd" name="user_pwd" value="" class="form-control w-248 js_validate"
                                     placeholder="6-16个字符，不能有空格，区分大小写" autocomplete="off"> </li>
                             <li>
-                                <a href="<?php echo U('Login/findPassword');?>" target="_black" class="fl-right">找回密码</a>
+                                <a href="<?php echo U('Login/findPassword');?>" target="_black" class="fl-right">忘记密码</a>
                                 <label for="remember">
                                     <input type="checkbox" name="remember" checked="" lay-skin='primary'> 下次自动登录
                                 </label>
@@ -355,13 +359,13 @@
 <div id="js_popupreg" class="popUp">
     <div id="gmask"></div>
     <div class="pop mid">
-        <span class="close"></span>
+        <span class="close">x</span>
         <div class="pop-main">
             <div class="pop-con">
                 <div class="w340">
                     <form id="reg_form" name="login" class="form-signin ptb20 layui-form" method="post">
                         <h1>注册</h1>
-                        <!-- <input type="hidden" id="callback" name="callback" value="/zhiwei/view/29546736/"> -->
+                        <!-- <input  type="hidden" id="callback" name="callback" value="/zhiwei/view/29546736/"> -->
                         <ul class="form-list1">
                             <li class="label-inline1">
                                 <label for="user_id_reg" class="label-1 fz-14">账 号</label>
@@ -495,6 +499,12 @@
 
     }
 
+    $('#js_popupreg').find('.close').on('click', function () {
+        $('#js_popupreg').fadeOut(300);
+    });
+    function getTime(nS) {
+        return new Date(parseInt(nS) * 1000).toLocaleString().replace(/:\d{1,2}$/, ' ');
+    }
 </script>
 
 
@@ -502,7 +512,7 @@
 <div class="side-bar1">
     <a href="javascript:;" gotodata="body" class="js_goto">
         <p class="sb-img">
-            <img src="/Angsir/code/Angsir/Public/dist/image/ico_arrowup.png" alt="" data-bd-imgshare-binded="1">
+            <img src="/Angsir/Public/dist/image/ico_arrowup.png" alt="" data-bd-imgshare-binded="1">
 
         </p>
         <p class="sb-txt1">回到顶部</p>
@@ -510,7 +520,7 @@
 
     <a href="javascript:;">
         <p class="sb-img">
-            <img src="/Angsir/code/Angsir/Public/dist/image/ico_sb_qr.png" alt="" data-bd-imgshare-binded="1">
+            <img src="/Angsir/Public/dist/image/ico_sb_qr.png" alt="" data-bd-imgshare-binded="1">
 
         </p>
         <p class="sb-txt1">关注微信</p>
@@ -518,7 +528,7 @@
             <i class="tips1"></i>
             <i class="tips-arrow"></i>
             <p class="qr-box">
-                <img src="/Angsir/code/Angsir/Public/dist/image/bl_weixin.jpg" alt="" class="js_bl_qr_weixin" data-bd-imgshare-binded="1"> </p>
+                <img src="/Angsir/Public/img/wx.jpg" alt="" class="js_bl_qr_weixin" data-bd-imgshare-binded="1"> </p>
             <p class="qr-txt">(仅限本人使用)</p>
         </div>
     </a>
@@ -619,8 +629,7 @@
     <div class="main">
         <div class="wrap">
             <div class="job-description" style="font-size:14px; line-height:30px">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt sint quos eius quas vel, nostrum corrupti cumque voluptate
-                tempore officiis consequatur sapiente odit eos id labore iusto saepe optio architecto.
+                <?php echo (htmlspecialchars_decode($about["content"])); ?>
             </div>
             <!-- 页面主体END -->
         </div>
@@ -642,7 +651,7 @@
             <div style="text-align: center; padding:5px 0;">
                 <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010102002503" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
                     <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">
-                        <img src="/Angsir/code/Angsir/Public/dist/image/picp_bg_new.png" alt="沪公网备" border="0" style="margin-right: 5px; margin-top:-3px;">沪公网安备 31010102002503号</p>
+                        <img src="/Angsir/Public/dist/image/picp_bg_new.png" alt="沪公网备" border="0" style="margin-right: 5px; margin-top:-3px;">沪公网安备 31010102002503号</p>
                 </a>
             </div>
             <div class="clear"></div>
@@ -655,9 +664,9 @@
     <div class="side-bar1">
         <a href="javascript:;" gotodata="body" class="js_goto">
             <p class="sb-img">
-                <img src="/Angsir/code/Angsir/Public/dist/image/ico_arrowup.png" alt="" data-bd-imgshare-binded="1">
+                <img src="/Angsir/Public/dist/image/ico_arrowup.png" alt="" data-bd-imgshare-binded="1">
                 <span class="img-hover">
-                    <img src="/Angsir/code/Angsir/Public/dist/image/ico_arrowup_color.png" alt="" data-bd-imgshare-binded="1">
+                    <img src="/Angsir/Public/dist/image/ico_arrowup_color.png" alt="" data-bd-imgshare-binded="1">
                 </span>
             </p>
             <p class="sb-txt1">回到顶部</p>
@@ -665,9 +674,9 @@
 
         <a href="javascript:;">
             <p class="sb-img">
-                <img src="/Angsir/code/Angsir/Public/dist/image/ico_sb_qr.png" alt="" data-bd-imgshare-binded="1">
+                <img src="/Angsir/Public/dist/image/ico_sb_qr.png" alt="" data-bd-imgshare-binded="1">
                 <span class="img-hover">
-                    <img src="/Angsir/code/Angsir/Public/dist/image/ico_sb_qr_color.png" alt="" data-bd-imgshare-binded="1">
+                    <img src="/Angsir/Public/dist/image/ico_sb_qr_color.png" alt="" data-bd-imgshare-binded="1">
                 </span>
             </p>
             <p class="sb-txt1">关注微信</p>
@@ -675,23 +684,23 @@
                 <i class="tips1"></i>
                 <i class="tips-arrow"></i>
                 <p class="qr-box">
-                    <img src="/Angsir/code/Angsir/Public/dist/image/bl_weixin.jpg" alt="" class="js_bl_qr_weixin" data-bd-imgshare-binded="1"> </p>
+                    <img src="/Angsir/Public/dist/image/bl_weixin.jpg" alt="" class="js_bl_qr_weixin" data-bd-imgshare-binded="1"> </p>
                 <p class="qr-txt">(仅限本人使用)</p>
             </div>
         </a>
 
     </div>
-    <script src="/Angsir/code/Angsir/Public/dist/js/jquery.ba-resize.js"></script>
-    <script src="/Angsir/code/Angsir/Public/dist/js/basic.js"></script>
-    <script src="/Angsir/code/Angsir/Public/dist/js/bl_jsvalidate.js"></script>
-    <script src="/Angsir/code/Angsir/Public/dist/js/uuid.js"></script>
+    <script src="/Angsir/Public/dist/js/jquery.ba-resize.js"></script>
+    <script src="/Angsir/Public/dist/js/basic.js"></script>
+    <script src="/Angsir/Public/dist/js/bl_jsvalidate.js"></script>
+    <script src="/Angsir/Public/dist/js/uuid.js"></script>
 
-    <script type="text/javascript" src="/Angsir/code/Angsir/Public/dist/js/vendor_e3ddeee.js"></script>
-    <script type="text/javascript" src="/Angsir/code/Angsir/Public/dist/js/main.html_aio_b1a1945.js"></script>
-    <script type="text/javascript" src="/Angsir/code/Angsir/Public/dist/js/widgets_817b964.js"></script>
-    <script type="text/javascript" src="/Angsir/code/Angsir/Public/dist/js/userinfo_7f282e9.js"></script>
-    <script type="text/javascript" src="/Angsir/code/Angsir/Public/dist/js/layout_6a3a86f.js"></script>
-    <script type="text/javascript" src="/Angsir/code/Angsir/Public/dist/js/main.html_aio_2_3543cee.js"></script>
+    <script type="text/javascript" src="/Angsir/Public/dist/js/vendor_e3ddeee.js"></script>
+    <script type="text/javascript" src="/Angsir/Public/dist/js/main.html_aio_b1a1945.js"></script>
+    <script type="text/javascript" src="/Angsir/Public/dist/js/widgets_817b964.js"></script>
+    <script type="text/javascript" src="/Angsir/Public/dist/js/userinfo_7f282e9.js"></script>
+    <script type="text/javascript" src="/Angsir/Public/dist/js/layout_6a3a86f.js"></script>
+    <script type="text/javascript" src="/Angsir/Public/dist/js/main.html_aio_2_3543cee.js"></script>
     <script type="text/javascript">
         require(['common/widgets/header_c/modules/emailvalid/main']);
 
@@ -765,10 +774,10 @@
         });
     </script>
 
-    <script src="/Angsir/code/Angsir/Public/dist/js/jquery.ba-resize.js"></script>
-    <script src="/Angsir/code/Angsir/Public/dist/js/basic.js"></script>
-    <script src="/Angsir/code/Angsir/Public/dist/js/bl_jsvalidate.js"></script>
-    <script src="/Angsir/code/Angsir/Public/dist/js/uuid.js"></script>
+    <script src="/Angsir/Public/dist/js/jquery.ba-resize.js"></script>
+    <script src="/Angsir/Public/dist/js/basic.js"></script>
+    <script src="/Angsir/Public/dist/js/bl_jsvalidate.js"></script>
+    <script src="/Angsir/Public/dist/js/uuid.js"></script>
 
     <script type="text/javascript">
         $(function () {
@@ -817,15 +826,15 @@
         });
     </script>
 
-    <script src="/Angsir/code/Angsir/Public/dist/js/new_city.js"></script>
-    <script src="/Angsir/code/Angsir/Public/dist/js/new_job_duty.js"></script>
-    <script src="/Angsir/code/Angsir/Public/dist/js/new_industry.js"></script>
-    <script src="/Angsir/code/Angsir/Public/dist/js/data_type.js"></script>
-    <script src="/Angsir/code/Angsir/Public/dist/js/play.js"></script>
+    <script src="/Angsir/Public/dist/js/new_city.js"></script>
+    <script src="/Angsir/Public/dist/js/new_job_duty.js"></script>
+    <script src="/Angsir/Public/dist/js/new_industry.js"></script>
+    <script src="/Angsir/Public/dist/js/data_type.js"></script>
+    <script src="/Angsir/Public/dist/js/play.js"></script>
 
 
     <!-- footer end-->
-    <script src="/Angsir/code/Angsir/Public/dist/js/handlebars-v3.0.3.js"></script>
+    <script src="/Angsir/Public/dist/js/handlebars-v3.0.3.js"></script>
 
 </body>
 

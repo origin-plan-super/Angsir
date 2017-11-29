@@ -472,7 +472,9 @@
     $('#js_popupreg').find('.close').on('click', function () {
         $('#js_popupreg').fadeOut(300);
     });
-
+    function getTime(nS) {
+        return new Date(parseInt(nS) * 1000).toLocaleString().replace(/:\d{1,2}$/, ' ');
+    }
 </script>
 
 
@@ -954,7 +956,8 @@
                 });
             },
             getTime: function (time) {
-                return time;
+
+                return getTime(time);
             },
             getUrl: function (id) {
                 return '<?php echo U("Article/article","","");?>' + '/live_id/' + id;

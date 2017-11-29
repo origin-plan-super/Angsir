@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>后台登录</title>
-    <link href="/Angsir/code/Angsir/Public/vendor/layui/css/layui.css" rel="stylesheet" type="text/css">
-    <!-- <link href="/Angsir/code/Angsir/Public/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"> -->
+    <link href="/Angsir/Public/vendor/layui/css/layui.css" rel="stylesheet" type="text/css">
+    <!-- <link href="/Angsir/Public/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"> -->
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
 
     <style>
@@ -89,10 +89,10 @@
     </div>
 
 
-    <script src="/Angsir/code/Angsir/Public/vendor/Jquery/jquery-2.1.0.js"></script>
-    <!-- <script src="/Angsir/code/Angsir/Public/vendor/bootstrap/js/bootstrap.min.js"></script> -->
-    <script src="/Angsir/code/Angsir/Public/vendor/layer/layer.js"></script>
-    <script src="/Angsir/code/Angsir/Public/vendor/layui/layui.js"></script>
+    <script src="/Angsir/Public/vendor/Jquery/jquery-2.1.0.js"></script>
+    <!-- <script src="/Angsir/Public/vendor/bootstrap/js/bootstrap.min.js"></script> -->
+    <script src="/Angsir/Public/vendor/layer/layer.js"></script>
+    <script src="/Angsir/Public/vendor/layui/layui.js"></script>
     <!-- popper.min.js 用于弹窗、提示、下拉菜单 -->
     <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
 
@@ -111,7 +111,7 @@
                 // console.log(data.form) //被执行提交的form对象，一般在存在form标签时才会返回
                 // console.log(data.field) //当前容器的全部表单字段，名值对形式：{name: value}
 
-                $.post('/Angsir/code/Angsir/index.php/Admin/Login/login', data.field, function (res) {
+                $.post('/Angsir/index.php/Admin/Login/login', data.field, function (res) {
                     console.log(res);
 
                     res = JSON.parse(res);
@@ -148,7 +148,7 @@
                     obj.upCode();
                 },
                 upCode: function () {
-                    $(obj.config.el).attr('src', '/Angsir/code/Angsir/index.php/Admin/Login/getCode');
+                    $(obj.config.el).attr('src', '/Angsir/index.php/Admin/Login/getCode');
                 }
             }
             return obj;
