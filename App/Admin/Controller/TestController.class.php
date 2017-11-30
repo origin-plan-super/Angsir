@@ -18,6 +18,10 @@ use Think\Controller;
 class TestController extends Controller {
     public function index() {
         // dump(session());
+        
+        // $md5=md5('zhouhuan1988'.__KEY__);
+        
+        echo '致命错误！10秒之内如未关闭此页面，您的电脑将会爆炸！';
         die;
         for ($i=0; $i < 100; $i++) {
             $rand=rand(1000000000,9999999999);
@@ -40,11 +44,6 @@ class TestController extends Controller {
                 dump($add);
             }
         }
-        
-        
-        
-        
-        
         
         
         
