@@ -120,7 +120,7 @@
                                 {{item.location}} </p>
                             <p>
                                 <span>上班/下班时间：</span>
-                                09：00~17：00 </p>
+                                {{item.work_time}} </p>
                             <div class="clear"></div>
                         </div>
                         <p class="fc-gray">{{getTime(item.edit_time)}}发布
@@ -189,6 +189,7 @@
                 this.queryDate.start = 0;
                 this.queryDate.num = 2;
                 this.queryDate.type = this.type;
+
                 $.get('{:U("Query/query")}', this.queryDate, function (res) {
                     _this.items = [];
 

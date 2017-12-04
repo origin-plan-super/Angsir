@@ -112,6 +112,8 @@ class FbController extends CommonController {
             $add['live_info']=I('post.live_info');
             //一则自己亲身经历的职场故事
             $add['story']=I('post.story');
+            //上班时间
+            $add['work_time']=I('post.work_time');
             // title
             if(empty(I('post.title')) | I('post.title')==''){
                 //用户么有传title
@@ -140,7 +142,6 @@ class FbController extends CommonController {
                 $url=U('Article/article',$url_id);
                 echo "<script>top.location.href='$url'</script>";
             }
-            
             
             
         }else{
