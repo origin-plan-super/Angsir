@@ -221,7 +221,20 @@
                  * f
                  */
                 var _this = this;
-                this.queryDate.start += 2;
+
+
+
+                if (this.queryDate == null || this.queryDate.start == null) {
+
+
+                    this.queryDate = {};
+                    this.queryDate.start = 3;
+                    this.queryDate.num = 2;
+                    this.queryDate.queryKey = ['%%%'];
+                } else {
+                    this.queryDate.start += 2;
+                }
+
                 this.queryDate.type = this.type;
                 $.get('{:U("Query/query")}', this.queryDate, function (res) {
 
@@ -258,9 +271,6 @@
             }
         }
 
-
-
-
     });
     infoApp.update(function () {
         $('#turncon1').removeClass('hidden');
@@ -272,7 +282,6 @@
     $(document).on('click', '.show-hot', function () {
         var value = $(this).attr('data-value');
         $('#query_key').val($('#query_key').val() + ' ' + value);
-
     });
 
 
@@ -298,7 +307,7 @@
             // duty_id
             // "23001,23004,23007"
 
-            // duty_text
+            // duty_text    
             // "高级软件工程师,仿真应用工程师,需求工程师"
 
             // industry_id
