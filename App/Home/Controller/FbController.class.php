@@ -19,6 +19,7 @@ class FbController extends CommonController {
     public function fb() {
         if(IS_POST){
             
+            
             // array(23) {
             //     ["industry"] => array(2) {
             //       ["text"] => string(55) "计算机软件,通信/电信/网络设备,网络游戏"
@@ -117,7 +118,11 @@ class FbController extends CommonController {
             // title
             if(empty(I('post.title')) | I('post.title')==''){
                 //用户么有传title
-                $add['title']=I('post.duty_text');
+                if(!I('post.duty_text')){
+                    $add['title']='未配置标题！';
+                }else{
+                    $add['title']=I('post.duty_text');
+                }
             }else{
                 $add['title']=I('post.title');
             }
